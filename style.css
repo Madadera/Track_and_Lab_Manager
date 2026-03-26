@@ -188,7 +188,7 @@ a {
 }
 /* Section / Carte */
 .card {
-  background: var(--blue-mid);
+  background: var(--blue-mid); /* je fais un commentaire voir s'il capte le changement */
   border: 1px solid var(--blue-border);
   border-radius: var(--radius);
   padding: 24px;
