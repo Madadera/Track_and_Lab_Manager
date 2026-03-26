@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapport — Track & Lab Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico">
+  <!-- Chart.js pour les graphiques -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body class="page">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    <div class="navbar__links">
+      <a href="rapports.html">&#8592; Retour</a>
+    </div>
+  </nav>
+
+  <div class="page__content">
+
+    <h1 class="page__title">Base de données</h1>
+    <p class="page__subtitle">Indicateurs clés, graphiques et synthèse.</p>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi__label">KPI 1</div>
+        <div class="kpi__value" id="kpi-1">—</div>
+        <div class="kpi__sub">TODO : lier une donnée</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">KPI 2</div>
+        <div class="kpi__value" id="kpi-2">—</div>
+        <div class="kpi__sub">TODO : lier une donnée</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">KPI 3</div>
+        <div class="kpi__value" id="kpi-3">—</div>
+        <div class="kpi__sub">TODO : lier une donnée</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">KPI 4</div>
+        <div class="kpi__value" id="kpi-4">—</div>
+        <div class="kpi__sub">TODO : lier une donnée</div>
+      </div>
+    </div>
+
+    <!-- Graphiques -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+
+      <div class="card">
+        <div class="card__title">Graphique 1 — Barres</div>
+        <!-- TODO : alimenter avec de vraies données -->
+        <div class="chart-placeholder" id="chart-1-placeholder">
+          Graphique à configurer
+        </div>
+        <canvas id="chart-1" style="display:none"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="card__title">Graphique 2 — Répartition</div>
+        <div class="chart-placeholder" id="chart-2-placeholder">
+          Graphique à configurer
+        </div>
+        <canvas id="chart-2" style="display:none"></canvas>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card__title">Graphique 3 — Évolution</div>
+      <div class="chart-placeholder" id="chart-3-placeholder">
+        Graphique à configurer
+      </div>
+      <canvas id="chart-3" style="display:none"></canvas>
+    </div>
+
+    <!-- Tableau de synthèse -->
+    <div class="card">
+      <div class="card__title">Synthèse</div>
+      <div class="empty-state">
+        <div class="empty-state__icon">&#9724;</div>
+        <div class="empty-state__text">
+          TODO : afficher ici un tableau récapitulatif<br>
+          de vos indicateurs ou résultats calculés.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="rapport.js"></script>
+</body>
+</html>

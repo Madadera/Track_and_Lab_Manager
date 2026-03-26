@@ -1,0 +1,391 @@
+/* ============================================================
+   TRACK & LAB MANAGER — Feuille de style globale
+   ============================================================ */
+/* ---------- Variables ---------- */
+:root { /* :root désigne la racine du document HTML. Tout ce qui est déclaré ici avec -- devient une variable CSS, utilisable n'importe où dans ton CSS avec var(--nom). L'avantage c'est que je peux changer la couleur dans les variables pour changer la couleur de tout le site. */
+  --blue-dark:    #0d1b2a; /* Couleur de fond principal (bleu très foncé) */
+  --blue-mid:     #1b3358; /* Fond des cartes/tuiles (bleu moyen) */
+  --blue-light:   #1e4080; /* Hover et accents (bleu plus clair) */
+  --blue-border:  #2a4a72; /* Couleur des bordures */
+  --white:        #ffffff; /* Blanc pur */
+  --white-soft:   #d0dce8; /* Blanc cassé pour les textes secondaires */
+  --accent:       #4a9eff; /* Bleu vif, utilisé pour les icônes et highlights */
+  --radius:       24px; /* Arrondi des coins, réutilisable partout */
+  --font-main:    'Segoe UI', system-ui, sans-serif; /* Police principale */
+}
+/* ---------- Reset minimal ---------- */
+*, *::before, *::after { /* "*" signifie "tous les éléments". ::before et ::after sont des éléments fantômes que CSS peut créer. */
+  box-sizing: border-box; /* Le padding et la bordure sont inclus dans la largeur/hauteur */
+  margin: 0; /* Supprime les marges par défaut du navigateur */
+  padding: 0;  /* Supprime les paddings par défaut du navigateur */
+}
+body {
+  font-family: var(--font-main); /* Applique la police définie dans :root */
+  background-color: var(--blue-dark); /* Fond bleu très foncé sur toute la page */
+  color: var(--white); /* Texte blanc par défaut partout */
+  min-height: 100vh;  /* La page fait au minimum 100% de la hauteur d'écran */
+}
+a {
+  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+  color: inherit;  /* Le lien prend la couleur du texte parent au lieu du bleu par défaut */
+}
+/* ---------- Barre de navigation commune ---------- */
+.navbar {
+  display: flex; /* Flexbox pour aligner les éléments */
+  align-items: center; /* Centre verticalement le logo et les liens */
+  justify-content: space-between; /* Logo à gauche, liens à droite */
+  padding: 24px 50px; /* 16px haut/bas, 40px gauche/droite */
+  border-bottom: 2px solid var(--blue-border); /* Ligne de séparation en bas */
+  background: var(--blue-dark); /* Fond bleu très foncé */
+}
+.navbar__brand {
+  padding: 12px 28px; /* Zone cliquable confortable autour du texte */
+  border-radius: 12px; /* Coins légèrement arrondis */
+  font-size: 1rem; /* Taille normale */
+  font-weight: 700; /* Gras */
+  letter-spacing: 0.05em; /* Écarte légèrement les lettres (effet "titre") */
+  color: var(--white); /* Blanc pur */
+  transition: background 0.15s, color 0.15s; /* Anime le fond et la couleur en 0.15s */
+}
+.navbar__links {
+  display: flex; /* Aligne les liens côte à côte */
+  gap: 8px; /* 8px d'espace entre chaque lien */
+}
+.navbar__links a {
+  padding: 10px 16px; /* Zone cliquable confortable autour du texte */
+  border-radius: 12px; /* Coins légèrement arrondis */
+  font-size: 0.85rem; /* Texte un peu plus petit que la normale */
+  color: var(--white-soft); /* Gris clair par défaut (pas actif) */
+  transition: background 0.3s, color 0.3s; /* Anime le fond et la couleur en 0.15s */
+}
+.navbar__brand:hover, .navbar__links a:hover, .navbar__links a.active { /* Quand la souris passe dessus (hover) ou quand le lien est la page actuelle (active) */
+  background: var(--blue-mid); /* Fond bleu moyen */
+  color: var(--white-soft); /* Texte blanc pur */
+}
+/* ============================================================
+   PAGE D'ACCUEIL
+   ============================================================ */
+.home {
+  display: flex; /* Active Flexbox pour organiser les enfants */
+  flex-direction: column; /* Les enfants s'empilent verticalement */
+  align-items: center; /* Centre tout horizontalement */
+  justify-content: center; /* Centre tout verticalement */
+  min-height: 100vh; /* La section fait au moins 100% de la hauteur de l'écran */
+  padding: 40px 20px; /* 40px en haut/bas, 20px à gauche/droite */
+  gap: 48px; /* Espace de 48px entre chaque enfant direct */
+}
+.home__header {
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+.home__title {
+  font-size: 2.4rem; /* Taille de police (2.4x la taille de base, ~38px) */
+  font-weight: 700; /* Texte en gras */
+  letter-spacing: -0.02em; /* Resserre légèrement les lettres entre elles */
+}
+.home__subtitle {
+  margin-top: 10px; /* Espace de 10px au-dessus */
+  font-size: 1rem; /* Taille normale (16px par défaut) */
+  color: var(--white-soft); /* Couleur définie dans mes variables */
+}
+/* Grille de tuiles */
+.home__nav { 
+  display: flex; /* Active Flexbox */
+  gap: 36px; /* 24px d'espace entre chaque tuile */
+  flex-wrap: wrap; /* Les tuiles passent à la ligne si l'écran est trop petit */
+  justify-content: center; /* Centre les tuiles horizontalement */
+}
+/* Tuile */
+.tile {
+  display: flex; /* Flexbox pour organiser le contenu */
+  flex-direction: column; /* Empile les éléments verticalement */
+  gap: 12px; /* 12px d'espace entre chaque élément */
+  width: 240px; /* Largeur fixe de la tuile */
+  padding: 32px 28px; /* 32px haut/bas, 28px gauche/droite */
+  background: var(--blue-mid); /* Couleur de fond (variable) */
+  border: 2px solid var(--blue-border); /* Bordure fine (variable) */
+  border-radius: var(--radius); /* Coins arrondis (variable) */
+  cursor: pointer; /* Le curseur devient une main au survol */
+  transition: transform 0.5s, border-color 0.5s, box-shadow 0.5s; /* ↑ Anime doucement ces 3 propriétés en 0.2s lors d'un changement */
+}
+.tile:hover {
+  transform: translateY(-6px); /* Monte la tuile de 4px */
+  border-color: var(--accent); /* Change la couleur de la bordure */
+  box-shadow: 0 8px 24px rgba(74,158,255,0.30); /* ↑ Ajoute une ombre bleue en dessous (décalée de 8px, étalée sur 24px, 15% d'opacité) */
+}
+.tile__icon {
+  font-size: 1.8rem; /* Icône assez grande */
+  color: var(--accent); /* Couleur d'accentuation (bleu, variable) */
+}
+.tile__title {
+  font-size: 0.85rem; /* Légèrement plus grand que le texte normal */
+  font-weight: 700; /* Gras */
+}
+.tile__desc {
+  font-size: 0.75rem; /* Texte plus petit */
+  color: var(--white-soft); /* Couleur atténuée (gris clair) */
+  line-height: 1.5; /* Interligne confortable (1.5x la taille du texte) */
+  flex: 1; /* Prend tout l'espace vertical disponible */
+}
+.tile__arrow {
+  font-size: 1.2rem; /* Taille moyenne */
+  color: var(--accent); /* Même couleur que l'icône */
+  align-self: flex-end; /* Se colle à droite dans le conteneur flex */
+}
+.tile--green {
+  width: 190px; /* Plus petite que 240px */
+  padding: 22px 20px; /* Moins de padding */
+  background: #1a3d2b; /* Vert foncé */
+  border-color: #2d6a45; /* Bordure verte */
+}
+.tile--green:hover {
+  border-color: #4caf7d; /* Vert clair au hover */
+  box-shadow: 0 8px 24px rgba(76,175,125,0.15); /* Ombre verte */
+}
+.tile--green .tile__icon {
+  color: #009933;
+}
+.tile--green .tile__arrow {
+  color: #009933;
+}
+.tile--red {
+  background: #3d1a1a;     /* Rouge foncé */
+  border-color: #6a2d2d;   /* Bordure rouge */
+}
+.tile--red:hover {
+  border-color: #af4c4c;
+  box-shadow: 0 8px 24px rgba(175,76,76,0.15);
+}
+.tile--red .tile__icon {
+  color: #cc3333;
+}
+.tile--red .tile__arrow {
+  color: #cc3333;
+}
+/* ============================================================
+   PAGES INTÉRIEURES — structure commune
+   ============================================================ */
+.page {
+  display: flex; /* Flexbox pour organiser navbar + contenu */
+  flex-direction: column; /* Empile verticalement (navbar en haut, contenu en bas) */
+  min-height: 100vh; /* La page occupe au minimum toute la hauteur de l'écran */
+}
+.page__content {
+  flex: 1; /* Prend tout l'espace vertical restant après la navbar */
+  padding: 40px; /* 40px d'espace intérieur sur tous les côtés */
+  max-width: 1200px; /* Le contenu ne dépasse jamais 1200px de large */
+  margin: 0 auto; /* Centre le bloc horizontalement sur grands écrans */
+  width: 100%; /* Prend toute la largeur disponible (jusqu'à 1200px) */
+}
+.page__title {
+  font-size: 1.6rem; /* Grand titre, mais moins imposant que .home__title */
+  font-weight: 700; /* Gras */
+  margin-bottom: 8px; /* Petit espace sous le titre avant le sous-titre */
+}
+.page__subtitle {
+  font-size: 0.9rem; /* Texte légèrement plus petit que la normale */
+  color: var(--white-soft); /* Gris clair, moins important visuellement */
+  margin-bottom: 32px; /* Espace généreux sous le sous-titre avant le contenu */
+}
+/* Section / Carte */
+.card {
+  background: var(--blue-mid);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--blue-border);
+}
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-main);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn--primary   { background: var(--accent); color: var(--white); }
+.btn--secondary { background: var(--blue-light); color: var(--white); }
+.btn--outline   { background: transparent; border: 1px solid var(--blue-border); color: var(--white-soft); }
+.btn--outline:hover { border-color: var(--accent); color: var(--white); }
+/* ---------- Tableau ---------- */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--blue-border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+thead th {
+  padding: 11px 14px;
+  text-align: left;
+  background: var(--blue-dark);
+  color: var(--white-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+thead th:hover { color: var(--white); }
+tbody tr { border-top: 1px solid var(--blue-border); }
+tbody tr:hover { background: var(--blue-light); }
+tbody td { padding: 10px 14px; }
+/* ---------- Formulaires ---------- */
+.form-group { margin-bottom: 16px; }
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.form-input, .form-select {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--blue-dark);
+  border: 1px solid var(--blue-border);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-input:focus, .form-select:focus { border-color: var(--accent); }
+.form-select option { background: var(--blue-dark); }
+/* ---------- Barre de recherche ---------- */
+.search-input {
+  padding: 8px 14px;
+  background: var(--blue-dark);
+  border: 1px solid var(--blue-border);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  outline: none;
+  width: 240px;
+  transition: border-color 0.15s;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--white-soft); }
+/* ---------- Indicateur (KPI) ---------- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi {
+  background: var(--blue-mid);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.kpi__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--white-soft);
+  margin-bottom: 8px;
+}
+.kpi__value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.kpi__sub {
+  font-size: 0.75rem;
+  color: var(--white-soft);
+  margin-top: 4px;
+}
+
+/* ---------- Résultat calculette ---------- */
+.result-box {
+  background: var(--blue-dark);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+}
+.result-box__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white-soft);
+  margin-bottom: 8px;
+}
+.result-box__value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.result-box__formula {
+  font-size: 0.8rem;
+  color: var(--white-soft);
+  margin-top: 10px;
+}
+/* ---------- État vide ---------- */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--white-soft);
+}
+.empty-state__icon { font-size: 2rem; margin-bottom: 12px; }
+.empty-state__text { font-size: 0.9rem; }
+/* ---------- Pagination ---------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 0.8rem;
+  color: var(--white-soft);
+}
+.pagination__btns { display: flex; gap: 4px; }
+.pagination__btn {
+  padding: 5px 11px;
+  border-radius: 6px;
+  background: var(--blue-dark);
+  border: 1px solid var(--blue-border);
+  color: var(--white-soft);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.1s;
+}
+.pagination__btn:hover,
+.pagination__btn--active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.pagination__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+/* ---------- Graphiques placeholder ---------- */
+.chart-placeholder {
+  background: var(--blue-dark);
+  border: 1px dashed var(--blue-border);
+  border-radius: 8px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-soft);
+  font-size: 0.85rem;
+}
