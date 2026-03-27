@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- SheetJS pour lire les fichiers Excel. Transformer le ficher js pour lire les .csv -->
+  <script src="dashboard.js"></script>
 </head>
 <body class="page">
 
@@ -20,53 +21,46 @@
   </nav>
 
   <div class="page__content">
-
-    <h1 class="page__title">Dashboard</h1>
-    <p class="page__subtitle">Base de données</p>
+    
+    <div class="card">
+      <h1 class="page__title">Dashboard</h1>
+      <p class="page__subtitle">Découvrez tous vos bilans par épreuves et plus encore</p>
+    </div>
 
     <div class="kpi-grid"> <!-- Indicateurs clés -->
       <div class="kpi">
         <div class="kpi__label">Lignes</div>
-        <div class="kpi__value" id="kpi-rows">—</div>
-        <div class="kpi__sub">enregistrements</div>
+        <div class="kpi__value">—</div>
       </div>
       <div class="kpi">
         <div class="kpi__label">Colonnes</div>
-        <div class="kpi__value" id="kpi-cols">—</div>
-        <div class="kpi__sub">champs</div>
+        <div class="kpi__value">—</div>
       </div>
       <div class="kpi">
         <div class="kpi__label">Fichier</div>
-        <div class="kpi__value" id="kpi-file" style="font-size:1rem;margin-top:6px">—</div>
+        <div class="kpi__value">—</div>
       </div>
     </div>
 
-    <!-- Import + Tableau -->
-    <div class="card">
-      <div class="card__title" style="display:flex;justify-content:space-between;align-items:center">
+    <div class="card"> <!-- Tableau -->
+      <div class="card__title card__research">
         <span>Données</span>
-        <div style="display:flex;gap:10px;align-items:center">
-          <input class="search-input" type="text" id="search" placeholder="Rechercher…" oninput="filterTable()" />
-          <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none" />
+        <div>
+          <input class="search-input" type="text" placeholder="Rechercher…"/>
         </div>
       </div>
 
-      <!-- Tableau -->
-      <div class="table-wrapper" id="table-wrapper">
+      <div id="output"></div>
+
+      <div class="table-wrapper"> <!-- Tableau -->
         <div class="empty-state">
           <div class="empty-state__icon">&#9783;</div>
         </div>
       </div>
 
-      <!-- Pagination -->
-      <div class="pagination" id="pagination" style="display:none">
-        <span id="pagination-info"></span>
-        <div class="pagination__btns" id="pagination-btns"></div>
-      </div>
     </div>
 
   </div>
 
-  <script src="dashboard.js"></script>
 </body>
 </html>

@@ -161,6 +161,76 @@ a {
 .tile--red .tile__arrow {
   color: #cc3333;
 }
+.tile--yellow {
+  background: #3d3500;
+  border-color: #6a5c00;
+}
+.tile--yellow:hover {
+  border-color: #af9a00;
+  box-shadow: 0 8px 24px rgba(175,154,0,0.15);
+}
+.tile--yellow .tile__icon {
+  color: #ccaa00;
+}
+.tile--yellow .tile__arrow {
+  color: #ccaa00;
+}
+.tile--brown {
+  background: #2e1a0e;
+  border-color: #5c3418;
+}
+.tile--brown:hover {
+  border-color: #a05a28;
+  box-shadow: 0 8px 24px rgba(160,90,40,0.15);
+}
+.tile--brown .tile__icon {
+  color: #c47a3a;
+}
+.tile--brown .tile__arrow {
+  color: #c47a3a;
+}
+.tile--purple {
+  background: #1e0d3d;
+  border-color: #3d1f6a;
+}
+.tile--purple:hover {
+  border-color: #7a3faf;
+  box-shadow: 0 8px 24px rgba(122,63,175,0.15);
+}
+.tile--purple .tile__icon {
+  color: #9d55cc;
+}
+.tile--purple .tile__arrow {
+  color: #9d55cc;
+}
+.tile--gray {
+  background: #1a1a1a;
+  border-color: #3a3a3a;
+}
+.tile--gray:hover {
+  border-color: #707070;
+  box-shadow: 0 8px 24px rgba(112,112,112,0.15);
+}
+.tile--gray .tile__icon {
+  color: #909090;
+}
+.tile--gray .tile__arrow {
+  color: #909090;
+}
+.tile--darkblue {
+  background: #0d2240;
+  border-color: #1a3a6a;
+}
+.tile--darkblue:hover {
+  border-color: #2a5fa0;
+  box-shadow: 0 8px 24px rgba(42,95,160,0.15);
+}
+.tile--darkblue .tile__icon {
+  color: #3a7fd4;
+}
+.tile--darkblue .tile__arrow {
+  color: #3a7fd4;
+}
 /* ============================================================
    PAGES INTÉRIEURES — structure commune
    ============================================================ */
@@ -188,38 +258,59 @@ a {
 }
 /* Section / Carte */
 .card {
-  background: var(--blue-mid); /* je fais un commentaire voir s'il capte le changement */
-  border: 1px solid var(--blue-border);
-  border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 24px;
+  background: var(--blue-mid); /* Fond bleu moyen (plus clair que la page) */
+  border: 1px solid var(--blue-border); /* Bordure fine */
+  border-radius: var(--radius); /* Coins arrondis (variable définie dans :root) */
+  padding: 24px; /* 24px d'espace intérieur sur tous les côtés */
+  margin-bottom: 24px; /* 24px d'espace sous la carte */
 }
 .card__title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--blue-border);
+  font-size: 1rem; /* Taille normale */
+  font-weight: 600; /* Semi-gras (entre normal et gras) */
+  margin-bottom: 16px; /* Espace sous le titre */
+  padding-bottom: 12px; /* Espace entre le texte et la ligne */
+  border-bottom: 1px solid var(--blue-border); /* Ligne de séparation sous le titre */
+}
+.card__research {
+  display: flex; /* Flexbox pour organiser */
+  justify-content: space-between; 
+  align-items: center
 }
 /* ---------- Boutons ---------- */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  font-family: var(--font-main);
-  transition: opacity 0.15s, transform 0.15s;
+  display: inline-flex; /* Permet d'aligner icône + texte côte à côte */
+  align-items: center; /* Centre verticalement l'icône et le texte */
+  gap: 8px; /* 8px entre l'icône et le texte */
+  padding: 9px 20px; /* 9px haut/bas, 20px gauche/droite */
+  border-radius: 8px; /* Coins arrondis */
+  font-size: 0.85rem; /* Texte légèrement plus petit */
+  font-weight: 600; /* Semi-gras */
+  cursor: pointer; /* Curseur main au survol */
+  border: none; /* Supprime la bordure par défaut des boutons HTML */
+  font-family: var(--font-main); /* Force la police du site (les boutons ont leur propre police par défaut) */
+  transition: opacity 0.15s, transform 0.15s; /* Anime l'opacité et le déplacement */
 }
-.btn:hover { opacity: 0.85; transform: translateY(-1px); }
-.btn--primary   { background: var(--accent); color: var(--white); }
-.btn--secondary { background: var(--blue-light); color: var(--white); }
-.btn--outline   { background: transparent; border: 1px solid var(--blue-border); color: var(--white-soft); }
-.btn--outline:hover { border-color: var(--accent); color: var(--white); }
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+.btn--primary {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn--secondary {
+  background: var(--blue-light);
+  color: var(--white);
+}
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--blue-border);
+  color: var(--white-soft);
+}
+.btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--white);
+}
 /* ---------- Tableau ---------- */
 .table-wrapper {
   overflow-x: auto;
@@ -244,12 +335,22 @@ thead th {
   cursor: pointer;
   user-select: none;
 }
-thead th:hover { color: var(--white); }
-tbody tr { border-top: 1px solid var(--blue-border); }
-tbody tr:hover { background: var(--blue-light); }
-tbody td { padding: 10px 14px; }
+thead th:hover {
+  color: var(--white);
+}
+tbody tr {
+  border-top: 1px solid var(--blue-border);
+}
+tbody tr:hover {
+  background: var(--blue-light);
+}
+tbody td {
+  padding: 10px 14px;
+}
 /* ---------- Formulaires ---------- */
-.form-group { margin-bottom: 16px; }
+.form-group {
+  margin-bottom: 16px;
+}
 .form-label {
   display: block;
   font-size: 0.8rem;
@@ -271,8 +372,12 @@ tbody td { padding: 10px 14px; }
   outline: none;
   transition: border-color 0.15s;
 }
-.form-input:focus, .form-select:focus { border-color: var(--accent); }
-.form-select option { background: var(--blue-dark); }
+.form-input:focus, .form-select:focus {
+  border-color: var(--accent);
+}
+.form-select option {
+  background: var(--blue-dark);
+}
 /* ---------- Barre de recherche ---------- */
 .search-input {
   padding: 8px 14px;
@@ -286,40 +391,43 @@ tbody td { padding: 10px 14px; }
   width: 240px;
   transition: border-color 0.15s;
 }
-.search-input:focus { border-color: var(--accent); }
-.search-input::placeholder { color: var(--white-soft); }
+.search-input:focus {
+  border-color: var(--accent);
+}
+.search-input::placeholder {
+  color: var(--white-soft);
+}
 /* ---------- Indicateur (KPI) ---------- */
 .kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  display: grid; /* Active CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Colonnes automatiques */
+  gap: 16px; /* 16px entre chaque KPI */
+  margin-bottom: 24px; /* Espace sous la grille */
 }
 .kpi {
-  background: var(--blue-mid);
-  border: 1px solid var(--blue-border);
-  border-radius: var(--radius);
-  padding: 20px;
+  background: var(--blue-mid); /* Fond bleu moyen */
+  border: 1px solid var(--blue-border); /* Bordure fine */
+  border-radius: var(--radius); /* Coins arrondis */
+  padding: 20px; /* Espace intérieur */
 }
 .kpi__label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--white-soft);
-  margin-bottom: 8px;
+  font-size: 0.72rem; /* Très petit texte */
+  font-weight: 600; /* Semi-gras */
+  text-transform: uppercase; /* Force les majuscules */
+  letter-spacing: 0.07em; /* Écarte les lettres (lisibilité en majuscules) */
+  color: var(--white-soft); /* Gris clair, discret */
+  margin-bottom: 8px; /* Espace avant le chiffre */
 }
 .kpi__value {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--white);
+  font-size: 1.8rem; /* Grand et visible */
+  font-weight: 700; /* Gras */
+  color: var(--white); /* Blanc pur, maximum de contraste */
 }
 .kpi__sub {
-  font-size: 0.75rem;
-  color: var(--white-soft);
-  margin-top: 4px;
+  font-size: 0.75rem; /* Très petit */
+  color: var(--white-soft); /* Gris clair, discret */
+  margin-top: 4px; /* Petit espace au dessus */
 }
-
 /* ---------- Résultat calculette ---------- */
 .result-box {
   background: var(--blue-dark);
@@ -352,8 +460,13 @@ tbody td { padding: 10px 14px; }
   padding: 48px 24px;
   color: var(--white-soft);
 }
-.empty-state__icon { font-size: 2rem; margin-bottom: 12px; }
-.empty-state__text { font-size: 0.9rem; }
+.empty-state__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.empty-state__text {
+  font-size: 0.9rem;
+}
 /* ---------- Pagination ---------- */
 .pagination {
   display: flex;
@@ -363,7 +476,10 @@ tbody td { padding: 10px 14px; }
   font-size: 0.8rem;
   color: var(--white-soft);
 }
-.pagination__btns { display: flex; gap: 4px; }
+.pagination__btns {
+  display: flex;
+  gap: 4px;
+}
 .pagination__btn {
   padding: 5px 11px;
   border-radius: 6px;
@@ -375,8 +491,15 @@ tbody td { padding: 10px 14px; }
   transition: all 0.1s;
 }
 .pagination__btn:hover,
-.pagination__btn--active { background: var(--accent); color: var(--white); border-color: var(--accent); }
-.pagination__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.pagination__btn--active {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+.pagination__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 /* ---------- Graphiques placeholder ---------- */
 .chart-placeholder {
   background: var(--blue-dark);
