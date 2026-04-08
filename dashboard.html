@@ -6,7 +6,6 @@
   <title>Dashboard — Track & Lab Manager</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- SheetJS pour lire les fichiers Excel. Transformer le ficher js pour lire les .csv -->
   <script src="dashboard.js"></script>
 </head>
 <body class="page">
@@ -23,31 +22,21 @@
   <div class="page__content">
     
     <div class="card">
-      <h1 class="page__title">Dashboard</h1>
-      <p class="page__subtitle">Découvrez tous vos bilans par épreuves et plus encore</p>
+      <h1 class="page__title">Dashboard - Découvrez tous vos bilans par épreuves et plus encore</h1>
     </div>
 
-    <div class="kpi-grid"> <!-- Indicateurs clés -->
-      <div class="kpi">
-        <div class="kpi__label">Lignes</div>
-        <div class="kpi__value">—</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi__label">Colonnes</div>
-        <div class="kpi__value">—</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi__label">Fichier</div>
-        <div class="kpi__value">—</div>
+    <div class="card">
+      <h1 class="page__title">Bilans</h1>
+      <div>
+        <input class="search-input" type="text" placeholder="Nom…"/>
+        <input class="search-input" type="text" placeholder="Prénom…"/>
+        <input class="search-input" type="text" placeholder="Epreuve…"/>
       </div>
     </div>
 
     <div class="card"> <!-- Tableau -->
       <div class="card__title card__research">
         <span>Données</span>
-        <div>
-          <input class="search-input" type="text" placeholder="Rechercher…"/>
-        </div>
       </div>
 
       <div id="output"></div>

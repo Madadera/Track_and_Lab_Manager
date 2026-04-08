@@ -241,20 +241,21 @@ a {
 }
 .page__content {
   flex: 1; /* Prend tout l'espace vertical restant après la navbar */
-  padding: 40px; /* 40px d'espace intérieur sur tous les côtés */
-  max-width: 1200px; /* Le contenu ne dépasse jamais 1200px de large */
+  padding: 30px; /* 30px d'espace intérieur sur tous les côtés */
+  max-width: 1800px; /* Le contenu ne dépasse jamais 1200px de large */
   margin: 0 auto; /* Centre le bloc horizontalement sur grands écrans */
-  width: 100%; /* Prend toute la largeur disponible (jusqu'à 1200px) */
+  width: 100%; /* Prend toute la largeur disponible (jusqu'à 1600px) */
 }
 .page__title {
   font-size: 1.6rem; /* Grand titre, mais moins imposant que .home__title */
   font-weight: 700; /* Gras */
   margin-bottom: 8px; /* Petit espace sous le titre avant le sous-titre */
+  text-align: center;
 }
 .page__subtitle {
-  font-size: 0.9rem; /* Texte légèrement plus petit que la normale */
+  font-size: 1rem; /* Texte légèrement plus petit que la normale */
   color: var(--white-soft); /* Gris clair, moins important visuellement */
-  margin-bottom: 32px; /* Espace généreux sous le sous-titre avant le contenu */
+  margin-bottom: 12px; /* Espace généreux sous le sous-titre avant le contenu */
 }
 /* Section / Carte */
 .card {
@@ -380,7 +381,7 @@ tbody td {
 }
 /* ---------- Barre de recherche ---------- */
 .search-input {
-  padding: 8px 14px;
+  padding: 8px 14px; /* 8px en haut/bas, 14px à gauche/droite */
   background: var(--blue-dark);
   border: 1px solid var(--blue-border);
   border-radius: 8px;
@@ -396,37 +397,6 @@ tbody td {
 }
 .search-input::placeholder {
   color: var(--white-soft);
-}
-/* ---------- Indicateur (KPI) ---------- */
-.kpi-grid {
-  display: grid; /* Active CSS Grid */
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Colonnes automatiques */
-  gap: 16px; /* 16px entre chaque KPI */
-  margin-bottom: 24px; /* Espace sous la grille */
-}
-.kpi {
-  background: var(--blue-mid); /* Fond bleu moyen */
-  border: 1px solid var(--blue-border); /* Bordure fine */
-  border-radius: var(--radius); /* Coins arrondis */
-  padding: 20px; /* Espace intérieur */
-}
-.kpi__label {
-  font-size: 0.72rem; /* Très petit texte */
-  font-weight: 600; /* Semi-gras */
-  text-transform: uppercase; /* Force les majuscules */
-  letter-spacing: 0.07em; /* Écarte les lettres (lisibilité en majuscules) */
-  color: var(--white-soft); /* Gris clair, discret */
-  margin-bottom: 8px; /* Espace avant le chiffre */
-}
-.kpi__value {
-  font-size: 1.8rem; /* Grand et visible */
-  font-weight: 700; /* Gras */
-  color: var(--white); /* Blanc pur, maximum de contraste */
-}
-.kpi__sub {
-  font-size: 0.75rem; /* Très petit */
-  color: var(--white-soft); /* Gris clair, discret */
-  margin-top: 4px; /* Petit espace au dessus */
 }
 /* ---------- Résultat calculette ---------- */
 .result-box {
@@ -490,8 +460,7 @@ tbody td {
   font-size: 0.8rem;
   transition: all 0.1s;
 }
-.pagination__btn:hover,
-.pagination__btn--active {
+.pagination__btn:hover, .pagination__btn--active {
   background: var(--accent);
   color: var(--white);
   border-color: var(--accent);
