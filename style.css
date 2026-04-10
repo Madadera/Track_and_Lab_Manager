@@ -119,12 +119,14 @@ a {
 .tile__title {
   font-size: 0.85rem; /* Légèrement plus grand que le texte normal */
   font-weight: 700; /* Gras */
+  text-align: center; /* Centre le texte à l'intérieur */
 }
 .tile__desc {
   font-size: 0.75rem; /* Texte plus petit */
   color: var(--white-soft); /* Couleur atténuée (gris clair) */
   line-height: 1.5; /* Interligne confortable (1.5x la taille du texte) */
   flex: 1; /* Prend tout l'espace vertical disponible */
+  text-align: center; /* Centre le texte à l'intérieur */
 }
 .tile__arrow {
   font-size: 1.2rem; /* Taille moyenne */
@@ -348,37 +350,6 @@ tbody tr:hover {
 tbody td {
   padding: 10px 14px;
 }
-/* ---------- Formulaires ---------- */
-.form-group {
-  margin-bottom: 16px;
-}
-.form-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--white-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-}
-.form-input, .form-select {
-  width: 100%;
-  padding: 9px 12px;
-  background: var(--blue-dark);
-  border: 1px solid var(--blue-border);
-  border-radius: 8px;
-  color: var(--white);
-  font-size: 0.9rem;
-  font-family: var(--font-main);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.form-input:focus, .form-select:focus {
-  border-color: var(--accent);
-}
-.form-select option {
-  background: var(--blue-dark);
-}
 /* ---------- Barre de recherche ---------- */
 .search-input {
   padding: 8px 14px; /* 8px en haut/bas, 14px à gauche/droite */
@@ -398,32 +369,6 @@ tbody td {
 .search-input::placeholder {
   color: var(--white-soft);
 }
-/* ---------- Résultat calculette ---------- */
-.result-box {
-  background: var(--blue-dark);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 28px;
-  text-align: center;
-}
-.result-box__label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--white-soft);
-  margin-bottom: 8px;
-}
-.result-box__value {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-.result-box__formula {
-  font-size: 0.8rem;
-  color: var(--white-soft);
-  margin-top: 10px;
-}
 /* ---------- État vide ---------- */
 .empty-state {
   text-align: center;
@@ -436,48 +381,4 @@ tbody td {
 }
 .empty-state__text {
   font-size: 0.9rem;
-}
-/* ---------- Pagination ---------- */
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  font-size: 0.8rem;
-  color: var(--white-soft);
-}
-.pagination__btns {
-  display: flex;
-  gap: 4px;
-}
-.pagination__btn {
-  padding: 5px 11px;
-  border-radius: 6px;
-  background: var(--blue-dark);
-  border: 1px solid var(--blue-border);
-  color: var(--white-soft);
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.1s;
-}
-.pagination__btn:hover, .pagination__btn--active {
-  background: var(--accent);
-  color: var(--white);
-  border-color: var(--accent);
-}
-.pagination__btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-/* ---------- Graphiques placeholder ---------- */
-.chart-placeholder {
-  background: var(--blue-dark);
-  border: 1px dashed var(--blue-border);
-  border-radius: 8px;
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white-soft);
-  font-size: 0.85rem;
 }
