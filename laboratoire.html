@@ -3,25 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rapports - Track & Lab Manager</title>
+  <title>Laboratoire - Track & Lab Manager</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico">
 </head>
-<body>
+<body class="page">
 
   <nav class="navbar">
-    <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    <div class="navbar__logo"> <!-- Conteneur pour le logo et le nom de la marque -->
+      <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    </div>
     <div class="navbar__links">
       <a href="dashboard.html">Dashboard</a>
-      <a href="Scoring_Tables.html">Scoring-Tables</a>
-      <a href="rapports.html" class="active">Rapports</a>
+      <a href="Scoring_Tables-Conversion.html">Scoring-Tables</a>
+      <a href="rapports.html" class="active">Laboratoire</a>
     </div>
   </nav>
 
-  <main class="home">
+  <main class="page__content">
+
+    <div class="header header--laboratoire">
+      <h1>Laboratoire</h1>
+    </div>
 
     <header class="home__header">
-      <h1 class="home__title">Data-Hub</h1>
       <p class="home__subtitle"><i>« La curiosité est une condition pour le progrès de la connaissance. »</i></p>
       <p class="home__subtitle"><b>Albert Einstein</b></p>
     </header>
@@ -45,6 +51,13 @@
     </nav>
 
   </main>
+
+  <footer class="navbar navbar__footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar__footer pour les spécificités du footer -->
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
 
 </body>
 </html>

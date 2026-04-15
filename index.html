@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="style.css" /> <!-- Relie mon fichier HTML à mon fichier CSS, tout d'abord on précise que c'est une feuille de style et et le chemin vers le fichier -->
   <link rel="icon" href="favicon.ico"> <!-- Permet de mettre une Icon pour l'onglet de navigation dans le navigateur -->
 </head>
-<body>
+<body> <!-- Balise de tout ce qui est visible sur la page -->
 
   <main class="home"> <!-- Balise du contenu principal de la page. Le class="home" est un nom pour cibler le fichier CSS -->
 
     <header class="home__header"> <!-- En tête d'une section -->
+      <img src="images\Logo_Track_&_Lab_Manager.png" width="200" height="200" alt="Logo de Track & Lab Manager">
       <h1 class="home__title">Track &amp; Lab Manager</h1> <!-- Titre --> <!-- Le double underscore signifie "cet élément appartient au bloc home"-->
       <br> <!-- Saut de ligne -->
       <p class="home__subtitle"><i>« Il faut comprendre pour mesurer, et non mesurer pour comprendre. »</i></p> <!-- Sous-titre -->
       <p class="home__subtitle"><b>Gaston Bachelard</b></p>
     </header>
 
-      <a href="Moi.html" class="tile">
+      <a href="Moi.html" class="tile"> <!-- Le a est une balise de lien, ce qui rend la tuile entière cliquable, avec la destination en href -->
         <h1 class="tile__title">Qui suis-je ?</h1>
       </a>
 
@@ -31,23 +32,30 @@
         <span class="tile__arrow">&#8594;</span> <!-- &#8594; est l'entité HTML pour la flèche -->
       </a>
 
-      <a href="Scoring_Tables.html" class="tile tile--darkblue">
+      <a href="Scoring_Tables-Conversion.html" class="tile tile--darkblue">
         <div class="tile__icon">&#9830;</div>
         <h2 class="tile__title">Scoring-Tables</h2>
         <p class="tile__desc">Points Jeunes, Hongrois et Combinés</p>
         <span class="tile__arrow">&#8594;</span>
       </a>
 
-      <a href="rapports.html" class="tile tile--darkblue">
+      <a href="laboratoire.html" class="tile tile--darkblue">
         <div class="tile__icon">&#9724;</div>
-        <h2 class="tile__title">Rapports</h2>
-        <p class="tile__desc">Data-Hub</p>
+        <h2 class="tile__title">Laboratoire</h2>
+        <p class="tile__desc">Rapports</p>
         <span class="tile__arrow">&#8594;</span>
       </a>
 
     </nav>
 
   </main>
+
+  <footer class="navbar navbar__footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar__footer pour les spécificités du footer -->
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
 
 </body>
 </html>

@@ -34,19 +34,34 @@ a {
   display: flex; /* Flexbox pour aligner les éléments */
   align-items: center; /* Centre verticalement le logo et les liens */
   justify-content: space-between; /* Logo à gauche, liens à droite */
-  padding: 24px 50px; /* 16px haut/bas, 40px gauche/droite */
-  border-bottom: 2px solid var(--blue-border); /* Ligne de séparation en bas */
+  padding: 24px 50px; /* 24px haut/bas, 50px gauche/droite */
+  border-bottom: 2px solid var(--blue-mid); /* Ligne de séparation en bas */
   background: var(--blue-dark); /* Fond bleu très foncé */
+}
+.navbar__footer {
+  border-bottom: none; /* Supprime la bordure du bas pour le footer */
+  border-top: 2px solid var(--blue-mid); /* Ligne de séparation en haut */
+  padding: 1px 20px; /* Moins de padding que la navbar principale */
+}
+.navbar__footer p {
+  font-size: 0.75rem; /* Texte plus petit pour le footer */
+  color: var(--white-soft); /* Gris clair pour le texte du footer */
 }
 .navbar__brand {
   padding: 12px 28px; /* Zone cliquable confortable autour du texte */
   border-radius: 12px; /* Coins légèrement arrondis */
-  font-size: 1rem; /* Taille normale */
+  font-size: 1.5rem; /* Taille normale */
   font-weight: 700; /* Gras */
   letter-spacing: 0.05em; /* Écarte légèrement les lettres (effet "titre") */
   color: var(--white); /* Blanc pur */
   transition: background 0.15s, color 0.15s; /* Anime le fond et la couleur en 0.15s */
 }
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .navbar__links {
   display: flex; /* Aligne les liens côte à côte */
   gap: 8px; /* 8px d'espace entre chaque lien */
@@ -54,7 +69,7 @@ a {
 .navbar__links a {
   padding: 10px 16px; /* Zone cliquable confortable autour du texte */
   border-radius: 12px; /* Coins légèrement arrondis */
-  font-size: 0.85rem; /* Texte un peu plus petit que la normale */
+  font-size: 1rem; /* Texte un peu plus petit que la normale */
   color: var(--white-soft); /* Gris clair par défaut (pas actif) */
   transition: background 0.3s, color 0.3s; /* Anime le fond et la couleur en 0.15s */
 }
@@ -84,6 +99,7 @@ a {
 }
 .home__subtitle {
   margin-top: 10px; /* Espace de 10px au-dessus */
+  margin-bottom: 24px;
   font-size: 1rem; /* Taille normale (16px par défaut) */
   color: var(--white-soft); /* Couleur définie dans mes variables */
 }
@@ -93,8 +109,59 @@ a {
   gap: 36px; /* 24px d'espace entre chaque tuile */
   flex-wrap: wrap; /* Les tuiles passent à la ligne si l'écran est trop petit */
   justify-content: center; /* Centre les tuiles horizontalement */
+
 }
-/* Tuile */
+/* ============================================================
+   Mes Tuiles
+   ============================================================ */
+/* Ma tuile d'en-tête */
+.header {
+  position: relative; /* Nécessaire pour que le ::after puisse se positionner par rapport à la tuile */
+  /* Le fond de ma tuile avec mon image */
+  background-image: url("images/Scoring-Tables.jpg");
+  background-size: cover;      /* L'image couvre toute la tuile */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  /* Le reste du style de la tuile */
+  justify-content: center; /* Centre horizontalement */
+  border-radius: 20px; /* Coins arrondis */
+  padding: 80px 20px; /* 32px haut/bas, 28px gauche/droite */
+   /* clip-path: polygon(
+   /* 60px 0%,       /* Coin haut gauche coupé */
+   /* 100% 0%,       /* Coin haut droit */
+   /* 100% 100%,     /* Coin bas droit */
+   /* 0% 100%,       /* Coin bas gauche */
+   /* 0% 60px);        /* Retour vers le coin coupé */
+  border-radius: var(--radius); /* Coins arrondis (variable) */
+  border-top-left-radius: 150px; /* Coin supérieur gauche plus arrondi */
+  border-bottom-right-radius: 150px; /* Coin inférieur droit plus arrondi */
+  margin-bottom: 24px; /* 24px d'espace sous la carte */
+}
+/* Calque sombre par-dessus l'image */
+.header::after {
+  content: ""; /* Nécessaire pour créer un pseudo-élément */
+  position: absolute; /* Positionné par rapport à .header */
+  inset: 0; /* Couvre toute la tuile */
+  background: rgba(0, 0, 0, 0.7); /* Noir à 50% d'opacité */
+  border-radius: var(--radius); /* Même arrondi que la tuile pour que le calque suive la forme */
+  border-top-left-radius: 150px; /* Même arrondi que la tuile pour que le calque suive la forme */
+  border-bottom-right-radius: 150px; /* Même arrondi que la tuile pour que le calque suive la forme */
+}
+/* Le titre doit passer au-dessus du calque */
+.header h1 {
+  position: relative; /* Nécessaire pour que le titre puisse se positionner par rapport à la tuile */
+  text-align: center; /* Centre le texte à l'intérieur */
+  z-index: 1; /* Passe au-dessus du ::after */
+}
+.header--dashboard {
+  background-image: url("images/Dashboard.jpg");
+  background-position: 20% 20%; /* Décale l'image pour mieux centrer le sujet important */
+}
+.header--laboratoire {
+  background-image: url("images/Laboratoire.jpg");
+  background-position: 20% 72%;
+}
+
 .tile {
   display: flex; /* Flexbox pour organiser le contenu */
   flex-direction: column; /* Empile les éléments verticalement */
@@ -213,6 +280,11 @@ a {
   border-color: #707070;
   box-shadow: 0 8px 24px rgba(112,112,112,0.15);
 }
+.tile--gray.active {
+  background-color: #242424;
+  border-color: #909090;
+  box-shadow: 0 8px 24px rgba(144,144,144,0.15);
+}
 .tile--gray .tile__icon {
   color: #909090;
 }
@@ -260,12 +332,26 @@ a {
   margin-bottom: 12px; /* Espace généreux sous le sous-titre avant le contenu */
 }
 /* Section / Carte */
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.panel__arrow {
+  color: var(--blue-light);
+  display: flex; 
+  align-items: center;
+  font-size: 2.5rem;
+}
 .card {
   background: var(--blue-mid); /* Fond bleu moyen (plus clair que la page) */
   border: 1px solid var(--blue-border); /* Bordure fine */
   border-radius: var(--radius); /* Coins arrondis (variable définie dans :root) */
   padding: 24px; /* 24px d'espace intérieur sur tous les côtés */
+  margin-top: 24px; /* 24px d'espace au-dessus de la carte */
   margin-bottom: 24px; /* 24px d'espace sous la carte */
+  align-items: center;
 }
 .card__title {
   font-size: 1rem; /* Taille normale */
@@ -274,10 +360,16 @@ a {
   padding-bottom: 12px; /* Espace entre le texte et la ligne */
   border-bottom: 1px solid var(--blue-border); /* Ligne de séparation sous le titre */
 }
-.card__research {
+.card__input {
   display: flex; /* Flexbox pour organiser */
   justify-content: space-between; 
   align-items: center
+}
+.card--research {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
 }
 /* ---------- Boutons ---------- */
 .btn {
@@ -360,7 +452,8 @@ tbody td {
   font-size: 0.85rem;
   font-family: var(--font-main);
   outline: none;
-  width: 240px;
+  width: 250px;
+  text-align: center;
   transition: border-color 0.15s;
 }
 .search-input:focus {
@@ -381,4 +474,60 @@ tbody td {
 }
 .empty-state__text {
   font-size: 0.9rem;
+}
+/* ============================================================
+   FRISE CHRONOLOGIQUE
+   ============================================================ */
+.timeline {
+  position: relative; /* Nécessaire pour positionner la ligne verticale */
+  padding: 40px 0; /* 20px en haut et en bas pour espacer la frise du reste du contenu */
+  max-width: 800px; /* Largeur maximale de la frise pour éviter qu'elle ne devienne trop large sur grands écrans */
+}
+.timeline::before { /* La ligne verticale */
+  content: ''; /* Nécessaire pour créer un pseudo-élément */
+  position: absolute; /* Positionné par rapport à .timeline */
+  left: 10px; /* centre sur le dot */
+  top: 0; /* Commence en haut de la frise */
+  bottom: 0; /* S'étend jusqu'en bas de la frise */
+  width: 1px; /* Largeur de la ligne */
+  background-color: var(--blue-border); /* Couleur de la ligne (variable) */
+}
+.timeline__item {
+  display: flex; /* Flexbox pour aligner le dot et le contenu côte à côte */
+  align-items: flex-start; /* Aligne le dot en haut du contenu */
+  gap: 40px; /* Espace entre le dot et le contenu */
+  margin-bottom: 80px; /* Espace entre chaque item de la frise */
+  position: relative; /* Nécessaire pour que le dot puisse se positionner par rapport à l'item */
+}
+.timeline__dot { /* Le point noir */
+  width: 20px; /* Largeur du dot */
+  height: 20px; /* Hauteur du dot */
+  border-radius: 50%; /* Forme circulaire */
+  background-color: var(--blue-border); /* Couleur du dot (variable) */
+  flex-shrink: 0; /* empêche le dot de rétrécir */
+  position: relative; /* Nécessaire pour que le dot puisse se positionner par rapport à l'item */
+  z-index: 1; /* passe par-dessus la ligne */
+}
+.timeline__dot--active { /* Le point noir */
+  background-color: var(--accent); /* Couleur d'accentuation pour le point actif */
+  width: 24px; /* Légèrement plus large que les autres dots */
+  height: 24px; /* Légèrement plus haut que les autres dots */
+  margin-left: -2px; /* Compense l'augmentation de taille pour que le centre du dot reste aligné avec la ligne */
+}
+.timeline__content h3 {
+  margin: 0 0 6px 0; /* Pas de marge en haut, 6px en bas pour espacer du paragraphe */
+  color: var(--white); /* Blanc pur pour les titres */
+  font-size: 1rem; /* Taille normale pour les titres */
+  font-weight: 700; /* Gras pour les titres */
+}
+.timeline__content h4 {
+  margin: 0 0 4px 0; /* Pas de marge en haut, 4px en bas pour espacer du paragraphe */
+  color: var(--accent); /* Couleur d'accentuation pour les sous-titres */
+  font-size: 0.9rem; /* Légèrement plus petit que la normale pour les sous-titres */
+  font-weight: 600; /* Semi-gras pour les sous-titres */
+}
+.timeline__content p {
+  margin: 0; /* Supprime les marges par défaut du paragraphe */
+  color: var(--white-soft); /* Gris clair pour les descriptions */
+  font-size: 0.9rem; /* Légèrement plus petit que la normale pour les descriptions */
 }

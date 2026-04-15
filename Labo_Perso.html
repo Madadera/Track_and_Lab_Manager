@@ -10,9 +10,12 @@
 <body>
 
   <nav class="navbar">
-    <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    <div class="navbar__logo"> <!-- Conteneur pour le logo et le nom de la marque -->
+      <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    </div>
     <div class="navbar__links">
-      <a href="rapports.html">&#8592; Retour</a>
+      <a href="laboratoire.html">&#8592; Retour</a>
       <a href="Labo_Perso.html" class="active">Labo Perso</a>
       <a href="Labo_Richard.html">Labo Richard</a>
     </div>
@@ -108,6 +111,13 @@
     </nav>
 
   </main>
+
+  <footer class="navbar navbar__footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar__footer pour les spécificités du footer -->
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
 
 </body>
 </html>
