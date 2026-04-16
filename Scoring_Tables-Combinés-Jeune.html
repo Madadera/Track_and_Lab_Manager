@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoring Tables — Combinés — Track & Lab Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico">
+  <script src="Scoring_Tables.js"></script>
+</head>
+
+<body class="page">
+
+  <nav class="navbar">
+    <div class="navbar__logo"> <!-- Conteneur pour le logo et le nom de la marque -->
+      <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      <a href="index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+    </div>
+    <div class="navbar__links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="Scoring_Tables-Conversion.html" class="active">Scoring-Tables</a>
+      <a href="laboratoire.html">Laboratoire</a>
+    </div>
+  </nav>
+
+  <main class="page__content">
+
+    <div class="header"> <!-- Tuile pour le titre de la page -->
+      <h1>Scoring-Tables</h1>
+    </div>
+
+    <header class="home__header">
+      <p class="home__subtitle"><i>« La science, c'est d'abord la curiosité. »</i></p>
+      <p class="home__subtitle"><b>Marie Curie</b></p>
+    </header>
+
+    <nav class="nav_scoring">
+      <div>
+        <a href="Scoring_Tables-Conversion.html" class="tile tile--gray">
+          <h2 class="tile__title">Conversion</h2>
+        </a>
+        <a href="Scoring_Tables-Combinés.html" class="tile tile--gray active">
+          <h2 class="tile__title">Combinés</h2>
+        </a>
+      </div>
+      <div>
+        <a href="Scoring_Tables-Combinés-Adulte.html" class="tile tile--purple tile--purple--scoring">
+          <h2 class="tile__title">Adultes</h2>
+        </a>
+        <a href="Scoring_Tables-Combinés-Jeune.html" class="tile tile--purple tile--purple--scoring active">
+          <h2 class="tile__title">Jeunes</h2>
+        </a>
+      </div>
+    </nav>
+
+    <div class="panel">
+      <div class="card">
+        <h1 class="page__title">Triathlon BEM</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <select class="search-input__mark">
+              <option value="" disabled selected>Course...</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m  Marche">2 000 m Marche</option>
+              <option value="2 000 m  Marche (i)">2 000 m Marche (i)</option>
+            </select>
+            <p class="search-input__mark">Saut</p>
+            <p class="search-input__mark">Lancer</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+      <div class="card card--women">
+        <h1 class="page__title">Triathlon BEF</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <p class="search-input__mark">Course</p>
+            <p class="search-input__mark">Saut</p>
+            <p class="search-input__mark">Lancer</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="card">
+        <h1 class="page__title">Triathlon MIM</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <p class="search-input__mark">Épreuve n°1</p>
+            <p class="search-input__mark">Épreuve n°2</p>
+            <p class="search-input__mark">Épreuve n°3</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+      <div class="card card--women">
+        <h1 class="page__title">Triathlon MIF</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <p class="search-input__mark">Épreuve n°1</p>
+            <p class="search-input__mark">Épreuve n°2</p>
+            <p class="search-input__mark">Épreuve n°3</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="panel">
+      <div class="card">
+        <h1 class="page__title">Tétrathlon BEM</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <p class="search-input__mark">Épreuve n°1</p>
+            <p class="search-input__mark">Épreuve n°2</p>
+            <p class="search-input__mark">Épreuve n°3</p>
+            <p class="search-input__mark">Épreuve n°4</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+      <div class="card card--women">
+        <h1 class="page__title">Tétrathlon BEF</h1>
+        <div class="panel__section">
+          <div class="card__research">
+            <p class="search-input__mark">Épreuve n°1</p>
+            <p class="search-input__mark">Épreuve n°2</p>
+            <p class="search-input__mark">Épreuve n°3</p>
+            <p class="search-input__mark">Épreuve n°4</p>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <p class="search-input__mark">-</p>
+          </div>
+          <div class="card__research">
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Points...</output>
+            <output class="search-input search-input--combined">Total</output>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="navbar navbar__footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar__footer pour les spécificités du footer -->
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
+
+</body>
+</html>

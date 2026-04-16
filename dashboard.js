@@ -9,7 +9,7 @@ fetch('data/datas.csv') // "Va chercher ce fichier"
     const entetes = lignes[0].split(','); // const entetes = lignes[0].split(',') lignes[0] c'est la première ligne (index 0, JS commence toujours à 0). On la découpe par les virgules pour obtenir les noms de colonnes
 
     // Trouver les indices des colonnes qui nous intéressent
-    const colonnes = ['Prenom', 'Nom', 'Epreuve', 'Perf'];
+    const colonnes = ['Prénom', 'Nom', 'épreuve', 'Perf'];
     const indices = colonnes.map(col => entetes.indexOf(col));
 
     // Construire le tableau HTML

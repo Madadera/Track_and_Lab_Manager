@@ -29,6 +29,27 @@ a {
   text-decoration: none; /* Supprime le soulignement par défaut des liens */
   color: inherit;  /* Le lien prend la couleur du texte parent au lieu du bleu par défaut */
 }
+p {
+  color: var(--white-soft);
+  font-size: 0.85rem;
+  text-align: center;
+}
+select {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+select option {
+  background-color: #0a1628;
+  color: #f5f0e8;
+  text-align: center;
+  border-radius: 12px;
+}
 /* ---------- Barre de navigation commune ---------- */
 .navbar {
   display: flex; /* Flexbox pour aligner les éléments */
@@ -109,7 +130,17 @@ a {
   gap: 36px; /* 24px d'espace entre chaque tuile */
   flex-wrap: wrap; /* Les tuiles passent à la ligne si l'écran est trop petit */
   justify-content: center; /* Centre les tuiles horizontalement */
-
+}
+.nav_scoring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav_scoring div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 24px;
 }
 /* ============================================================
    Mes Tuiles
@@ -161,7 +192,6 @@ a {
   background-image: url("images/Laboratoire.jpg");
   background-position: 20% 72%;
 }
-
 .tile {
   display: flex; /* Flexbox pour organiser le contenu */
   flex-direction: column; /* Empile les éléments verticalement */
@@ -262,6 +292,16 @@ a {
   background: #1e0d3d;
   border-color: #3d1f6a;
 }
+.tile--purple--scoring {
+  gap: 8px;
+  width: 150px;
+  padding: 20px 28px;
+}
+.tile--purple--scoring.active {
+  background-color: #2a1e5c;
+  border-color: #5c3a9a;
+  box-shadow: 0 8px 24px rgba(92,58,154,0.15);
+}
 .tile--purple:hover {
   border-color: #7a3faf;
   box-shadow: 0 8px 24px rgba(122,63,175,0.15);
@@ -344,6 +384,9 @@ a {
   align-items: center;
   font-size: 2.5rem;
 }
+.panel__section {
+  display: flex;
+}
 .card {
   background: var(--blue-mid); /* Fond bleu moyen (plus clair que la page) */
   border: 1px solid var(--blue-border); /* Bordure fine */
@@ -352,6 +395,11 @@ a {
   margin-top: 24px; /* 24px d'espace au-dessus de la carte */
   margin-bottom: 24px; /* 24px d'espace sous la carte */
   align-items: center;
+  max-width: 600px;
+}
+.card--women {
+  background: #3d2a4d; /* Violet foncé */
+  border-color: #6a4a7a; /* Bordure violette */
 }
 .card__title {
   font-size: 1rem; /* Taille normale */
@@ -365,7 +413,7 @@ a {
   justify-content: space-between; 
   align-items: center
 }
-.card--research {
+.card__research {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -373,16 +421,16 @@ a {
 }
 /* ---------- Boutons ---------- */
 .btn {
-  display: inline-flex; /* Permet d'aligner icône + texte côte à côte */
-  align-items: center; /* Centre verticalement l'icône et le texte */
-  gap: 8px; /* 8px entre l'icône et le texte */
-  padding: 9px 20px; /* 9px haut/bas, 20px gauche/droite */
+  display: flex;
+  align-items: center;
+  padding: 8px 14px; /* 9px haut/bas, 20px gauche/droite */
   border-radius: 8px; /* Coins arrondis */
   font-size: 0.85rem; /* Texte légèrement plus petit */
   font-weight: 600; /* Semi-gras */
   cursor: pointer; /* Curseur main au survol */
   border: none; /* Supprime la bordure par défaut des boutons HTML */
   font-family: var(--font-main); /* Force la police du site (les boutons ont leur propre police par défaut) */
+  margin-top: 10px;
   transition: opacity 0.15s, transform 0.15s; /* Anime l'opacité et le déplacement */
 }
 .btn:hover {
@@ -408,9 +456,9 @@ a {
 }
 /* ---------- Tableau ---------- */
 .table-wrapper {
-  overflow-x: auto;
-  border-radius: 8px;
-  border: 1px solid var(--blue-border);
+  overflow-x: auto; /* Ajoute une barre de défilement horizontale si le tableau dépasse la largeur du conteneur */
+  border-radius: 8px; /* Coins arrondis pour le conteneur du tableau */
+  border: 1px solid var(--blue-border); /* Bordure pour délimiter le tableau */
 }
 table {
   width: 100%;
@@ -452,7 +500,7 @@ tbody td {
   font-size: 0.85rem;
   font-family: var(--font-main);
   outline: none;
-  width: 250px;
+  width: 200px;
   text-align: center;
   transition: border-color 0.15s;
 }
@@ -462,18 +510,14 @@ tbody td {
 .search-input::placeholder {
   color: var(--white-soft);
 }
-/* ---------- État vide ---------- */
-.empty-state {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--white-soft);
+.search-input--combined {
+  max-width: 150px;
 }
-.empty-state__icon {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-.empty-state__text {
-  font-size: 0.9rem;
+.search-input__mark {
+  font-weight: bold;
+  padding: 8px 14px; /* 8px en haut/bas, 14px à gauche/droite */
+  width: 150px;
+  border: 1px solid transparent;
 }
 /* ============================================================
    FRISE CHRONOLOGIQUE
