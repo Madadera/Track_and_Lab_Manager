@@ -36,20 +36,22 @@
 
       <div class="card" style="max-width: 100%;">
         <h1 class="page__title">Bilans</h1>
-        <div>
-          <input class="search-input" type="text" placeholder="Nom…"/>
-          <input class="search-input" type="text" placeholder="Prénom…"/>
-          <input class="search-input" type="text" placeholder="Epreuve…"/>
+        <div style="display: flex; justify-content: space-evenly;">
+          <input class="search-input" type="text" placeholder="Saison"/>
+          <input class="search-input" type="text" placeholder="Sexe"/>
+          <input class="search-input" type="text" placeholder="Catégorie"/>
+          <input class="search-input" type="text" placeholder="Groupe"/>
+          <input class="search-input" type="text" id="filtre-nom" placeholder="Nom"/>
+          <input class="search-input" type="text" placeholder="Épreuve"/>
         </div>
       </div>
 
       <div class="card" style="max-width: 100%;">
-        <div class="card__title card__research">
-          <span>Données</span>
+        <div class="card__title">
+          <div style="padding-bottom: 10px;">50 m (i)</div>
+          <div>2026 | Benjamins Masculins</div>
         </div>
-
         <div id="output" class="table-wrapper"></div>
-
       </div>
 
     </main>
