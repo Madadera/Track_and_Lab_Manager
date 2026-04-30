@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crash Tests - Track & Lab Manager</title>
+  <title>Crash Test - Track & Lab Manager</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico">
+   <script>
+  function myFunction() {
+    const demo = document.getElementById("demo");
+
+    if (demo.innerHTML === "Hello JavaScript !") {
+      demo.innerHTML = "My First JavaScript";
+    } else {
+      demo.innerHTML = "Hello JavaScript !";
+    }
+  }
+ </script>
 </head>
 
 <body class="page">
@@ -23,7 +34,7 @@
   <main class="page__content">
 
     <header class="home__header">
-      <h1 class="home__title">Crash Tests</h1>
+      <h1 class="home__title">Crash Test</h1>
       <p class="home__subtitle"><i>« Alors ça c'est la Cerise sur le Labo ! »</i></p>
     </header>
 
@@ -142,7 +153,7 @@
               <td>Cormeilles-en-Parisis</td>
             </tr>
             <tr>
-              <td>Hauteur</td>
+              <td>Hauteur (i)</td>
               <td>1m48</td>
               <td>Pothier</td>
               <td>Théotime</td>
@@ -287,7 +298,7 @@
             </tr>
             <tr>
               <td>Tétrathlon Javelot</td>
-              <td>2 2025 Pts</td>
+              <td>2 025 Pts</td>
               <td>Briquet</td>
               <td>Graig</td>
               <td>05/06/2016</td>
@@ -333,6 +344,59 @@
       <p class="page_subtitle">Record depuis 1990, sans chronos manuels ≤ 1 500 m</p>
       <p class="page_subtitle">36 442 Performances de 1972 à 2026</p>
       <p class="page_subtitle">Tableaux mis à jour le 18/04/2026</p>
+    </div>
+
+    <div class="tile__centering">
+      <div class="tile tile--gray tile__centering--1">
+          <h2 class="tile__title">Rang</h2>
+          <ul class="list" style="list-style-type: circle;">
+            <li>Club</li>
+            <li>Départemental</li>
+            <li>Inter-Départemental</li>
+            <li>Régional</li>
+            <li>Inter-Régional</li>
+            <li>National</li>
+            <li>Inter-National</li>
+            <li>Européen</li>
+            <li>Mondial</li>
+          </ul>
+      </div>
+
+      <div class="tile tile--gray tile__centering--1">
+          <h2 class="tile__title">Type</h2>
+          <ol class="list" type="I">
+            <li>Meeting</li>
+            <li>Championnats</li>
+            <li>Jeunes</li>
+            <li>Interclubs</li>
+            <li>Match</li>
+            <li>Challenge</li>
+          </ol>
+      </div>
+    </div>
+
+    <iframe src="index.html" title="Accueil Track & Lab Manager"></iframe>
+
+    <div class="tile__centering">
+      <div class="tile tile--purple tile__centering--1">
+        <button class="btn btn--primary" type="button" onclick="myFunction()">Click Me !</button>
+        <p id="demo">My First JavaScript</p>
+      </div>
+    </div>
+
+    <div class="tile__centering">
+      <div class="tile tile--purple tile__centering--1">
+        <p>You can save a document by pressing <kbd>Ctrl + S</kbd></p>
+        <p>Message from my computer:</p>
+        <p><samp>File not found.<br>Press F1 to continue</samp></p>
+        <pre>
+          <code>
+          x = 5;
+          y = 6;
+          z = x + y;
+          </code>
+        </pre>
+      </div>
     </div>
 
   </main>

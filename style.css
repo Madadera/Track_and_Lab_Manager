@@ -344,6 +344,15 @@ select option {
 .tile--darkblue .tile__arrow {
   color: #3a7fd4;
 }
+.tile__centering {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.tile__centering--1 {
+  margin-top: 24px;
+  padding-top: 10px;
+}
 /* ============================================================
    PAGES INTÉRIEURES — structure commune
    ============================================================ */
@@ -353,6 +362,9 @@ select option {
   min-height: 100vh; /* La page occupe au minimum toute la hauteur de l'écran */
 }
 .page__content {
+  display: flex; /* Flexbox pour organiser le contenu */
+  flex-direction: column; /* Empile les éléments du contenu verticalement */
+  justify-content: center; /* Centre le contenu horizontalement */
   flex: 1; /* Prend tout l'espace vertical restant après la navbar */
   padding: 30px; /* 30px d'espace intérieur sur tous les côtés */
   max-width: 1800px; /* Le contenu ne dépasse jamais 1800px de large */
@@ -424,6 +436,7 @@ select option {
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 8px 14px; /* 9px haut/bas, 20px gauche/droite */
   border-radius: 8px; /* Coins arrondis */
   font-size: 0.85rem; /* Texte légèrement plus petit */
@@ -485,8 +498,11 @@ thead th:hover {
 tbody tr {
   border-top: 1px solid var(--blue-border);
 }
-tbody tr:hover {
+tr:nth-child(even) {
   background: var(--blue-light);
+}
+tbody tr:hover {
+  background: var(--accent);
 }
 tbody td {
   padding: 10px 14px;
@@ -506,10 +522,12 @@ tbody td {
 }
 .table-wrapper__record tbody tr {
   border-top: 1px solid var(--blue-border);
+}
+.table-wrapper__record tr:nth-child(odd) {
   background: var(--blue-mid);
 }
 .table-wrapper__record tbody tr:hover {
-  background: var(--blue-light);
+  background: var(--accent);
 }
 .table-wrapper__record thead th:hover {
   color: var(--white);
@@ -612,4 +630,23 @@ tbody td {
   color: var(--white-soft); /* Gris clair pour les descriptions */
   font-size: 0.9rem; /* Légèrement plus petit que la normale pour les descriptions */
   text-align: justify; /* Justifie le texte pour un alignement propre des deux côtés */
+}
+/* ============================================================
+   LISTES
+   ============================================================ */
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  color: var(--white-soft);
+  align-items: equal;
+}
+/* ============================================================
+   IFRAME
+   ============================================================ */
+iframe {
+  height: 800px;
+  width: 100%;
+  margin-top: 24px;
+  border: 2px solid white;
 }
