@@ -1,0 +1,41 @@
+﻿Num;Épreuve;Performance;Nom;Prénom;Date;Lieu
+1;60 m (i);7''49;Unau;Laurie-Marine;14/02/2026;Nantes
+2;100 m;11''91;Unau;Laurie-Marine;26/07/2025;Thonon-les-Bains
+3;200 m;24''61;Unau;Laurie-Marine;26/07/2025;Thonon-les-Bains
+4;200 m (i);24''58;Unau;Laurie-Marine;31/01/2026;Eaubonne
+5;300 m;41''05;Blameble;Johanna;16/04/2023;Maisons-Alfort
+6;400 m;54''44;Nienat;Lawrence;23/07/2023;Bondoufle
+7;400 m (i);56''62;Nienat;Lawrence;04/02/2023;Eaubonne
+8;600 m;1’40″15;Brunet;Melisse;02/05/2007;Saint-Maur-des-Fossés
+9;800 m;2’16''27;Nienat;Lawrence;14/06/2023;Sarcelles
+10;800 m (i);2’27″51;Giraud;Antonia;25/11/2007;Paris
+11;1 000 m;3’15″71;Pires;Lisette;18/05/2011;Saint-Maur-des-Fossés
+12;1 500 m;4’57″54;Schaal;Karine;27/06/2012;Saint-Maur-des-Fossés
+13;2 000 m;7’29″28;Dupont;Virginie;14/05/2008;Saint-Maur-des-Fossés
+14;3 000 m;10'44''46;Fasy;Carole;20/07/2005;Saint-Maur-des-Fossés
+15;5 000 m;17'19''30;Coburn;Elaine;08/06/2005;Saint-Maur-des-Fossés
+16;5 km;20'26'';Pouge;Isabelle;21/10/2012;Fontenay-sous-Bois
+17;10 km;36'34'';Coburn;Elaine;12/06/2005;Vincennes
+18;15 km;56'09'';Coburn;Elaine;26/02/2006;Charenton-le-Pont
+19;20 km;1h25'58'';Hervé;Agnès;26/04/2015;Rambouillet
+20;30 km;2h50'33'';Brousse;Camille;21/03/2026;Paris
+21;50 km;4h05'06'';Hervé;Agnès;29/08/2015;Theillay
+22;Semi-Marathon;1h27'49'';Barhoumi;Afifa;13/03/2011;Nogent-sur-Marne
+23;Marathon;2h44'49'';Coburn;Elaine;16/10/2005;Amsterdam (NED)
+24;Ekiden;2h53’44”;-;-;16/03/2014;Vendôme
+25;3 000 m Marche;18'46''09;Michel;Bénédicte;17/05/2025;Savigny-sur-Orge
+26;60 m Haies (84) (i);8''69;Blameble;Johanna;12/02/2023;Miramas
+27;100 m Haies (84);14''29;Blameble;Johanna;07/06/2023;Bonneuil-sur-Marne
+28;400 m Haies (76);62''92;Blameble;Johanna;29/06/2023;Longjumeau
+29;Hauteur;1m40;Blameble;Johanna;20/05/2023;Montereau-Fault-Yonne
+30;Perche;3m00;Garin;Camille;30/05/2025;Villejuif
+31;Perche (i);3m02;Garin;Camille;31/01/2026;Eaubonne
+32;Longueur;5m11;Unau;Laurie-Marine;03/05/2025;Mantes-la-Jolie
+33;Longueur (i);3m82;Lorenzini;Jessica;04/02/2026;Paris
+34;Triple Saut;9m35;Garin;Camille;17/05/2025;Savigny-sur-Orge
+35;Poids (4 kg);9m96;Blameble;Johanna;12/05/2024;Conflant-Sainte-Honorine
+36;Disque (1 kg);19m45;Mullard;Noélie;03/05/2026;Aulnay-sous-Bois
+37;Marteau (4 kg);20m85;Lodin;Ëvy;17/05/2026;Yerres
+38;Javelot (600g);15m44;Duplantier;Mailys;20/05/2023;Montereau-Fault-Yonne
+39;4 × 100 m;50''90;-;-;03/05/2025;Mantes-la-Jolie
+40;4 × 400 m;4’06''23;-;-;08/05/2023;Bonneuil-sur-Marne

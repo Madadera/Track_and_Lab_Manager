@@ -1,0 +1,49 @@
+﻿Num;Épreuve;Performance;Nom;Prénom;Date;Lieu
+1;50 m;6''36;Weber;Vincent;03/06/2007;Créteil
+2;50 m (i);6''54;Pâques;Alexandre;26/10/2014;Paris
+3;60 m (i);7''45;Francois;Clément;20/11/2010;Eaubonne
+4;80 m;9''57;Ferrier Lenoble;Alexandre;23/06/2024;Aulnay-Sous-Bois
+5;100 m;11''60;Vespasien;Grégory;23/06/2002;Saint Ouen
+6;120 m;14''31;Duriaud;Timothée;22/06/2025;Aulnay-Sous-Bois
+7;200 m (i);23''24;François;Clément;11/12/2010;Eaubonne
+8;800 m;2'33''40;Yahiaoui;Yassine;20/03/2004;Maisons-Alfort
+9;800 m (i);2'10''04;Philoleau;Xavier;03/12/2001;Eaubonne
+10;1 000 m;2'45''18;Merlaud;Vincent;19/06/2016;Franconville
+11;1 000 m (i);2'48''11;Jobard;Mateo;22/10/2017;Eaubonne
+12;2 000 m;6'51''26;Notarianni;Théo;11/04/2026;Ivry-sur-Seine
+13;3 000 m;10'23''78;Thebert;Fabien;21/05/2008;Saint-Maur-des-Fossés
+14;5 km;19'32'';Notarianni;Théo;08/02/2026;Vincennes
+15;30 Minutes;-;-;-;-;-
+16;3000 m Marche;18'04''20;Bousses;Yoan;16/03/2018;Savigny-sur-Orge
+17;3000 m Marche (i);19'15''77;Delzant;Martin;15/03/2009;Nogent sur Oise
+18;30 Minutes Marche;-;-;-;-;-
+19;50 m Haies (84) (i);6''90;Briquet;Graig;21/10/2018;Eaubonne
+20;60 m Haies (91) (i);8''39;Pothier;Théotime;05/12/2010;Eaubonne
+21;80 m Haies (76);12''52;Brewin;Luc;15/10/2017;Saint-Renan
+22;100 m Haies (84);13''39;Pothier;Théotime;30/05/2010;Ivry-sur-Seine
+23;200 m Haies (76);25''45;Francois;Clément;09/10/2010;Dreux
+24;Hauteur;1m90;Francois;Clément;02/10/2010;Ivry-sur-Seine
+25;Hauteur;1m90;Pothier;Théotime;02/10/2010;Ivry-sur-Seine
+26;Hauteur (i);1m85;Francois;Clément;05/12/2010;Eaubonne
+27;Hauteur (i);1m85;Pothier;Théotime;05/12/2010;Eaubonne
+28;Perche;4m20;Astori;Lenny;26/06/2022;Aulnay-Sous-Bois
+29;Perche (i);3m97;Astori;Lenny;16/02/2022;Aulnay-Sous-Bois
+30;Longueur;6m72;Briquet;Graig;24/06/2018;Longjumeau
+31;Longueur (i);6m58;Briquet;Graig;26/10/2018;Eaubonne
+32;Triple Saut;14m53;Briquet;Graig;14/07/2018;Niort
+33;Triple Saut (i);14m09;Briquet;Graig;20/01/2018;Nogent sur Oise
+34;Medecine Ball (4 kg);9m00;Vignon;Hynek;21/01/2006;Paris
+35;Poids (4 kg);16m25;Briquet;Graig;14/07/2018;Niort
+36;Poids (4 kg) (i);13m87;Briquet;Graig;25/03/2018;Rennes
+37;Disque (1.250 kg);40m16;Briquet;Graig;21/05/2018;Maisons-Alfort
+38;Marteau (4 kg);30m38;Gil;Antoine;23/10/2021;Franconville
+39;Javelot (600 g);50m65;Briquet;Graig;09/06/2018;Cormeilles-en-Parisis
+40;Triathlon (Tables 2017);134 Pts;Briquet;Graig;24/06/2018;Longjumeau
+41;Triathlon (Tables 2017) (i);129 Pts;Briquet;Graig;03/03/2018;Eaubonne
+42;Triathlon (Tables 2028);103 Pts;Gressin;Raphaël;05/04/2025;Paris
+43;Triathlon (Tables 2028) (i);103 Pts;Valériaud de Cabarrus;Louis;30/11/2024;Pantin
+44;Pentathlon Longueur (i);3 640 Pts;Briquet;Graig;03/03/2018;Eaubonne
+45;Pentathlon Perche (i);2 663 Pts;Astori;Lenny;26/03/2022;Eaubonne
+46;Octathlon;5 174 Pts;Briquet;Graig;09/06/2018;Cormeilles-en-Parisis
+47;4 × 60 m;27''60;Vincennes;Athletic;02/06/2002;Bry sur Marne
+48;4 × 60 m Mixte;29''79;Vincennes;Athletic;08/06/2024;Villejuif

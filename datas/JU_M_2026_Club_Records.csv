@@ -1,0 +1,42 @@
+﻿Num;Épreuve;Performance;Nom;Prénom;Date;Lieu
+1;60 m (i);7''19;Francois;Clément;02/03/2013;Reims
+2;100 m;10''94;Francois;Clément;08/06/2013;Cormeilles-en-Parisis
+3;200 m;22''79;Boussés;Yoan;18/06/2011;Montgeron
+4;200 m (i);23''18;Paques;Alexandre;27/11/2016;Eaubonne
+5;300 m;40''03;Cécilon;Ludovick;10/04/2016;Maisons-Alfort
+6;400 m;50''85;Chauvet;Raoul;18/06/2016;Montreuil
+7;400 m (i);51''53;Chauvet;Raoul;30/01/2016;Eaubonne
+8;600 m;1'30''38;Quoniam;Benjamin;05/05/2004;Saint-Maur-des-Fossés
+9;800 m;1'59''53;Benoliel;David;27/06/2009;Antony
+10;800 m (i);2'00''81;Benoliel;David;31/01/2009;Eaubonne
+11;1 000 m;2'40''24;Benoliel;David;10/05/2009;Ivry-sur-Seine
+12;1 000 m (i);2'47''70;Jobard;Matéo;04/01/2020;Paris
+13;1 500 m;4'15''52;Cariou;Thomas;17/05/2006;Saint-Maur-des-Fossés
+14;2 000 m;6'00''02;Cariou;Thomas;03/05/2006;Saint-Maur-des-Fossés
+15;3 000 m;9'33''98;Marchand;Louis;20/05/2023;Montereau-Fault-Yonne
+16;3 Miles;15'42'';Francois;Clément;27/09/2014;Brumath
+17;5 000 m;16'23''49;Marchand;Louis;24/06/2023;Pontoise
+18;5 km;17'29'';Francois;Clément;29/05/2014;Haguenau
+19;10 km;34'52'';Marchand;Louis;23/04/2023;Trappes
+20;Semi-Marathon;1h29'13'';Halbout;François;11/03/2007;Paris
+21;60 m Haies (99) (i);8''00;Pothier;Théotime;16/02/2014;Eaubonne
+22;110 m Haies (99);14''12;Pothier;Théotime;14/06/2014;Montgeron
+23;110 m Haies (1.06);16''97;Bobin;Jules;27/04/2024;Palaiseau
+24;400 m Haies (91);54''17;Francois;Valentin;22/06/2014;Nogent-sur-Marne
+25;3 000 m Steeple (91);11'41''06;Chevoir;Amaury;20/05/2023;Montereau-Fault-Yonne
+26;Hauteur;1m89;Francois;Valentin;24/05/2014;Ivry-sur-Seine
+27;Hauteur (i);1m98;Francois;Clément;05/01/2013;Paris – INSEP
+28;Perche;4m70;Bobin;Jules;24/05/2024;Paris
+29;Perche (i);4m50;Brewin;Luc;02/02/2020;Lyon
+30;Longueur;7m01;Francois;Clément;20/07/2013;Dijon
+31;Longueur (i);7m04;Francois;Clément;16/02/2013;Eaubonne
+32;Triple Saut;10m94;Lavialle;Alexandre;17/05/2025;Savigny-sur-Orge
+33;Triple Saut (i);12m99;Riffaud;Esteban;16/11/2019;Eaubonne
+34;Poids (6 kg);12m72;Francois;Clément;29/06/2013;Cognac
+35;Poids (6 kg) (i);12m26;Delery;Hugo;04/02/2012;Eaubonne
+36;Disque (1.75 kg);38m30;Delery;Hugo;10/06/2012;Bondy
+37;Disque (2 kg);18m53;Fauvel;Julien;20/05/2023;Montereau-Fault-Yonne
+38;Marteau (7.260 kg);10m98;Chevoir;Amaury;08/05/2023;Bonneuil-sur-Marne
+39;Javelot (800 g);43m48;Francois;Clément;30/06/2013;Cognac
+40;Héptathlon (i);5 175 Pts;Francois;Clément;03/03/2013;Reims
+41;Décathlon;6 991 Pts;Francois;Clément;29/06/2013;Cognac

@@ -1,0 +1,59 @@
+﻿Num;Épreuve;Performance;Nom;Prénom;Date;Lieu
+1;50 m (i);6''25;Francois;Clément;20/03/2011;Eaubonne
+2;60 m (i);7''22;Francois;Clément;03/03/2012;Metz
+3;100 m;11''22;Francois;Clément;07/07/2012;Aubagne
+4;200 m;22''72;Francois;Clément;05/06/2011;Joinville-le-Pont
+5;200 m (i);22''44;Francois;Clément;04/02/2012;Eaubonne
+6;300 m;36''21;Pâques;Alexandre;10/04/2016;Maisons-Alfort
+7;400 m;49''98;Francois;Clément;27/10/2012;Dreux
+8;400 m (i);53''35;Blondel;Théophile;10/02/2024;Nogent-sur-Oise
+9;600 m;1'29''54;Benoliel;David;30/04/2008;Saint-Maur-des-Fossés
+10;800 m;2'02''69;Benoliel;David;21/05/2008;Saint-Maur-des-Fossés
+11;800 m (i);2'07''19;Delerry;Hugo;03/12/2011;Eaubonne
+12;1 000 m;2'45''74;Benoliel;David;07/05/2008;Saint-Maur-des-Fossés
+13;1 000 m (i);2'44''34;Mouanga;Laurel;13/03/2004;Eaubonne
+14;1 500 m;4'22''13;Cariou;Thomas;18/06/2005;Créteil
+15;1 500 m (i);4'46''72;Borie;Clément;06/12/2025;Eaubonne
+16;2 000 m;6'14''26;Cariou;Thomas;04/05/2005;Saint-Maur-des-Fossés
+17;3 000 m;9'39''90;Mouanga;Laurel;20/03/2004;Maisons-Alfort
+18;Mile;4'53''28;Delerry;Hugo;19/05/2010;Saint-Maur-des-Fossés
+19;5 000 m;18'28''08;Borie;Clément;27/05/2026;Saint-Maur-des-Fossés
+20;5 km;17'24'';Cupillard;Titouan;05/04/2026;Savigny-sur-Orge
+21;10 km;34'39'';Tabet;Layth;25/03/2001;Nogent-sur-Marne
+22;3 000 m Marche;18'34''90;Delzant;Martin;02/10/2010;Ivry-sur-Seine
+23;50 m Haies (91) (i);7''09;Pothier;Théotime;20/03/2011;Eaubonne
+24;60 m Haies (91) (i);7''99;Brewin;Luc;24/02/2019;Lievin
+25;60 m Haies (99) (i);8''43;Pothier;Théotime;01/12/2012;Eaubonne
+26;110 m Haies (91);14''01;Brewin;Luc;06/07/2019;Angers
+27;110 m Haies (99);14''39;Francois;Clément;13/05/2012;Ivry-sur-Seine
+28;110 m Haies (1.06);18''39;Hervé;Paul;12/05/2024;Conflans-sainte-Honorine
+29;320 m Haies (84);44''73;Boussès;Yoan;13/06/2009;Conflans-sainte-Honorine
+30;400 m Haies (84);53''99;Francois;Clément;18/06/2011;Montgeron
+31;400 m Haies (91);60''01;Blondel;Théophile;12/05/2024;Conflans-sainte-Honorine
+32;1 500 m Steeple (91);4'51''10;Thebert;Fabien;27/05/2009;Saint-Maur-des-Fossés
+33;2 000 m Steeple (91);6'42''21;Delerry;Hugo;23/06/2010;Saint-Maur-des-Fossés
+34;3 000 m Steeple (91);13'07''19;Borie;Clément;03/05/2026;Aulnay-sous-Bois
+35;Hauteur;2m00;Francois;Clément;17/06/2012;Chevilly-larue
+36;Hauteur (i);1m95;Francois;Clément;04/03/2012;Paris – INSEP
+37;Perche;4m91;Astori;Lenny;29/05/2024;Aulnay-sous-Bois
+38;Perche (i);4m61;Astori;Lenny;28/01/2024;Paris
+39;Longueur;7m16;Francois;Clément;07/07/2012;Aubagne
+40;Longueur (i);7m14;Briquet;Graig;01/02/2020;Lyon
+41;Triple Saut;15m12;Briquet;Graig;15/06/2019;Franconville
+42;Triple Saut (i);15m38;Briquet;Graig;09/02/2020;Eaubonne
+43;Medecine Ball (5 kg);8m32;Vignon;Hynek;28/01/2007;Paris
+44;Poids (5 kg);15m50;Briquet;Graig;05/07/2019;Angers
+45;Poids (5 kg) (i);16m12;Briquet;Graig;23/02/2019;Lievin
+46;Poids (6 kg);11m06;Francois;Clément;09/06/2012;Bondy
+47;Poids (6 kg) (i);11m74;Francois;Clément;10/11/2012;Eaubonne
+48;Disque (1.5 kg);44m24;Briquet;Graig;23/06/2019;Maisons-Alfort
+49;Disque (1.7 kg);33m40;Francois;Clément;09/06/2012;Bondy
+50;Disque (2 kg);19m65;Varnier;Philibert;08/05/2023;Bonneuil-sur-Marne
+51;Javelot (700 g);50m05;Briquet;Graig;25/05/2019;Créteil
+52;Javelot (800 g);40m09;Cadoux;Matthieu;03/05/2025;Mantes-la-Jolie
+53;Triathlon (Tables 2017);116 Pts;Brewin;Luc;01/06/2019;Cormeilles-en-Parisis
+54;Triathlon (Tables 2009) (i);116 Pts;Francois;Clément;03/12/2011;Eaubonne
+55;Héptatlon (i);5 316 Pts;Francois;Clément;04/03/2012;Metz
+56;Décathlon;6 957 Pts;Francois;Clément;08/07/2012;Aubagne
+57;4 × 100 m;44''81;-;-;27/05/2018;Ivry-sur-Seine
+58;4 × 200 m (i);1'36''79;-;-;20/03/2011;Eaubonne

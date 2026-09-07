@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Maël Robin" />
+  <title>Dashboard — Bilans — Team VA — Track & Lab Manager</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="icon" href="../../images/favicon.ico" />
+  <script src="../../js/dashboard_bilans.js"></script>
+  <script src="../../js/theme.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <img src="../../images/Logo_Track_&_Lab_Manager.png" width="100" height="100" alt="Logo de Track & Lab Manager">
+        <a href="../../index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+      </div>
+      <div class="navbar__links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="../tables/Scoring_Tables-Conversion.html">Scoring-Tables</a>
+        <a href="../competition.html">Compétitions</a>
+        <a href="../contact.html">Contacts</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      
+      <div class="header header--dashboard">
+        <h1>Dashboard - Bilans</h1>
+      </div>
+
+      <header class="page__header">
+        <p class="page__subtitle"><i>« The pure and simple truth is rarely pure and never simple. »</i></p>
+        <p class="page__subtitle"><b>Oscar Wilde</b></p>
+      </header>
+
+      <nav class="nav_scoring">
+        <div>
+            <!-- <a href="dashboard_competition.html" class="tile tile--gray">
+                <h2 class="tile__title">Derniers Résultats</h2>
+            </a> -->
+            <!-- <a href="dashboard_athletes.html" class="tile tile--gray">
+                <h2 class="tile__title">Statistiques par athlètes</h2>
+            </a> -->
+            <a href="dashboard_bilans.html" class="tile tile--gray active">
+                <h2 class="tile__title">Bilans</h2>
+            </a>
+            <a href="dashboard_records.html" class="tile tile--gray">
+                <h2 class="tile__title">Records</h2>
+            </a>
+        </div>
+        <div>
+          <a href="dashboard_bilans_teamva_saison.html" class="tile tile--darkblue tile--darkblue--bilans active">
+            <h2 class="tile__title">Team VA</h2>
+          </a>
+          <a href="dashboard_bilans_club_saison.html" class="tile tile--darkblue tile--darkblue--bilans">
+            <h2 class="tile__title">Club</h2>
+          </a>
+        </div>
+        <div>
+          <a href="dashboard_bilans_teamva_saison.html" class="tile tile--darkblue tile--darkblue--bilans tile--darkblue--bilans--choix active">
+            <h2 class="tile__title tile__title--choix">Par Saison</h2>
+          </a>
+          <a href="dashboard_bilans_teamva_alltime.html" class="tile tile--darkblue tile--darkblue--bilans tile--darkblue--bilans--choix">
+            <h2 class="tile__title tile__title--choix">All Time</h2>
+          </a>
+        </div>
+      </nav>
+
+      <div class="card">
+        <h1 class="card__title">Bilans - Saison - Team VA</h1>
+        <div class="search-bar">
+          <select class="search-input" id="filtre-saison">
+            <option value="" disabled selected>Saison</option>
+            <option value="2026 / 2027">2026 / 2027</option>
+            <option value="2025 / 2026">2025 / 2026</option>
+            <option value="2024 / 2025">2024 / 2025</option>
+            <option value="2023 / 2024">2023 / 2024</option>
+          </select>
+          <select class="search-input" id="filtre-sexe">
+            <option value="" disabled selected>Sexe</option>
+            <option value="M">Masculin</option>
+            <option value="F">Féminin</option>
+            <option value="Mixte">Mixte</option>
+          </select>
+          <select class="search-input" id="filtre-categorie">
+            <option value="" disabled selected>Catégorie</option>
+            <option value="PO">PO</option>
+            <option value="BE">BE</option>
+            <option value="MI">MI</option>
+            <option value="CA">CA</option>
+            <option value="JU">JU</option>
+            <option value="ES">ES</option>
+            <option value="SE">SE</option>
+          </select>
+          <select class="search-input" id="filtre-epreuve">
+            <option value="" disabled selected>Épreuve</option>
+            <option value="1 000 m">1 000 m</option>
+            <option value="1 000 m (i)">1 000 m (i)</option>
+            <option value="1 500 m">1 500 m</option>
+            <option value="1 500 m (i)">1 500 m (i)</option>
+            <option value="10 000 m">10 000 m</option>
+            <option value="10 km">10 km</option>
+            <option value="100 m">100 m</option>
+            <option value="100 m Haies (76)">100 m Haies (76)</option>
+            <option value="100 m Haies (84)">100 m Haies (84)</option>
+            <option value="12 × 200 m">12 × 200 m</option>
+            <option value="120 m">120 m</option>
+            <option value="2 000 m">2 000 m</option>
+            <option value="2 000 m (i)">2 000 m (i)</option>
+            <option value="2 000 m Marche">2 000 m Marche</option>
+            <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+            <option value="200 m">200 m</option>
+            <option value="200 m (i)">200 m (i)</option>
+            <option value="200 m Haies (76)">200 m Haies (76)</option>
+            <option value="3 000 m">3 000 m</option>
+            <option value="3 000 m (i)">3 000 m (i)</option>
+            <option value="3 000 m Marche">3 000 m Marche</option>
+            <option value="3 000 m Marche (i)">3 000 m Marche (i)</option>
+            <option value="300 m">300 m</option>
+            <option value="300 m (i)">300 m (i)</option>
+            <option value="4 × 1 Tour (i)">4 × 1 Tour (i)</option>
+            <option value="4 × 60 m">4 × 60 m</option>
+            <option value="4 × 60 m Mixte">4 × 60 m Mixte</option>
+            <option value="400 m">400 m</option>
+            <option value="400 m (i)">400 m (i)</option>
+            <option value="5 000 m">5 000 m</option>
+            <option value="5 000 m (i)">5 000 m (i)</option>
+            <option value="5 000 m Marche">5 000 m Marche</option>
+            <option value="5 000 m Marche (i)">5 000 m Marche (i)</option>
+            <option value="5 km">5 km</option>
+            <option value="50 m">50 m</option>
+            <option value="50 m (i)">50 m (i)</option>
+            <option value="50 m Haies (65)">50 m Haies (65)</option>
+            <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+            <option value="50 m Haies (76)">50 m Haies (76)</option>
+            <option value="50 m Haies (76) (i)">50 m Haies (76) (i)</option>
+            <option value="50 m Haies (84)">50 m Haies (84)</option>
+            <option value="50 m Haies (84) (i)">50 m Haies (84) (i)</option>
+            <option value="60 m">60 m</option>
+            <option value="60 m (i)">60 m (i)</option>
+            <option value="80 m">80 m</option>
+            <option value="80 m (i)">80 m (i)</option>
+            <option value="80 m Haies (76)">80 m Haies (76)</option>
+            <option value="80 m Haies (76) (i)">80 m Haies (76) (i)</option>
+            <option value="80 m Haies (84)">80 m Haies (84)</option>
+            <option value="800 m">800 m</option>
+            <option value="800 m (i)">800 m (i)</option>
+            <option value="Cross">Cross</option>
+            <option value="Cross Équipe">Cross Équipe</option>
+            <option value="Décathlon">Décathlon</option>
+            <option value="Disque (1 kg)">Disque (1 kg)</option>
+            <option value="Disque (1.25 kg)">Disque (1.25 kg)</option>
+            <option value="Disque (1.5 kg)">Disque (1.5 kg)</option>
+            <option value="Disque (1.75 kg)">Disque (1.75 kg)</option>
+            <option value="Disque (2 kg)">Disque (2 kg)</option>
+            <option value="Disque (600 g)">Disque (600 g)</option>
+            <option value="Disque (800 g)">Disque (800 g)</option>
+            <option value="Équip'Athlé N1">Équip'Athlé N1</option>
+            <option value="Équip'Athlé N2">Équip'Athlé N2</option>
+            <option value="Équipe">Équipe</option>
+            <option value="Hauteur">Hauteur</option>
+            <option value="Hauteur (i)">Hauteur (i)</option>
+            <option value="Héptathlon">Héptathlon</option>
+            <option value="Héptathlon (i)">Héptathlon (i)</option>
+            <option value="Javelot (400 g)">Javelot (400 g)</option>
+            <option value="Javelot (500 g)">Javelot (500 g)</option>
+            <option value="Javelot (600 g)">Javelot (600 g)</option>
+            <option value="Javelot (700 g)">Javelot (700 g)</option>
+            <option value="Javelot (800 g)">Javelot (800 g)</option>
+            <option value="Longueur">Longueur</option>
+            <option value="Longueur (i)">Longueur (i)</option>
+            <option value="Marathon">Marathon</option>
+            <option value="Marteau (2 kg)">Marteau (2 kg)</option>
+            <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            <option value="Marteau (4 kg)">Marteau (4 kg)</option>
+            <option value="Marteau (5 kg)">Marteau (5 kg)</option>
+            <option value="Marteau (6 kg)">Marteau (6 kg)</option>
+            <option value="Marteau (7.26 kg)">Marteau (7.26 kg)</option>
+            <option value="Médecine Ball (2 kg) (i)">Médecine Ball (2 kg) (i)</option>
+            <option value="Médecine Ball (3 kg) (i)">Médecine Ball (3 kg) (i)</option>
+            <option value="Médecine Ball (4 kg) (i)">Médecine Ball (4 kg) (i)</option>
+            <option value="Octathlon">Octathlon</option>
+            <option value="Pentathlon">Pentathlon</option>
+            <option value="Pentathlon (i)">Pentathlon (i)</option>
+            <option value="Pentathlon Longueur (i)">Pentathlon Longueur (i)</option>
+            <option value="Perche">Perche</option>
+            <option value="Perche (i)">Perche (i)</option>
+            <option value="Poids (2 kg)">Poids (2 kg)</option>
+            <option value="Poids (2 kg) (i)">Poids (2 kg) (i)</option>
+            <option value="Poids (3 kg)">Poids (3 kg)</option>
+            <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+            <option value="Poids (4 kg)">Poids (4 kg)</option>
+            <option value="Poids (4 kg) (i)">Poids (4 kg) (i)</option>
+            <option value="Poids (5 kg)">Poids (5 kg)</option>
+            <option value="Poids (5 kg) (i)">Poids (5 kg) (i)</option>
+            <option value="Poids (6 kg)">Poids (6 kg)</option>
+            <option value="Poids (6 kg) (i)">Poids (6 kg) (i)</option>
+            <option value="Poids (7.26 kg)">Poids (7.26 kg)</option>
+            <option value="Poids (7.26 kg) (i)">Poids (7.26 kg) (i)</option>
+            <option value="Semi-marathon">Semi-marathon</option>
+            <option value="Tétrathlon (i)">Tétrathlon (i)</option>
+            <option value="Tétrathlon Disque">Tétrathlon Disque</option>
+            <option value="Tétrathlon Javelot">Tétrathlon Javelot</option>
+            <option value="Tétrathlon Longueur (i)">Tétrathlon Longueur (i)</option>
+            <option value="Tétrathlon Perche (i)">Tétrathlon Perche (i)</option>
+            <option value="Triathlon (Anciennes Tables)">Triathlon (Anciennes Tables)</option>
+            <option value="Triathlon (i) (Anciennes Tables)">Triathlon (i) (Anciennes Tables)</option>
+            <option value="Triathlon">Triathlon</option>
+            <option value="Triathlon (i)">Triathlon (i)</option>
+            <option value="Triple Saut">Triple Saut</option>
+            <option value="Triple Saut (i)">Triple Saut (i)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title--subtitle">
+          <p>Saison : <span id="valeur-saison">-</span></p>
+          <p>Sexe : <span id="valeur-sexe">-</span></p>
+          <p>Catégorie : <span id="valeur-categorie">-</span></p>
+          <p>Épreuve : <span id="valeur-epreuve">-</span></p>
+        </div>
+        <p id="output" class="table-wrapper"></p>
+      </div>
+
+      <div class="foot_record">
+        <p class="page_subtitle--footer">Mise à jour le 01/07/2026 - 10:00</p>
+        <p class="page_subtitle--footer">3 442 Performances de 2022 à 2026</p>
+      </div>
+
+    </main>
+
+  <footer class="navbar navbar--footer">
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="../../images/Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
+
+</body>
+</html>

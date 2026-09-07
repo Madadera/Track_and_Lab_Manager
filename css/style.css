@@ -1,0 +1,1140 @@
+/* ============================================================
+   TRACK & LAB MANAGER — Feuille de style globale
+   ============================================================ */
+
+/* ---------- Variables ---------- */
+
+/* ---------- Thème sombre (par défaut) ---------- */
+
+:root {                                                                    /* :root désigne la racine du document HTML. Tout ce qui est déclaré ici avec -- devient une variable CSS, utilisable n'importe où dans ton CSS avec var(--nom). L'avantage c'est que je peux changer la couleur dans les variables pour changer la couleur de tout le site. */
+  --blue-dark:                        #0d1b2a;                           /* Couleur de fond principal (bleu très foncé) */
+  --blue-mid:                         #1b3358;                           /* Fond des cartes/tuiles (bleu moyen) */
+  --links-active:                     #1b3358;                           /* Couleur des liens actifs (bleu moyen) */
+  --blue-light:                       #1e4080;                           /* Hover et accents (bleu plus clair) */
+  --blue-border:                      #2a4a72;                           /* Couleur des bordures */
+  --white:                            #ffffff;                           /* Blanc pur */
+  --white-soft:                       #d0dce8;                           /* Blanc cassé pour les textes secondaires */
+  --accent:                           #4a9eff;                           /* Bleu vif, utilisé pour les icônes et highlights */
+  --tile-dark-blue-background:        #0d2240;                           /* Fond bleu foncé pour les tuiles */
+  --tile-dark-blue-border:            #1a3a6a;                           /* Bordure bleu foncé pour les tuiles */
+  --tile-dark-blue-background-active: #1a2a4d;                           /* Fond bleu foncé pour les tuiles actives */
+  --tile-dark-blue-border-active:     #2a5fa0;                           /* Bordure bleu clair pour les tuiles actives */
+  --tile-gray-background:             #1a1a1a;                           /* Fond gris foncé pour les tuiles */
+  --tile-gray-border:                 #3a3a3a;                           /* Bordure gris foncé pour les tuiles */
+  --tile-gray-border-hover:           #707070;                           /* Bordure gris clair pour les tuiles au survol */
+  --tile-gray-background-active:      #242424;                           /* Fond gris foncé pour les tuiles actives */
+  --tile-gray-border-active:          #909090;                           /* Bordure gris clair pour les tuiles actives */
+  --tile-gray-shadow-hover:           rgba(112,112,112,0.15);            /* Ombre gris clair pour les tuiles au survol */
+  --tile-gray-shadow-active:          rgba(144,144,144,0.15);            /* Ombre gris clair pour les tuiles actives */
+  --overlay-color:                    rgba(0, 0, 0, 0.7);                /* Couleur de l'overlay sombre sur les images */
+  --radius:                             24px;                              /* Arrondi des coins, réutilisable partout */
+  --font-main:                          'Segoe UI', system-ui, sans-serif; /* Police principale */
+}
+
+/* ---------- Thème Clair ---------- */
+
+[data-theme="light"] {                                             /* S'active quand l'attribut data-theme="light" est sélectionné, le JavaScript fait la conversion. Redéfinit les mêmes variables avec des valeurs inversées pour un rendu clair. */
+  --blue-dark:                        #f4f7fb;                   /* Couleur de fond principal (devient un blanc cassé/gris très clair) */
+  --blue-mid:                         #ffffff;                   /* Fond des cartes/tuiles (blanc pur, se détache légèrement du fond) */
+  --links-active:                     #bdd1ee;                   /* Couleur des liens actifs (bleu très clair) */
+  --blue-light:                       #dce8fb;                   /* Hover et accents (bleu pâle) */
+  --blue-border:                      #2a4a72;                   /* Couleur des bordures (Bleu-foncé) */
+  --white:                            #0d1b2a;                   /* Anciennement "blanc pur" pour le texte principal → devient le bleu très foncé pour rester lisible sur fond clair */
+  --white-soft:                       #4a5568;                   /* Anciennement "texte secondaire clair" → devient un gris foncé doux */
+  --accent:                           #4a9eff;                   /* Bleu vif, légèrement assombri pour garder un bon contraste sur fond clair */
+  --tile-dark-blue-background:        #4777bb;                   /* Fond bleu moyen pour les tuiles */
+  --tile-dark-blue-border:            #142947;                   /* Bordure bleu foncé pour les tuiles */
+  --tile-dark-blue-background-active: #3f578b;                   /* Fond bleu foncé pour les tuiles actives */
+  --tile-dark-blue-border-active:     #0c2747;                   /* Bordure bleu très foncé pour les tuiles actives */
+  --tile-gray-background:             #c9cdd3;                   /* Fond gris clair pour les tuiles */
+  --tile-gray-border:                 #8c9197;                   /* Bordure gris claire pour les tuiles */
+  --tile-gray-border-hover:           #707070;                   /* Bordure gris foncé pour les tuiles au survol */
+  --tile-gray-background-active:      #636262;                   /* Fond gris foncé pour les tuiles actives */
+  --tile-gray-border-active:          #242323;                   /* Bordure gris très foncé pour les tuiles actives */
+  --tile-gray-shadow-hover:           rgba(198, 189, 189, 0.15); /* Ombre gris clair pour les tuiles au survol */
+  --tile-gray-shadow-active:          rgba(20, 19, 19, 0.492);   /* Ombre gris foncé pour les tuiles actives */
+  --overlay-color:                    rgba(255, 255, 255, 0.6);  /* Calque clair pour le thème clair */
+}
+
+/* ---------- Minimal Preset ---------- */
+
+* {                       /* "*" signifie "tous les éléments" */
+  box-sizing: border-box; /* Le padding et la bordure sont inclus dans la largeur/hauteur */
+  margin: 0;              /* Supprime les marges par défaut du navigateur */
+  padding: 0;             /* Supprime les paddings par défaut du navigateur */
+}
+
+body {                                /* Le body est l'élément qui contient tout le contenu de la page */
+  font-family: var(--font-main);      /* Applique la police définie dans :root */
+  background-color: var(--blue-dark); /* Fond bleu très foncé sur toute la page */
+  color: var(--white);                /* Texte blanc par défaut partout */
+  min-height: 100vh;                  /* La page fait au minimum 100% de la hauteur d'écran */
+}
+
+a {                      /* Les liens sont des balises <a> en HTML */
+  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+  color: inherit;        /* Le lien prend la couleur du texte parent au lieu du bleu par défaut */
+}
+
+p {                         /* Les paragraphes sont des balises <p> en HTML */
+  color: var(--white-soft); /* Tous mes paragraphes ont ue couleur un plus terne */
+  font-size: 0.85rem;       /* La taille de ma police */
+  text-align: center;       /* Mes paragraphes sont centrés par défaut */
+}
+
+select {                          /* Mise en forme de mon menu déroulant */
+  background: none;               /* Pas de fond par défaut */
+  border: 1px solid transparent;  /* Toutes les bordures font 1px et sont transparentes (obligation d'utiliser la valeur "solid") */
+  font-size: 0.85rem;             /* La taille de la polidce, 1rem = ? */
+  outline: none;                  /* Supprime le contour bleu par défaut au focus */
+  text-align: center;             /* Texte centré */
+  transition: border-color 0.15s; /* Anime le changement de couleur de la bordure (ex: au survol ou au focus) */
+}
+
+select option {                       /* Mise en forme des options du menu déroulant */
+  background-color: var(--blue-dark); /* J'affecte une couleur avec une de mes variables */
+  color: var(--white);                /* J'affecte une couleur avec une de mes variables */
+  text-align: center;                 /* Texte centré */
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+.navbar {                                   /* Nom de classe pour la barre de navigation */
+  display: flex;                            /* Flexbox pour aligner les éléments */
+  align-items: center;                      /* Centre verticalement le logo et les liens */
+  justify-content: space-between;           /* Logo à gauche, liens à droite */
+  padding: 16px 50px;                       /* 16px haut/bas, 50px gauche/droite */
+  border-bottom: 2px solid var(--blue-border); /* Ligne de séparation en bas */
+}
+
+@media (max-width: 800px) {  /* Style pour tablette et mobile */
+  .navbar {                  /* Je rappel mon nom de classe pour que les changements soient affectés */
+    flex-direction: column;  /* Passe de côte-à-côte à empilé */
+    gap: 12px;               /* Espace entre le logo et les liens */
+  }
+}
+
+.navbar--home {        /* Nom de classe pour la barre de navigation de l'accueil */
+  border-bottom: 0px ; /* Je retire la ligne du bas */
+}
+
+.navbar--footer {                        /* Nom de classe pour le footer de la barre de navigation */
+  border-bottom: none;                   /* Supprime la bordure du bas pour le footer */
+  border-top: 2px solid var(--blue-border); /* Ligne de séparation en haut */
+  padding: 1px 16px;                     /* Moins de padding que la navbar principale */
+}
+
+.navbar--footer p {         /* Cible uniquement les <p> à l'intérieur de .navbar--footer */
+  font-size: 0.75rem;       /* Texte plus petit pour le footer */
+  color: var(--white-soft); /* Gris clair pour le texte du footer */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .navbar--footer {         /* Je rappel mon nom de classe pour que les changements soient affectés */
+    padding: 1px 8px;       /* Je veux que mon padding soit un peu plus petit lorsque l'écran rétrécie */
+    flex-direction: row;    /* Je veux que mon footer soit en ligne lorsque l'écran rétrécie */
+  }
+
+  .navbar--footer p {  /* Cible uniquement les <p> à l'intérieur de .navbar--footer */
+   font-size: 0.60rem; /* Taille de police réduite pour mobile */
+  }
+}
+
+.navbar--footer img { /* Cible uniquement les <img> à l'intérieur de .navbar--footer */
+  max-width: 100%;    /* Ne dépasse jamais la largeur de son conteneur */
+  height: auto;       /* Garde les proportions automatiquement */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .navbar--footer img {     /* Je rappel mon nom de classe pour que les changements soient affectés */
+    width: 40px;            /* Taille fixe plus petite sur mobile */
+    height: 40px;           /* Taille fixe plus petite sur mobile */
+  }
+}
+
+/* ---------- description tableau ---------- */
+
+.foot_record {                   /* Nom de classe pour le footer de mes tableaux */
+  display: flex;                 /* Flexbox pour aligner mes paragraphes */
+  flex-direction: row;           /* Les paragraphes sont côte à côte */
+  justify-content: space-evenly; /* Espace égal entre les paragraphes */
+  align-items: center;           /* Centre verticalement les paragraphes */
+  margin-top: 12px;              /* 12px d'espace au-dessus */
+  margin-bottom: 24px;           /* 12px d'espace au-dessus et 24px d'espace en dessous */ 
+}
+
+.navbar__logo {        /* Nom de classe pour le logo dans la barre de navigation */
+  display: flex;       /* Flexbox pour aligner le logo et le texte */
+  align-items: center; /* Centre verticalement le logo et le texte */
+  gap: 12px;           /* 12px d'espace entre le logo et le texte */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .navbar__logo{            /* Je rappel mon nom de classe pour que les changements soient affectés */
+    gap: 8px;               /* Je veux que l'espace entre le logo et le texte soit un peu plus petit lorsque l'écran rétrécie */
+  }
+
+  .navbar__logo img{ /* Je rappel mon nom de classe pour que les changements soient affectés */
+    width: 80px;     /* Taille fixe plus petite sur mobile */
+    height: 80px;    /* Taille fixe plus petite sur mobile */
+  }
+
+  .navbar__logo a {     /* Je rappel mon nom de classe pour que les changements soient affectés */
+    text-align: center; /* Je centre mon lien pour que se soit un peu plus esthétique */
+  }
+}
+
+.navbar__brand {                             /* Nom de classe pour le texte du logo dans la barre de navigation */
+  padding: 12px 28px;                        /* Zone cliquable confortable autour du texte */
+  border-radius: 12px;                       /* Coins légèrement arrondis */
+  font-size: 1.5rem;                         /* Taille normale */
+  font-weight: 700;                          /* Gras */
+  letter-spacing: 0.05em;                    /* Écarte légèrement les lettres (effet "titre") */
+  color: var(--white);                       /* Blanc pur */
+  transition: background 0.15s, color 0.15s; /* Anime le fond et la couleur en 0.15s */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .navbar__brand{           /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1rem;        /* Je veux que mon texte du logo soit un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+.navbar__links { /* Nom de classe pour le conteneur des liens dans la barre de navigation */
+  display: flex; /* Aligne les liens côte à côte */
+  gap: 8px;      /* 8px d'espace entre chaque lien */
+}
+
+@media (max-width: 800px) {         /* Style pour tablette et mobile */
+  .navbar__links{                   /* Je rappel mon nom de classe pour que les changements soient affectés */
+    gap: 4px;                       /* Je veux que l'espace entre mes liens soit un peu plus petit lorsque l'écran rétrécie */
+    display: grid;                  /* Passe en grille au lieu de flex */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    width: 100%;                    /* Prend toute la largeur disponible */
+  }
+}
+
+.navbar__links a {                         /* Cible uniquement les <a> à l'intérieur de .navbar__links */
+  padding: 10px 16px;                      /* Zone cliquable confortable autour du texte */
+  border-radius: 12px;                     /* Coins légèrement arrondis */
+  font-size: 1rem;                         /* Texte un peu plus petit que la normale */
+  color: var(--white-soft);                /* Gris clair par défaut (pas actif) */
+  transition: background 0.3s, color 0.3s; /* Anime le fond et la couleur en 0.15s */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .navbar__links a {        /* Je rappel mon nom de classe pour que les changements soient affectés */
+    padding: 8px 12px;      /* Je veux que mon padding soit un peu plus petit lorsque l'écran rétrécie */
+    font-size: 0.85rem;     /* Je veux que mon texte des liens soit un peu plus petit lorsque l'écran rétrécie */
+    text-align: center;     /* Je veux que mon texte des liens soit centré lorsque l'écran rétrécie */
+    box-sizing: border-box; /* Le padding ne fait pas déborder */
+  }
+}
+
+.navbar__brand:hover, .navbar__links a:hover, .navbar__links a.active { /* Quand la souris passe dessus (hover) ou quand le lien est la page actuelle (active) */
+  background: var(--links-active);                                      /* Fond bleu moyen */
+  color: var(--white-soft);                                             /* Texte blanc pur */
+}
+
+/* ---------- Navgation Spécifique ---------- */
+
+.nav_scoring {            /* Nom de classe pour le conteneur de navigation spécifique aux pages de scoring */
+  display: flex;          /* Flexbox pour aligner les éléments */
+  flex-direction: column; /* Les éléments s'empilent verticalement */
+  align-items: center;    /* Centre horizontalement les éléments */
+}
+
+.nav_scoring div {     /* Cible uniquement les <div> à l'intérieur de .nav_scoring */
+  display: flex;       /* Flexbox pour aligner les éléments */
+  flex-direction: row; /* Les éléments sont côte à côte */
+  gap: 24px;           /* 24px d'espace entre chaque élément */
+  margin-top: 24px;    /* 24px d'espace au-dessus du conteneur */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .nav_scoring {            /* Je rappel mon nom de classe pour que les changements soient affectés */
+    flex-direction: column; /* Passe de côte-à-côte à empilé */
+  }
+
+  .nav_scoring div{                 /* Je rappel mon nom de classe pour que les changements soient affectés */
+    display: grid;                  /* Passe en grille au lieu de flex */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+  }
+
+}
+
+/* ============================================================
+   PAGE D'ACCUEIL
+   ============================================================ */
+
+.home {                          /* Nom de classe pour la section principale de la page d'accueil */
+  display: flex;                 /* Active Flexbox pour organiser les enfants */
+  flex-direction: column;        /* Les enfants s'empilent verticalement */
+  align-items: center;           /* Centre tout horizontalement */
+  justify-content: center;       /* Centre tout verticalement */
+  min-height: 100vh;             /* La section fait au moins 100% de la hauteur de l'écran */
+  padding: 40px 20px 100px 20px; /* 40px en haut, 20px à droite, 100px en bas, 20px à gauche */
+  gap: 60px;                     /* Espace de 48px entre chaque enfant direct */
+}
+
+.home__header {       /* Nom de classe pour l'en-tête de la page d'accueil */
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+.home__title {             /* Nom de classe pour le titre principal de la page d'accueil */
+  font-size: 2.4rem;       /* Taille de police (2.4x la taille de base, ~38px) */
+  font-weight: 700;        /* Texte en gras */
+  letter-spacing: -0.02em; /* Resserre légèrement les lettres entre elles */
+  margin-bottom: 10px;     /* Je rajoute un peu d'espace entre mon titre et mes sous-titre */
+}
+
+@media (max-width: 800px) {  /* Style pour tablette et mobile */
+  .home__title {             /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1.8rem;       /* Je veux que mon titre soit un peu plus petit lorsque l'écran rétrécie */
+    letter-spacing: -0.01em; /* Je veux que mon titre soit un peu moins serré lorsque l'écran rétrécie */
+  }
+}
+
+.home__subtitle {           /* Nom de classe pour le sous-titre de la page d'accueil */
+  margin-top: 10px;         /* Espace de 10px au-dessus */
+  margin-bottom: 10px;      /* Espace de 10px en dessous */
+  font-size: 1rem;          /* Taille normale (16px par défaut) */
+  color: var(--white-soft); /* Couleur définie dans mes variables */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .home__subtitle {         /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.85rem;     /* Je veux que mon sous-titre soit un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+/* ---------- Grille de tuiles ---------- */
+
+.home__nav {               /* Mon style par défaut pour ordinateur */
+  display: flex;           /* Active Flexbox même si un parent a déjà "display: flex;" */
+  gap: 36px;               /* 24px d'espace entre chaque tuile */
+  flex-wrap: wrap;         /* Les tuiles passent à la ligne si l'écran est trop petit */
+  justify-content: center; /* Centre les tuiles horizontalement */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .home__nav {              /* Je rappel mon nom de classe pour que les changements soient affectés */
+    flex-wrap: wrap;        /* Les tuiles passent à la ligne si l'écran est trop petit */
+    gap: 20px               /* Je veux que je le gap entre mes tuiles soient un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+/* ============================================================
+   En-têtes des Sections
+   ============================================================ */
+
+  /* ---------- Tuile d'en-tête des Sections ---------- */
+
+    .header {                                                /* Nom de classe pour l'en-tête de mes sections */
+      position: relative;                                    /* Nécessaire pour que le ::after puisse se positionner par rapport à la tuile */
+      /* ----- Le fond de ma tuile avec l'image ----- */
+      background-image: url("../images/Scoring-Tables.jpg"); /* Image de fond */
+      background-size: cover;                                /* L'image couvre toute la tuile */
+      background-position: center;                           /* Centre l'image */
+      background-repeat: no-repeat;                          /* L'image ne se répète pas */
+      /* ----- Le reste du style de la tuile ----- */
+      justify-content: center;                               /* Centre horizontalement */
+      padding: 80px 20px;                                    /* 80px haut/bas, 20px gauche/droite */
+      border-radius: var(--radius);                          /* Coins arrondis */
+      border-top-left-radius: 150px;                         /* Coin supérieur gauche plus arrondi */
+      border-bottom-right-radius: 150px;                     /* Coin inférieur droit plus arrondi */
+      border: 1px solid var(--blue-border);                  /* Bordure bleue */
+      margin: 24px auto;                                     /* 24px haut/bas, AUTO gauche/droite = centrage automatique */
+      width: 95%;                                            /* Prend toute la largeur disponible */
+    }
+
+    @media (max-width: 800px) { /* Style pour tablette et mobile */
+      .header {                 /* Je rappel mon nom de classe pour que les changements soient affectés */
+        padding: 40px 20px;     /* Je veux que mon padding soit un peu plus petit lorsque l'écran rétrécie */
+      }
+    }
+
+    /* ---------- Calque sombre par-dessus l'image ---------- */
+
+    .header::after {                     /* Pseudo-élément qui crée un calque sombre par-dessus l'image */
+      content: "";                       /* Nécessaire pour créer un pseudo-élément */
+      position: absolute;                /* Positionné par rapport à .header */
+      inset: 0;                          /* Couvre toute la tuile */
+      background: var(--overlay-color);  /* Noir à 50% d'opacité */
+      border-radius: var(--radius);      /* Même arrondi que la tuile pour que le calque suive la forme */
+      border-top-left-radius: 150px;     /* Même arrondi que la tuile pour que le calque suive la forme */
+      border-bottom-right-radius: 150px; /* Même arrondi que la tuile pour que le calque suive la forme */
+    }
+
+  /* ---------- Le titre doit passer au-dessus du calque ---------- */
+
+    .header h1 {          /* Cible le titre à l'intérieur de .header */
+      position: relative; /* Nécessaire pour que le titre puisse se positionner par rapport à la tuile */
+      text-align: center; /* Centre le texte à l'intérieur */
+      z-index: 1;         /* Passe au-dessus du ::after */
+    }
+
+    @media (max-width: 800px) { /* Style pour tablette et mobile */
+      .header h1 {              /* Je rappel mon nom de classe pour que les changements soient affectés */
+        font-size: 1.25rem;     /* Je veux que mon titre soit un peu plus petit lorsque l'écran rétrécie */
+      }
+    }
+
+    .header--dashboard {                                /* Nom de classe spécifique pour l'en-tête du Dashboard */
+      background-image: url("../images/Dashboard.jpg"); /* Image de fond spécifique pour le Dashboard */
+      background-position: 20% 20%;                     /* Décale l'image pour mieux centrer le sujet important */
+    }
+
+    .header--laboratoire {                                /* Nom de classe spécifique pour l'en-tête du Laboratoire */
+      background-image: url("../images/Laboratoire.jpg"); /* Image de fond spécifique pour le Laboratoire */
+      background-position: 20% 72%;                       /* Décale l'image pour mieux centrer le sujet important */
+    }
+
+/* ============================================================
+   Tuiles
+   ============================================================ */
+
+.tile {                                                           /* Nom de classe pour toutes mes tuiles */
+  display: flex;                                                  /* Flexbox pour organiser le contenu */
+  flex-direction: column;                                         /* Empile les éléments verticalement */
+  gap: 12px;                                                      /* 12px d'espace entre chaque élément */
+  width: 240px;                                                   /* Largeur fixe de la tuile */
+  padding: 32px 32px;                                             /* 32px haut/bas, 32px gauche/droite */
+  background: var(--blue-mid);                                    /* Couleur de fond (variable) */
+  border: 2px solid var(--blue-border);                           /* Bordure fine (variable) */
+  border-radius: var(--radius);                                   /* Coins arrondis (variable) */
+  cursor: pointer;                                                /* Le curseur devient une main au survol */
+  transition: transform 0.5s, border-color 0.5s, box-shadow 0.5s; /* ↑ Anime doucement ces 3 propriétés en 0.5s lors d'un changement */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile {                   /* Je rappel mon nom de classe pour que les changements soient affectés */
+    gap: 10px;              /* Je veux que l'espace entre mes éléments soit un peu plus petit lorsque l'écran rétrécie */
+    width: 150px;           /* Je veux que mes tuiles soient un peu plus petites lorsque l'écran rétrécie */
+    padding: 12px 16px;     /* 12px haut/bas, 16px gauche/droite */
+  }
+}
+
+.tile:hover {                                     /* Quand la souris passe sur la tuile */
+  transform: translateY(-6px);                    /* Monte la tuile de 4px */
+  border-color: var(--accent);                    /* Change la couleur de la bordure */
+  box-shadow: 0 8px 24px rgba(74,158,255,0.30); /* ↑ Ajoute une ombre bleue en dessous (décalée de 8px, étalée sur 24px, 30% d'opacité) */
+}
+
+.tile__icon {           /* Nom de classe pour l'icône dans la tuile */
+  font-size: 1.8rem;    /* Icône assez grande */
+  color: var(--accent); /* Couleur d'accentuation (bleu, variable) */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile__icon {             /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1.5rem;      /* Je veux que mes icônes soient un peu plus petites lorsque l'écran rétrécie */
+  }
+}
+
+.tile__title {        /* Nom de classe pour le titre dans la tuile */
+  font-size: 0.85rem; /* Légèrement plus grand que le texte normal */
+  font-weight: 700;   /* Gras */
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile__title {            /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.75rem;     /* Je veux que mes titres soient un peu plus petits lorsque l'écran rétrécie */
+  }
+}
+
+.tile__title--choix { /* Nom de classe pour le titre dans la tuile spécifique aux choix */
+  font-size: 0.65rem; /* Légèrement plus grand que le texte normal */
+  font-weight: 500;   /* Gras */
+}
+
+.tile__desc {               /* Nom de classe pour la description dans la tuile */
+  font-size: 0.75rem;       /* Texte plus petit */
+  color: var(--white-soft); /* Couleur atténuée (gris clair) */
+  line-height: 1.5;         /* Interligne confortable (1.5x la taille du texte) */
+  flex: 1;                  /* Prend tout l'espace vertical disponible */
+  text-align: center;       /* Centre le texte à l'intérieur */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile__desc {             /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.60rem;     /* Je veux que mes descriptions soient un peu plus petites lorsque l'écran rétrécie */
+  }
+}
+
+.tile__arrow {          /* Nom de classe pour la flèche dans la tuile */
+  font-size: 1.2rem;    /* Taille moyenne */
+  color: var(--accent); /* Même couleur que l'icône */
+  align-self: flex-end; /* Se colle à droite dans le conteneur flex */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile__arrow {            /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1.0rem;      /* Je veux que mes flèches soient un peu plus petites lorsque l'écran rétrécie */
+  }
+}
+
+/* ---------- Couleurs des Tuiles ---------- */
+/* ---------- Dark Blue ---------- */
+
+.tile--darkblue {                               /* Nom de classe pour la tuile bleu foncé */
+  background: var(--tile-dark-blue-background); /* Fond bleu foncé */
+  border-color: var(--tile-dark-blue-border);   /* Bordure bleu moyen */
+}
+
+.tile--darkblue:hover {                          /* Quand la souris passe sur la tuile bleu foncé */
+  border-color: var(--accent);                   /* Bordure bleu clair */
+  box-shadow: 0 8px 24px rgba(42,95,160,0.15); /* Ombre bleu clair */
+}
+
+.tile--darkblue .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--darkblue */
+  color: var(--accent);       /* Bleu vif */
+}
+
+.tile--darkblue .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--darkblue */
+  color: var(--accent);        /* Bleu vif */
+}
+
+.tile--darkblue--bilans { /* Nom de classe pour la tuile bleu foncé spécifique aux bilans */
+  gap: 8px;               /* Moins d'espace entre les éléments */
+  width: 150px;           /* Plus petite que 240px */
+  padding: 20px 28px;     /* Moins de padding */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile--darkblue--bilans{  /* Je rappel mon nom de classe pour que les changements soient affectés */
+    width: 120px;           /* Je veux que mes tuiles soient un peu plus petites lorsque l'écran rétrécie */
+    padding: 12px 16px;     /* Je veux que mon padding soit un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+.tile--darkblue--bilans.active {                             /* Quand la tuile bleu foncé spécifique aux bilans est active (ex: sélectionnée) */
+  background-color: var(--tile-dark-blue-background-active); /* Fond bleu un peu plus clair */
+  border-color: var(--tile-dark-blue-border-active);         /* Bordure bleu clair */
+  box-shadow: 0 8px 24px var(--tile-gray-shadow-active);     /* Ombre bleu clair */
+}
+
+.tile--darkblue--bilans--choix { /* Nom de classe pour la tuile bleu foncé spécifique aux bilans et aux choix */
+  width: 100px;                  /* Plus petite que 240px */
+  padding: 16px 20px;            /* Moins de padding */
+}
+
+/* ---------- Gray ---------- */
+
+.tile--gray {                              /* Nom de classe pour la tuile gris foncé */
+  width: 240px;                            /* Plus petite que 240px */
+  padding: 24px 24px;                      /* Moins de padding */
+  background: var(--tile-gray-background); /* Fond gris foncé */
+  border-color: var(--tile-gray-border);   /* Bordure gris moyen */
+}
+
+@media (max-width: 800px) {  /* Style pour tablette et mobile */
+  .tile--gray {              /* Je rappel mon nom de classe pour que les changements soient affectés */
+    width: 140px;            /* Je veux que mes tuiles soient un peu plus petites lorsque l'écran rétrécie */
+    padding: 30px 20px;      /* 12px haut/bas, 16px gauche/droite */
+    display: flex;           /* Flexbox pour organiser le contenu */
+    flex-direction: column;  /* Si plusieurs éléments empilés dans la tuile */
+    align-items: center;     /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    text-align: center;      /* Centre le texte si multi-lignes */
+  }
+}
+
+.tile--gray:hover {                                     /* Quand la souris passe sur la tuile gris foncé */
+  border-color: var(--tile-gray-border-hover);          /* Bordure gris clair */
+  box-shadow: 0 8px 24px var(--tile-gray-shadow-hover); /* Ombre gris clair */
+}
+
+.tile--gray.active {                                     /* Quand la tuile gris foncé est active (ex: sélectionnée) */
+  background-color: var(--tile-gray-background-active);  /* Fond gris un peu plus clair */
+  border-color: var(--tile-gray-border-active);          /* Bordure gris clair */
+  box-shadow: 0 8px 24px var(--tile-gray-shadow-active); /* Ombre gris clair */
+}
+
+.tile__title--gray {  /* Nom de classe pour le titre dans la tuile */
+  font-size: 0.85rem; /* Légèrement plus grand que le texte normal */
+  font-weight: 700;   /* Gras */
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .tile__title--gray {      /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.6rem;      /* Je veux que mes titres soient un peu plus petits lorsque l'écran rétrécie */
+  }
+}
+
+.tile--gray .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--gray */
+  color: #909090;       /* Gris clair */
+}
+
+.tile--gray .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--gray */
+  color: #909090;        /* Gris clair */
+}
+
+/* ---------- Green ---------- */
+
+.tile--green {             /* Nom de classe pour la tuile vert foncé */
+  width: 190px;            /* Plus petite que 240px */
+  padding: 22px 20px;      /* Moins de padding */
+  background: #1a3d2b;   /* Vert foncé */
+  border-color: #2d6a45; /* Bordure verte */
+}
+
+.tile--green:hover {                              /* Quand la souris passe sur la tuile vert foncé */
+  border-color: #4caf7d;                        /* Vert clair au hover */
+  box-shadow: 0 8px 24px rgba(76,175,125,0.15); /* Ombre verte */
+}
+
+.tile--green .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--green */
+  color: #009933;        /* Vert vif */
+}
+
+.tile--green .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--green */
+  color: #009933;         /* Vert vif */
+}
+
+/* ---------- Red ---------- */
+
+.tile--red {               /* Nom de classe pour la tuile rouge foncé */
+  background: #3d1a1a;   /* Rouge foncé */
+  border-color: #6a2d2d; /* Bordure rouge */
+}
+
+.tile--red:hover {                               /* Quand la souris passe sur la tuile rouge foncé */
+  border-color: #af4c4c;                       /* Rouge clair */
+  box-shadow: 0 8px 24px rgba(175,76,76,0.15); /* Ombre rouge */
+}
+
+.tile--red .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--red */
+  color: #cc3333;      /* Rouge vif */
+}
+
+.tile--red .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--red */
+  color: #cc3333;       /* Rouge vif */
+}
+
+/* ---------- Yellow ---------- */
+
+.tile--yellow {            /* Nom de classe pour la tuile jaune foncé */
+  background: #3d3500;   /* Jaune foncé */
+  border-color: #6a5c00; /* Bordure jaune */
+}
+
+.tile--yellow:hover {                            /* Quand la souris passe sur la tuile jaune foncé */
+  border-color: #af9a00;                       /* Jaune clair */
+  box-shadow: 0 8px 24px rgba(175,154,0,0.15); /* Ombre jaune */
+}
+
+.tile--yellow .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--yellow */
+  color: #ccaa00;         /* Jaune vif */
+}
+
+.tile--yellow .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--yellow */
+  color: #ccaa00;          /* Jaune vif */
+}
+
+/* ---------- Brown ---------- */
+
+.tile--brown {             /* Nom de classe pour la tuile marron foncé */
+  background: #2e1a0e;   /* Marron foncé */
+  border-color: #5c3418; /* Bordure marron */
+}
+
+.tile--brown:hover {                             /* Quand la souris passe sur la tuile marron foncé */
+  border-color: #a05a28;                       /* Marron clair */
+  box-shadow: 0 8px 24px rgba(160,90,40,0.15); /* Ombre marron */
+}
+
+.tile--brown .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--brown */
+  color: #c47a3a;        /* Marron vif */
+}
+
+.tile--brown .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--brown */
+  color: #c47a3a;         /* Marron vif */
+}
+
+/* ---------- Purple ---------- */
+
+.tile--purple {            /* Nom de classe pour la tuile violet foncé */
+  background: #1e0d3d;   /* Violet foncé */
+  border-color: #3d1f6a; /* Bordure violet */
+}
+
+.tile--purple--scoring { /* Nom de classe pour la tuile violet foncé spécifique aux scoring */
+  gap: 8px;              /* Moins d'espace entre les éléments */
+  width: 150px;          /* Plus petite que 240px */
+  padding: 20px 28px;    /* Moins de padding */
+}
+
+.tile--purple--scoring.active {                  /* Quand la tuile violet foncé spécifique aux scoring est active (ex: sélectionnée) */
+  background-color: #2a1e5c;                   /* Fond violet un peu plus clair */
+  border-color: #5c3a9a;                       /* Bordure violet clair */
+  box-shadow: 0 8px 24px rgba(92,58,154,0.15); /* Ombre violet clair */
+}
+
+.tile--purple:hover {                             /* Quand la souris passe sur la tuile violet foncé */
+  border-color: #7a3faf;                        /* Violet clair */
+  box-shadow: 0 8px 24px rgba(122,63,175,0.15); /* Ombre violet clair */
+}
+
+.tile--purple .tile__icon { /* Cible uniquement l'icône à l'intérieur de .tile--purple */
+  color: #9d55cc;         /* Violet vif */
+}
+
+.tile--purple .tile__arrow { /* Cible uniquement la flèche à l'intérieur de .tile--purple */
+  color: #9d55cc;          /* Violet vif */
+}
+
+/* ----------  ---------- */
+
+.tile__centering {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.tile__centering--1 {
+  margin-top: 24px;
+  padding-top: 10px;
+}
+
+/* ============================================================
+   PAGES INTÉRIEURES — structure commune
+   ============================================================ */
+
+.page {                   /* Nom de classe pour toutes les pages intérieures */
+  display: flex;          /* Flexbox pour organiser navbar + contenu */
+  flex-direction: column; /* Empile verticalement (navbar en haut, contenu en bas) */
+  min-height: 100vh;      /* La page occupe au minimum toute la hauteur de l'écran */
+}
+
+.page__header {       /* Nom de classe pour l'en-tête de la page */
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+.page__title {             /* Nom de classe pour le titre principal de la page */
+  font-size: 2.4rem;       /* Taille de police (2.4x la taille de base, ~38px) */
+  font-weight: 700;        /* Texte en gras */
+  letter-spacing: -0.02em; /* Resserre légèrement les lettres entre elles */
+  margin-bottom: 10px;     /* Je rajoute un peu d'espace entre mon titre et mes sous-titre */
+}
+
+@media (max-width: 800px) {   /* Style pour tablette et mobile */
+  .page__title {              /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1.8rem;        /* Je veux que mon titre soit un peu plus petit lorsque l'écran rétrécie */
+    letter-spacing: -0.01em;  /* Je veux que mon titre soit un peu moins serré lorsque l'écran rétrécie */
+  }
+}
+
+.page__subtitle {           /* Nom de classe pour le sous-titre de la page */
+  margin-top: 10px;         /* Espace de 10px au-dessus */
+  margin-bottom: 10px;      /* Espace de 10px en dessous */
+  font-size: 1rem;          /* Taille normale (16px par défaut) */
+  color: var(--white-soft); /* Couleur définie dans mes variables */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .page__subtitle {         /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.85rem;     /* Je veux que mon sous-titre soit un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+.page__subtitle--footer {   /* Nom de classe pour le sous-titre de la page */
+  margin-top: 10px;         /* Espace de 10px au-dessus */
+  margin-bottom: 10px;      /* Espace de 10px en dessous */
+  font-size: 1rem;          /* Taille normale (16px par défaut) */
+  color: var(--white-soft); /* Couleur définie dans mes variables */
+}
+
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .page_subtitle--footer {  /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 0.5rem;      /* Je veux que mon sous-titre soit un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+.page__nav {               /* Mon style par défaut pour ordinateur */
+  display: flex;           /* Active Flexbox même si un parent a déjà "display: flex;" */
+  gap: 36px;               /* 24px d'espace entre chaque tuile */
+  flex-wrap: wrap;         /* Les tuiles passent à la ligne si l'écran est trop petit */
+  justify-content: center; /* Centre les tuiles horizontalement */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .page__nav {              /* Je rappel mon nom de classe pour que les changements soient affectés */
+    flex-wrap: wrap;        /* Les tuiles passent à la ligne si l'écran est trop petit */
+    gap: 20px               /* Je veux que je le gap entre mes tuiles soient un peu plus petit lorsque l'écran rétrécie */
+  }
+}
+
+/* ============================================================
+   CARTES
+   ============================================================ */
+
+.card {                                 /* Nom de classe pour toutes les cartes */
+  background: var(--blue-mid);          /* Fond bleu moyen (plus clair que la page) */
+  border: 1px solid var(--blue-border); /* Bordure fine */
+  border-radius: var(--radius);         /* Coins arrondis (variable définie dans :root) */
+  padding: 24px;                        /* 24px d'espace intérieur sur tous les côtés */
+  margin: 24px 20px;                    /* 12px haut/bas, 16px gauche/droite */
+  align-items: center;                  /* Centre le contenu horizontalement */
+  max-width: 100%;                      /* Assure que la carte ne dépasse pas la largeur de son conteneur parent */
+}
+
+.card--tables { /* Nom de classe pour toutes les cartes */
+  width: 40%;   /* Fond bleu moyen (plus clair que la page) */
+}
+
+.card__title {          /* Nom de classe pour tous les titres des cartes */
+  font-size: 1.5rem;    /* Taille normale */
+  font-weight: 600;     /* Semi-gras (entre normal et gras) */
+  margin-bottom: 20px;  /* Espace sous le titre */
+  padding-bottom: 12px; /* Espace entre le texte et la ligne */
+  text-align: center;   /* Centre le texte à l'intérieur */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .card__title {            /* Je rappel mon nom de classe pour que les changements soient affectés */
+    font-size: 1.25rem;     /* Taille de police un peu plus petite */
+    margin-bottom: 10px;    /* Espace sous le titre */
+    padding-bottom: 6px;    /* Espace entre le texte et la ligne */
+  }
+}
+
+.card__title--subtitle {          /* Nom de classe pour tous les sous-titres des cartes */
+  display: flex;                  /* Flexbox pour aligner les éléments horizontalement */
+  justify-content: space-evenly;  /* Permet d'espacer similairement les sous-titres */
+  margin-bottom: 20px;            /* Espace sous le titre */
+}
+
+@media (max-width: 800px) {         /* Style pour tablette et mobile */
+  .card__title--subtitle {          /* Je rappel mon nom de classe pour que les changements soient affectés */
+    display: grid;                  /* Passe en grille au lieu de flex */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    justify-items: center;          /* Centre chaque tuile horizontalement DANS sa case */
+    gap: 6px;                       /* Un peu d'espace entre les tuiles, si pas déjà présent */
+  }
+}
+
+.card__research {         /* Nom de classe pour toutes les cartes de recherche */
+  display: flex;          /* Flexbox pour organiser le contenu */
+  flex-direction: column; /* Empile les éléments verticalement */
+  align-items: center;    /* Centre le contenu horizontalement */
+  width: 400px;           /* Largeur fixe de la carte */
+}
+
+.card__research--point {               /* Nom de classe pour toutes les cartes de recherche */
+  background-color: var(--blue-light); /* Fond bleu clair */
+}
+
+.card__research p {   /* Cible tous les paragraphes à l'intérieur de .card__research */
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+.card--women {             /* Nom de classe pour toutes les cartes de recherche */
+  background: #3d2a4d;   /* Violet foncé */
+  border-color: #6a4a7a; /* Bordure violette */
+}
+
+.card__input {
+  display: flex; /* Flexbox pour organiser */
+  justify-content: space-between; 
+  align-items: center
+} /* Pas vu d'utilisation de cette classe */
+
+/* ============================================================
+   PANELS (CONTENEUR POUR LES CARTES)
+   ============================================================ */
+
+.panel {                         /* Nom de classe pour tous les panels */
+  display: flex;                 /* Flexbox pour organiser le contenu */
+  flex-direction: row;           /* Empile les éléments horizontalement */
+  justify-content: space-evenly; /* Permet d'espacer similairement les cartes */
+  align-items: center;           /* Centre le contenu verticalement */
+}
+
+.panel__arrow {             /* Nom de classe pour la flèche dans le panel */
+  color: var(--blue-light); /* Couleur bleu clair */
+  display: flex;            /* Flexbox pour organiser le contenu */
+  align-items: center;      /* Centre le contenu verticalement */
+  font-size: 2.5rem;        /* Taille de la flèche */
+}
+
+.panel__section { /* Nom de classe pour la section dans le panel */
+  display: flex;  /* Flexbox pour organiser le contenu */
+}
+
+/* ============================================================
+   BOUTONS
+   ============================================================ */
+
+.btn {                                        /* Nom de classe pour tous les boutons */
+  display: flex;                              /* Flexbox pour organiser le contenu */
+  align-items: center;                        /* Centre le contenu verticalement */
+  justify-content: center;                    /* Centre le contenu horizontalement */
+  padding: 8px 14px;                          /* 9px haut/bas, 20px gauche/droite */
+  border-radius: 8px;                         /* Coins arrondis */
+  font-size: 0.85rem;                         /* Texte légèrement plus petit */
+  font-weight: 600;                           /* Semi-gras */
+  cursor: pointer;                            /* Curseur main au survol */
+  border: none;                               /* Supprime la bordure par défaut des boutons HTML */
+  font-family: var(--font-main);              /* Force la police du site (les boutons ont leur propre police par défaut) */
+  margin-top: 10px;                           /* Ajoute un peu d'espace au-dessus du bouton */
+  transition: opacity 0.15s, transform 0.15s; /* Anime l'opacité et le déplacement */
+}
+
+.btn:hover {                   /* Quand la souris passe sur le bouton */
+  opacity: 0.85;               /* Légèrement plus transparent */
+  transform: translateY(-1px); /* Monte légèrement le bouton */
+}
+
+.btn--primary {              /* Nom de classe pour le bouton principal */
+  background: var(--accent); /* Fond violet */
+  color: var(--white);       /* Texte blanc */
+}
+
+.btn--secondary {
+  background: var(--blue-light);
+  color: var(--white);
+} /* Pas vu d'utilisation de cette classe */
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--blue-border);
+  color: var(--white-soft);
+} /* Pas vu d'utilisation de cette classe */
+
+.btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--white);
+} /* Pas vu d'utilisation de cette classe */
+
+/* ============================================================
+   TABLEAU
+   ============================================================ */
+
+.table-wrapper {                        /* Nom de classe pour mes tableaux */
+  overflow-x: auto;                     /* Ajoute une barre de défilement horizontale si le tableau dépasse la largeur du conteneur */
+  border-radius: 8px;                   /* Coins arrondis pour le conteneur du tableau */
+  border: 1px solid var(--blue-border); /* Bordure pour délimiter le tableau */
+}
+
+table {                      /* Sélectionne toutes les balises <table> */
+  width: 100%;               /* Le tableau prend tout la largueur disponible */
+  border-collapse: collapse; /* Fusionne les bordures des cellules en une seul (évite le double-trait) */
+}
+
+thead th {                      /* Cible les cellules d'en-tête (<th>) dans le <thead> */
+  padding: 11px 14px;           /* 11ps en haut/bas, 14px à gauche/droite */
+  text-align: center;           /* Texte centré */
+  background: var(--blue-dark); /* Couleur de fond de l'en-tête */
+  color: var(--white-soft);     /* Couleur du texte de l'en-tête */
+  font-size: 1.1rem;            /* Taille de la police */
+  font-weight: 600;             /* Épaisseur semi-grasse */
+  text-transform: capitalize;   /* Met une majuscule au début de chaque mot */
+  letter-spacing: 0.06em;       /* Écarte légèrement les lettres */
+  white-space: nowrap;          /* Empêche le texte de l'en-tête de passer à la ligne */
+  cursor: pointer;              /* Curseur en forme de main (indique que c'est cliquable, ex : tri) */
+  user-select: none;            /* Empêche la sélection du texte au clic (évite la surbrillance accidentelle) */
+}
+
+thead th:hover {       /* Quand la souris survole une cellule d'en-tête */
+  color: var(--white); /* Le texte devient blanc pur */
+}
+
+tbody tr {                                  /* Cible chaque ligne (<tr>) du corps du tableau */
+  border-top: 1px solid var(--blue-border); /* Ligne de séparation fine en haut de chaque ligne */
+  font-size: 1rem;                          /* Taille de la police des lignes */
+}
+
+tr:nth-child(even) {             /* Cible une ligne sur deux (lignes paires) */
+  background: var(--blue-light); /* Fond légèrement coloré pour alterner les lignes (effet "zébré") */
+}
+
+tbody tr:hover {             /* Quand la souris survole une ligne du corps du tableau */
+  background: var(--accent); /* Change le fond pour mttre la ligne en évidence */
+}
+
+tbody td {            /* Cible chaque cellule (<td>) du corps du tableau */
+  padding: 10px 14px; /* 10px en haut/bas, 14px à gauche/droite */
+}
+
+tbody tr.ligne-recente {
+  background: #333300; /* surbrillance pour les records 2026 */
+}
+
+tbody tr.ligne-recente:hover {
+  background: #535301; /* garde l'effet de survol habituel */
+}
+
+/* ---------- Tableaux des records ---------- */
+
+.table-wrapper__record {
+  margin: 0 auto; /* Centre le tableau horizontalement */
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--blue-border);
+  width: 1000px;
+}
+.table-wrapper__record table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.85rem;
+}
+.table-wrapper__record tbody tr {
+  border-top: 1px solid var(--blue-border);
+}
+.table-wrapper__record tr:nth-child(odd) {
+  background: var(--blue-mid);
+}
+.table-wrapper__record tbody tr:hover {
+  background: var(--accent);
+}
+.table-wrapper__record thead th:hover {
+  color: var(--white);
+}
+.table-wrapper__record tbody tr.record-highlight {
+  background-color: #333300;
+}
+.table-wrapper__record tbody tr.record-highlight:hover {
+  background-color: #535301;
+}
+
+/* ============================================================
+   BARRE DE RECHERCHE
+   ============================================================ */
+
+.search-bar {                    /* Nom de classe pour la barre de recherche */
+  display: flex;                 /* Flexbox pour aligner les éléments horizontalement */
+  justify-content: space-evenly; /* Permet d'avoir un espacement similaire entre mes boîtes de recherches */
+}
+
+@media (max-width: 800px) {         /* Style pour tablette et mobile */
+  .search-bar {                     /* Je rappel mon nom de classe pour que les changements soient affectés */
+    display: grid;                  /* Passe en grille au lieu de flex */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    justify-items: center;          /* Centre chaque tuile horizontalement DANS sa case */
+    gap: 6px;                       /* Un peu d'espace entre les tuiles, si pas déjà présent */
+  }
+}
+
+.search-input {                         /* Nom de classe pour les champs de recherche */
+  padding: 8px 14px;                    /* 8px en haut/bas, 14px à gauche/droite */
+  background: var(--blue-dark);         /* Couleur de fond des champs de recherche */
+  border: 1px solid var(--blue-border); /* Bordure fine */
+  border-radius: 8px;                   /* Courbure des bords */
+  color: var(--white);                  /* Blanc */
+  font-size: 0.85rem;                   /* Taille de la police */
+  font-family: var(--font-main);        /* Police */
+  outline: none;                        /* Supprime le contour bleu par défaut du navigateur */
+  width: 200px;                         /* Largeur de mon champ */
+  text-align: center;                   /* Le texte est centré */
+  transition: border-color 0.15s;       /* Transition */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .search-input {           /* Je rappel mon nom de classe pour que les changements soient affectés */
+    padding: 10px 8px;      /* 10px en haut/bas, 8px à gauche/droite */
+    font-size: 0.75rem;     /* Taille de la police */
+    width: 120px;           /* Largeur de mon champ */
+  }
+}
+
+.search-input::placeholder { /* Style pour le texte d'indication à l'intérieur du champ */
+  color: var(--white-soft);  /* Gris clair */
+}
+
+.search-input:focus {          /* Quand le champ est actif (cliqué ou sélectionné) */
+  border-color: var(--accent); /* Couleur d'accentuation pour la bordure du champ actif */
+}
+
+.search-input--combined {
+  max-width: 150px;
+}
+.search-input__mark {
+  font-weight: bold;
+  padding: 8px 14px; /* 8px en haut/bas, 14px à gauche/droite */
+  width: 150px;
+  border: 1px solid transparent;
+}
+/* ============================================================
+   FRISE CHRONOLOGIQUE
+   ============================================================ */
+.timeline {
+  position: relative; /* Nécessaire pour positionner la ligne verticale */
+  padding: 40px 0; /* 20px en haut et en bas pour espacer la frise du reste du contenu */
+  max-width: 800px; /* Largeur maximale de la frise pour éviter qu'elle ne devienne trop large sur grands écrans */
+}
+.timeline::before { /* La ligne verticale */
+  content: ''; /* Nécessaire pour créer un pseudo-élément */
+  position: absolute; /* Positionné par rapport à .timeline */
+  left: 10px; /* centre sur le dot */
+  top: 0; /* Commence en haut de la frise */
+  bottom: 0; /* S'étend jusqu'en bas de la frise */
+  width: 1px; /* Largeur de la ligne */
+  background-color: var(--blue-border); /* Couleur de la ligne (variable) */
+}
+.timeline__item {
+  display: flex; /* Flexbox pour aligner le dot et le contenu côte à côte */
+  align-items: flex-start; /* Aligne le dot en haut du contenu */
+  gap: 40px; /* Espace entre le dot et le contenu */
+  margin-bottom: 80px; /* Espace entre chaque item de la frise */
+  position: relative; /* Nécessaire pour que le dot puisse se positionner par rapport à l'item */
+}
+.timeline__dot { /* Le point noir */
+  width: 20px; /* Largeur du dot */
+  height: 20px; /* Hauteur du dot */
+  border-radius: 50%; /* Forme circulaire */
+  background-color: var(--blue-border); /* Couleur du dot (variable) */
+  flex-shrink: 0; /* empêche le dot de rétrécir */
+  position: relative; /* Nécessaire pour que le dot puisse se positionner par rapport à l'item */
+  z-index: 1; /* passe par-dessus la ligne */
+}
+.timeline__dot--active { /* Le point noir */
+  background-color: var(--accent); /* Couleur d'accentuation pour le point actif */
+  width: 24px; /* Légèrement plus large que les autres dots */
+  height: 24px; /* Légèrement plus haut que les autres dots */
+  margin-left: -2px; /* Compense l'augmentation de taille pour que le centre du dot reste aligné avec la ligne */
+}
+.timeline__content h3 {
+  margin: 0 0 6px 0; /* Pas de marge en haut, 6px en bas pour espacer du paragraphe */
+  color: var(--white); /* Blanc pur pour les titres */
+  font-size: 1rem; /* Taille normale pour les titres */
+  font-weight: 700; /* Gras pour les titres */
+}
+.timeline__content h4 {
+  margin: 0 0 4px 0; /* Pas de marge en haut, 4px en bas pour espacer du paragraphe */
+  color: var(--accent); /* Couleur d'accentuation pour les sous-titres */
+  font-size: 0.9rem; /* Légèrement plus petit que la normale pour les sous-titres */
+  font-weight: 600; /* Semi-gras pour les sous-titres */
+}
+.timeline__content p {
+  margin: 0; /* Supprime les marges par défaut du paragraphe */
+  color: var(--white-soft); /* Gris clair pour les descriptions */
+  font-size: 0.9rem; /* Légèrement plus petit que la normale pour les descriptions */
+  text-align: justify; /* Justifie le texte pour un alignement propre des deux côtés */
+}
+/* ============================================================
+   LISTES
+   ============================================================ */
+
+.list {                     /* Nom de classe pour toutes les listes */
+  display: flex;            /* Flexbox pour organiser les éléments de la liste */
+  flex-direction: column;   /* Empile les éléments verticalement */
+  margin-top: 10px;         /* Espace au-dessus de la liste */
+  color: var(--white-soft); /* Couleur du texte de la liste */
+  align-items: equal;       /* Aligne les éléments de la liste de manière égale */
+}
+
+/* ============================================================
+   IFRAME
+   ============================================================ */
+
+iframe {                     /* Nom de classe pour les iframes */
+  height: 800px;             /* Hauteur fixe de 800px */
+  width: 100%;               /* Largeur de 100% du conteneur parent */
+  margin-top: 24px;          /* Espace de 24px au-dessus de l'iframe */
+  border: 2px solid white; /* Bordure blanche de 2px */
+}

@@ -2,48 +2,63 @@
 <html lang="fr"> <!-- Balise racine qui englobe toute la page. le lang="fr" indique la page est en français -->
 <head> <!-- Le conteneur des métadonnées -->
   <meta charset="UTF-8" /> <!-- Encodage des caractères -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Permet de rendre la page responsive sur mobile. (Bon ça on verra plus tard) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Permet de rendre la page responsive sur mobile -->
   <meta name="author" content="Maël Robin" /> <!-- Indique l'auteur de la page -->
   <title>Track & Lab Manager</title> <!-- Le texte qui apparait dans l'onglet du navigateur -->
-  <link rel="stylesheet" href="style.css" /> <!-- Relie mon fichier HTML à mon fichier CSS, tout d'abord on précise que c'est une feuille de style et et le chemin vers le fichier -->
-  <link rel="icon" href="favicon.ico"> <!-- Permet de mettre une Icon pour l'onglet de navigation dans le navigateur -->
-</head>
+  <link rel="stylesheet" href="css/style.css" /> <!-- Relie mon fichier HTML à mon fichier CSS, tout d'abord on précise que c'est une feuille de style et et le chemin vers le fichier -->
+  <link rel="icon" href="favicon.ico" /> <!-- Permet de mettre une Icon pour l'onglet de navigation dans le navigateur -->
+  <script src="js/theme.js" defer></script> <!-- Permet de basculer entre les thèmes clair et sombre -->
+</head> <!-- Fin du conteneur des métadonnées -->
+
+<!-- Attention à la sémentique des balises utilisées -->
+
 <body> <!-- Balise de tout ce qui est visible sur la page -->
 
-  <main class="home"> <!-- Balise du contenu principal de la page. Le class="home" est un nom pour cibler le fichier CSS -->
+  <nav class="navbar navbar--home">
+      <button id="theme-toggle" class="btn btn--secondary">🌙 / ☀️</button>
+  </nav>
+
+  <main class="home"> <!-- Balise du contenu principal de la page. Le class="home" est un nom de classe pour cibler le fichier CSS -->
 
     <header class="home__header"> <!-- En tête d'une section -->
-      <img src="images\Logo_Track_&_Lab_Manager.png" width="200" height="200" alt="Logo de Track & Lab Manager">
+      <img src="images/Logo_Track_&_Lab_Manager_clair.png" width=30% height=auto alt="Logo de Track & Lab Manager"> <!-- Image de mon logo qui apparait au milieu de ma page d'accueil -->
       <h1 class="home__title">Track &amp; Lab Manager</h1> <!-- Titre --> <!-- Le double underscore signifie "cet élément appartient au bloc home"-->
       <br> <!-- Saut de ligne -->
       <p class="home__subtitle"><i>« Il faut comprendre pour mesurer, et non mesurer pour comprendre. »</i></p> <!-- Sous-titre -->
-      <p class="home__subtitle"><b>Gaston Bachelard</b></p>
-    </header>
+      <p class="home__subtitle"><b>Gaston Bachelard</b></p> <!-- Auteur de la citation -->
+    </header> <!-- Fin de l'En tête de la section -->
 
-      <a href="Moi.html" class="tile"> <!-- Le a est une balise de lien, ce qui rend la tuile entière cliquable, avec la destination en href -->
-        <h1 class="tile__title">Qui suis-je ?</h1>
-      </a>
+      <!-- <a href="Moi.html" class="tile"> -->
+        <!-- <h1 class="tile__title">Qui suis-je ?</h1> -->
+      <!-- </a> -->
 
     <nav class="home__nav"> <!-- Cette balise indique un menu de navigation avec une balise de style CSS -->
 
-      <a href="dashboard.html" class="tile tile--darkblue"> <!-- Le a est une balise de lien, ce qui rend la tuile entière cliquable, avec la destination en href -->
-        <div class="tile__icon">&#9783;</div> <!-- &#9783; correspond à un symbole -->
+      <a href="pages/dashboard/dashboard.html" class="tile"> <!-- Le a est une balise de lien, ce qui rend la tuile entière cliquable, avec la destination en href -->
+        <div class="tile__icon">&#9783;</div> <!-- &#9783; correspond à un symbole ; le div est une balise de type block -->
         <h2 class="tile__title">Dashboard</h2>
-        <p class="tile__desc">Performances</p>
-        <span class="tile__arrow">&#8594;</span> <!-- &#8594; est l'entité HTML pour la flèche -->
+        <p class="tile__desc">Bilans, Records et Statistiques</p>
+        <span class="tile__arrow">&#8594;</span> <!-- &#8594; est l'entité HTML pour la flèche ; le span est une balise in-line -->
       </a>
 
-      <a href="Scoring_Tables-Conversion.html" class="tile tile--darkblue">
+      <a href="pages/tables/Scoring_Tables-Conversion.html" class="tile">
         <div class="tile__icon">&#9830;</div>
         <h2 class="tile__title">Scoring-Tables</h2>
         <p class="tile__desc">Points Jeunes, Hongrois et Combinés</p>
         <span class="tile__arrow">&#8594;</span>
       </a>
 
-      <a href="laboratoire.html" class="tile tile--darkblue">
+      <a href="pages/competition.html" class="tile">
         <div class="tile__icon">&#9724;</div>
-        <h2 class="tile__title">Laboratoire</h2>
-        <p class="tile__desc">Rapports</p>
+        <h2 class="tile__title">Compétitions</h2>
+        <p class="tile__desc">Calendrier et Règlement</p>
+        <span class="tile__arrow">&#8594;</span>
+      </a>
+
+      <a href="pages/contact.html" class="tile">
+        <div class="tile__icon">&#9742;</div>
+        <h2 class="tile__title">Contacts</h2>
+        <p class="tile__desc">Nous contacter</p>
         <span class="tile__arrow">&#8594;</span>
       </a>
 
@@ -51,10 +66,11 @@
 
   </main>
 
-  <footer class="navbar navbar__footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar__footer pour les spécificités du footer -->
+  <footer class="navbar navbar--footer"> <!-- Utilisation de la classe navbar pour le style de base et navbar--footer pour les spécificités du footer -->
       <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <p style="padding-right: 100px;">Version 3.2</p>
       <div>
-        <img src="images\Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+        <img src="images/Logo_Track_&_Lab_Manager_clair.png" width=80 height=80 alt="Logo de Track & Lab Manager">
       </div>
   </footer>
 

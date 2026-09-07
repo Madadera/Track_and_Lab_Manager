@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Maël Robin" />
+  <title>Dashboard — Records — Track & Lab Manager</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="icon" href="../../images/favicon.ico">
+  <script src="../../js/theme.js" defer></script>
+  <script src="../../js/Records.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <img src="../../images/Logo_Track_&_Lab_Manager.png" width="100" height="100" alt="Logo de Track & Lab Manager">
+        <a href="../../index.html" class="navbar__brand">Track &amp; Lab Manager</a>
+      </div>
+      <div class="navbar__links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="../tables/Scoring_Tables-Conversion.html">Scoring-Tables</a>
+        <a href="../competition.html">Compétitions</a>
+        <a href="../contact.html">Contacts</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      
+      <div class="header header--dashboard">
+        <h1>Dashboard - Records</h1>
+      </div>
+
+      <header class="page__header">
+        <p class="page__subtitle"><i>« Science sans conscience n'est que ruine de l'âme. »</i></p>
+        <p class="page__subtitle"><b>François Rabelais</b></p>
+      </header>
+
+      <nav class="nav_scoring">
+        <div>
+            <!-- <a href="dashboard_competition.html" class="tile tile--gray">
+                <h2 class="tile__title">Derniers Résultats</h2>
+            </a> -->
+            <!-- <a href="dashboard_athletes.html" class="tile tile--gray">
+                <h2 class="tile__title">Statistiques par athlètes</h2>
+            </a> -->
+            <a href="dashboard_bilans.html" class="tile tile--gray">
+                <h2 class="tile__title">Bilans</h2>
+            </a>
+            <a href="dashboard_records.html" class="tile tile--gray active">
+                <h2 class="tile__title">Records</h2>
+            </a>
+       </div>
+      </nav>
+
+     <div class="card">
+        <h1 class="card__title">Records</h1>
+        <div class="search-bar">
+          <select class="search-input" id="filtre-groupe">
+            <option value="" disabled selected>Groupe</option>
+            <option value="Team VA">Team VA</option>
+            <option value="Club">Club</option>
+            <option value="Val-de-Marne">Val-de-Marne</option>
+            <option value="Île-de-France">Île-de-France</option>
+            <option value="France">France</option>
+          </select>
+          <select class="search-input" id="filtre-sexe">
+            <option value="" disabled selected>Sexe</option>
+            <option value="M">Masculin</option>
+            <option value="F">Féminin</option>
+          </select>
+          <select class="search-input" id="filtre-categorie">
+            <option value="" disabled selected>Catégorie</option>
+            <option value="BE">BE</option>
+            <option value="MI">MI</option>
+            <option value="CA">CA</option>
+            <option value="JU">JU</option>
+            <option value="ES">ES</option>
+            <option value="SE">SE</option>
+            <option value="MA">MA</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <p id="output" class="table-wrapper"></p>
+      </div>
+
+    </main>
+
+  <footer class="navbar navbar--footer">
+      <p>© 2026 Track & Lab Manager — Tous Droits Réservés</p>
+      <div>
+        <img src="../../images/Logo_Track_&_Lab_Manager.png" width="80" height="80" alt="Logo de Track & Lab Manager">
+      </div>
+  </footer>
+
+</body>
+</html>
