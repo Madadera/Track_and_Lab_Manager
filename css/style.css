@@ -780,12 +780,11 @@ select option {                       /* Mise en forme des options du menu déro
   border-radius: var(--radius);         /* Coins arrondis (variable définie dans :root) */
   padding: 24px;                        /* 24px d'espace intérieur sur tous les côtés */
   margin: 24px 10px;                    /* 24px d'espace extérieur en haut et en bas, 10px à gauche et à droite */
-  width: 65%;                           /* La carte prend toute la largeur disponible */              
-  max-width: 900px;                     /* Assure que la carte ne dépasse pas la largeur de son conteneur parent */
+  width: 90%;                           /* La carte prend toute la largeur disponible */              
 }
 
 .card--tables { /* Nom de classe pour toutes les cartes */
-  width: 80%;   
+  width: 100%;   
 }
 
 .card__title {          /* Nom de classe pour tous les titres des cartes */

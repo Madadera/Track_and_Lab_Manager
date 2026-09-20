@@ -110,14 +110,15 @@ function trouverPoints(lignes, idxEpreuve, idxPoints, perf, objectif) {
 
 function somme(sex, cat) { // Fonction pour calculer la somme des points des trois épreuves
 
-  const course = parseFloat(document.getElementById(`output_course_${cat}_${sex}`).value) || 0; // Récupère la valeur des points de la course, ou 0 si vide
-  const saut = parseFloat(document.getElementById(`output_saut_${cat}_${sex}`).value) || 0;     // Récupère la valeur des points du saut, ou 0 si vide
-  const lancer = parseFloat(document.getElementById(`output_lancer_${cat}_${sex}`).value) || 0; // Récupère la valeur des points du lancer, ou 0 si vide
+  const epreuve1 = parseFloat(document.getElementById(`output_epreuve1_${cat}_${sex}`).value) || 0; // Récupère la valeur des points de la course, ou 0 si vide
+  const epreuve2 = parseFloat(document.getElementById(`output_epreuve2_${cat}_${sex}`).value) || 0; // Récupère la valeur des points du saut, ou 0 si vide
+  const epreuve3 = parseFloat(document.getElementById(`output_epreuve3_${cat}_${sex}`).value) || 0; // Récupère la valeur des points du lancer, ou 0 si vide
+
   const output_somme = document.getElementById(`output_somme_${cat}_${sex}`);                       // Récupère l'élément de sortie pour afficher la somme des points
 
-  const total = course + saut + lancer;                                               // Calcule la somme des points des trois épreuves
+  const total = epreuve1 + epreuve2 + epreuve3;                       // Calcule la somme des points des trois épreuves
 
-  output_somme.value = total === 0 ? '' : total;                                      // Affiche la somme des points dans l'élément de sortie, ou vide si la somme est 0
+  output_somme.value = total === 0 ? '' : total;                      // Affiche la somme des points dans l'élément de sortie, ou vide si la somme est 0
 }
 
 // ---------------------------------------------------------------------
@@ -188,17 +189,17 @@ async function cotation_jeune() {
 // Fonctions combinés
 // ---------------------------------------------------------------------
 
-async function combiné(sex, cat, type) {
+async function combiné(sex, cat, type) { // Fonction pour calculer les points d'une épreuve
 
-   const sexe = sex;
-   const categorie = cat;
-   const epreuve = document.getElementById(`filtre_${type}_${cat}_${sex}`).value;
-   const input = document.getElementById(`input_${type}_${cat}_${sex}`).value.trim();
-   const output = document.getElementById(`output_${type}_${cat}_${sex}`);
+   const sexe = sex;                                                                  // Récupère la valeur du sexe sélectionné dans le filtre
+   const categorie = cat;                                                             // Récupère la valeur de la catégorie sélectionnée dans le filtre
+   const epreuve = document.getElementById(`filtre_${type}_${cat}_${sex}`).value;     // Récupère la valeur de l'épreuve sélectionnée dans le filtre
+   const input = document.getElementById(`input_${type}_${cat}_${sex}`).value.trim(); // Récupère la valeur de l'input de performance et supprime les espaces superflus
+   const output = document.getElementById(`output_${type}_${cat}_${sex}`);            // Récupère l'élément de sortie pour afficher les points de l'épreuve
 
-   if (!epreuve || !input) {
-      output.value = '';
-      return;
+   if (!epreuve || !input) { // Vérifie si l'épreuve ou la performance est vide
+      output.value = '';     // Affiche un message vide si l'épreuve ou la performance est vide
+      return;                // Arrête l'exécution de la fonction si l'épreuve ou la performance est vide
    }
 
    const cle = `${categorie}|${sexe}`; // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe

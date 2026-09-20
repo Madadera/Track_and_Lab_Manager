@@ -62,8 +62,8 @@
         <div class="panel__section">
 
           <div class="card__research">
-            <select class="search-input" id="filtre_course_BE_M" onchange="maj('M', 'BE', 'course')">
-              <option value="" disabled selected>Course</option>
+            <select class="search-input" id="filtre_epreuve1_BE_M" onchange="maj('M', 'BE', 'epreuve1')">
+              <option value="" disabled selected>Épreuve n°1</option>
               <option value="50 m">50 m</option>
               <option value="50 m (i)">50 m (i)</option>
               <option value="50 m Haies (65)">50 m Haies (65)</option>
@@ -72,9 +72,6 @@
               <option value="1 000 m (i)">1 000 m (i)</option>
               <option value="2 000 m Marche">2 000 m Marche</option>
               <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
-            </select>
-            <select class="search-input" id="filtre_saut_BE_M" onchange="maj('M', 'BE', 'saut')">
-              <option value="" disabled selected>Saut</option>
               <option value="Hauteur">Hauteur</option>
               <option value="Hauteur (i)">Hauteur (i)</option>
               <option value="Triple Saut">Triple Saut</option>
@@ -83,9 +80,54 @@
               <option value="Longueur (i)">Longueur (i)</option>
               <option value="Perche">Perche</option>
               <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
             </select>
-            <select class="search-input" id="filtre_lancer_BE_M" onchange="maj('M', 'BE', 'lancer')">
-              <option value="" disabled selected>Lancer</option>
+            <select class="search-input" id="filtre_epreuve2_BE_M" onchange="maj('M', 'BE', 'epreuve2')">
+              <option value="" disabled selected>Épreuve n°2</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_BE_M" onchange="maj('M', 'BE', 'epreuve3')">
+              <option value="" disabled selected>Épreuve n°3</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
               <option value="Javelot (500 g)">Javelot (500 g)</option>
               <option value="Disque (1 kg)">Disque (1 kg)</option>
               <option value="Poids (3 kg)">Poids (3 kg)</option>
@@ -96,16 +138,16 @@
           </div>
 
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_course_BE_M" oninput="maj('M', 'BE', 'course')"/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_saut_BE_M" oninput="maj('M', 'BE', 'saut')"/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_lancer_BE_M" oninput="maj('M', 'BE', 'lancer')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_BE_M" oninput="maj('M', 'BE', 'epreuve1')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_BE_M" oninput="maj('M', 'BE', 'epreuve2')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_BE_M" oninput="maj('M', 'BE', 'epreuve3')"/>
             <p class="search-input__mark">-</p>
           </div>
 
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_course_BE_M" readonly/>
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_saut_BE_M" readonly/>
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_lancer_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_BE_M" readonly/>
             <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_BE_M" readonly/>
           </div>
 
@@ -117,8 +159,8 @@
         <div class="panel__section">
 
           <div class="card__research">
-            <select class="search-input" id="filtre_course_BE_F" onchange="maj('F', 'BE', 'course')">
-              <option value="" disabled selected>Course</option>
+            <select class="search-input" id="filtre_epreuve1_BE_F" onchange="maj('F', 'BE', 'epreuve1')">
+              <option value="" disabled selected>Épreuve n°1</option>
               <option value="50 m">50 m</option>
               <option value="50 m (i)">50 m (i)</option>
               <option value="50 m Haies (65)">50 m Haies (65)</option>
@@ -127,9 +169,6 @@
               <option value="1 000 m (i)">1 000 m (i)</option>
               <option value="2 000 m Marche">2 000 m Marche</option>
               <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
-            </select>
-            <select class="search-input" id="filtre_saut_BE_F" onchange="maj('F', 'BE', 'saut')">
-              <option value="" disabled selected>Saut</option>
               <option value="Hauteur">Hauteur</option>
               <option value="Hauteur (i)">Hauteur (i)</option>
               <option value="Triple Saut">Triple Saut</option>
@@ -138,9 +177,54 @@
               <option value="Longueur (i)">Longueur (i)</option>
               <option value="Perche">Perche</option>
               <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (400 g)">Javelot (400 g)</option>
+              <option value="Disque (600 g)">Disque (600 g)</option>
+              <option value="Poids (2 kg)">Poids (2 kg)</option>
+              <option value="Poids (2 kg) (i)">Poids (2 kg) (i)</option>
+              <option value="Marteau (2 kg)">Marteau (2 kg)</option>
             </select>
-            <select class="search-input" id="filtre_lancer_BE_F" onchange="maj('F', 'BE', 'lancer')">
-              <option value="" disabled selected>Lancer</option>
+            <select class="search-input" id="filtre_epreuve2_BE_F" onchange="maj('F', 'BE', 'epreuve2')">
+              <option value="" disabled selected>Épreuve n°2</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (400 g)">Javelot (400 g)</option>
+              <option value="Disque (600 g)">Disque (600 g)</option>
+              <option value="Poids (2 kg)">Poids (2 kg)</option>
+              <option value="Poids (2 kg) (i)">Poids (2 kg) (i)</option>
+              <option value="Marteau (2 kg)">Marteau (2 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_BE_F" onchange="maj('F', 'BE', 'epreuve3')">
+              <option value="" disabled selected>Épreuve n°3</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
               <option value="Javelot (400 g)">Javelot (400 g)</option>
               <option value="Disque (600 g)">Disque (600 g)</option>
               <option value="Poids (2 kg)">Poids (2 kg)</option>
@@ -151,16 +235,16 @@
           </div>
 
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_course_BE_F" oninput="maj('F', 'BE', 'course')"/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_saut_BE_F" oninput="maj('F', 'BE', 'saut')"/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_lancer_BE_F" oninput="maj('F', 'BE', 'lancer')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_BE_F" oninput="maj('F', 'BE', 'epreuve1')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_BE_F" oninput="maj('F', 'BE', 'epreuve2')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_BE_F" oninput="maj('F', 'BE', 'epreuve3')"/>
             <p class="search-input__mark">-</p>
           </div>
 
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_course_BE_F" readonly/>
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_saut_BE_F" readonly/>
-            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_lancer_BE_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_BE_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_BE_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_BE_F" readonly/>
             <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_BE_F" readonly/>
           </div>
 
@@ -173,22 +257,109 @@
         <h1 class="card__title">Triathlon MIM</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">Épreuve n°1</p>
-            <p class="search-input__mark">Épreuve n°2</p>
-            <p class="search-input__mark">Épreuve n°3</p>
+            <select class="search-input" id="filtre_epreuve1_MI_M" onchange="maj('M', 'MI', 'epreuve1')">
+              <option value="" disabled selected>Épreuve n°1</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (84)">50 m Haies (84)</option>
+              <option value="50 m Haies (84) (i)">50 m Haies (84) (i)</option>
+              <option value="80 m Haies (84)">80 m Haies (84)</option>
+              <option value="100 m Haies (84)">100 m Haies (84)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (600 g)">Javelot (600 g)</option>
+              <option value="Disque (1.25 kg)">Disque (1.25 kg)</option>
+              <option value="Poids (4 kg)">Poids (4 kg)</option>
+              <option value="Poids (4 kg) (i)">Poids (4 kg) (i)</option>
+              <option value="Marteau (4 kg)">Marteau (4 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_MI_M" onchange="maj('M', 'MI', 'epreuve2')">
+              <option value="" disabled selected>Épreuve n°2</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (84)">50 m Haies (84)</option>
+              <option value="50 m Haies (84) (i)">50 m Haies (84) (i)</option>
+              <option value="80 m Haies (84)">80 m Haies (84)</option>
+              <option value="100 m Haies (84)">100 m Haies (84)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (600 g)">Javelot (600 g)</option>
+              <option value="Disque (1.25 kg)">Disque (1.25 kg)</option>
+              <option value="Poids (4 kg)">Poids (4 kg)</option>
+              <option value="Poids (4 kg) (i)">Poids (4 kg) (i)</option>
+              <option value="Marteau (4 kg)">Marteau (4 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_MI_M" onchange="maj('M', 'MI', 'epreuve3')">
+              <option value="" disabled selected>Épreuve n°3</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (84)">50 m Haies (84)</option>
+              <option value="50 m Haies (84) (i)">50 m Haies (84) (i)</option>
+              <option value="80 m Haies (84)">80 m Haies (84)</option>
+              <option value="100 m Haies (84)">100 m Haies (84)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (600 g)">Javelot (600 g)</option>
+              <option value="Disque (1.25 kg)">Disque (1.25 kg)</option>
+              <option value="Poids (4 kg)">Poids (4 kg)</option>
+              <option value="Poids (4 kg) (i)">Poids (4 kg) (i)</option>
+              <option value="Marteau (4 kg)">Marteau (4 kg)</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_MI_M" oninput="maj('M', 'MI', 'epreuve1')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_MI_M" oninput="maj('M', 'MI', 'epreuve2')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_MI_M" oninput="maj('M', 'MI', 'epreuve3')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_MI_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_MI_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_MI_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_MI_M" readonly/>
           </div>
         </div>
       </div>
@@ -196,22 +367,106 @@
         <h1 class="card__title">Triathlon MIF</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">Épreuve n°1</p>
-            <p class="search-input__mark">Épreuve n°2</p>
-            <p class="search-input__mark">Épreuve n°3</p>
+            <select class="search-input" id="filtre_epreuve1_MI_F" onchange="maj('F', 'MI', 'epreuve1')">
+              <option value="" disabled selected>Épreuve n°1</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (76)">50 m Haies (76)</option>
+              <option value="50 m Haies (76) (i)">50 m Haies (76) (i)</option>
+              <option value="80 m Haies (76)">80 m Haies (76)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (800 g)">Disque (800 g)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_MI_F" onchange="maj('F', 'MI', 'epreuve2')">
+              <option value="" disabled selected>Épreuve n°2</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (76)">50 m Haies (76)</option>
+              <option value="50 m Haies (76) (i)">50 m Haies (76) (i)</option>
+              <option value="80 m Haies (76)">80 m Haies (76)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (800 g)">Disque (800 g)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_MI_F" onchange="maj('F', 'MI', 'epreuve3')">
+              <option value="" disabled selected>Épreuve n°3</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="80 m">80 m</option>
+              <option value="80 m (i)">80 m (i)</option>
+              <option value="120 m">120 m</option>
+              <option value="50 m Haies (76)">50 m Haies (76)</option>
+              <option value="50 m Haies (76) (i)">50 m Haies (76) (i)</option>
+              <option value="80 m Haies (76)">80 m Haies (76)</option>
+              <option value="200 m Haies (76)">200 m Haies (76)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m">2 000 m</option>
+              <option value="3 000 m Marche">3 000 m Marche</option>
+              <option value="2 000 m Marche (i)">3 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (800 g)">Disque (800 g)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_MI_F" oninput="maj('F', 'MI', 'epreuve1')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_MI_F" oninput="maj('F', 'MI', 'epreuve2')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_MI_F" oninput="maj('F', 'MI', 'epreuve3')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_MI_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_MI_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_MI_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_MI_F" readonly/>
           </div>
         </div>
       </div>
@@ -222,25 +477,117 @@
         <h1 class="card__title">Tétrathlon BEM</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">Épreuve n°1</p>
-            <p class="search-input__mark">Épreuve n°2</p>
-            <p class="search-input__mark">Épreuve n°3</p>
-            <p class="search-input__mark">Épreuve n°4</p>
+            <select class="search-input" id="filtre_epreuve1_tetra_BE_M">
+              <option value="" disabled selected>Épreuve n°1</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_tetra_BE_M">
+              <option value="" disabled selected>Épreuve n°2</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_tetra_BE_M">
+              <option value="" disabled selected>Épreuve n°3</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_tetra_BE_M">
+              <option value="" disabled selected>Épreuve n°4</option>
+              <option value="50 m">50 m</option>
+              <option value="50 m (i)">50 m (i)</option>
+              <option value="50 m Haies (65)">50 m Haies (65)</option>
+              <option value="50 m Haies (65) (i)">50 m Haies (65) (i)</option>
+              <option value="1 000 m">1 000 m</option>
+              <option value="1 000 m (i)">1 000 m (i)</option>
+              <option value="2 000 m Marche">2 000 m Marche</option>
+              <option value="2 000 m Marche (i)">2 000 m Marche (i)</option>
+              <option value="Hauteur">Hauteur</option>
+              <option value="Hauteur (i)">Hauteur (i)</option>
+              <option value="Triple Saut">Triple Saut</option>
+              <option value="Triple Saut (i)">Triple Saut (i)</option>
+              <option value="Longueur">Longueur</option>
+              <option value="Longueur (i)">Longueur (i)</option>
+              <option value="Perche">Perche</option>
+              <option value="Perche (i)">Perche (i)</option>
+              <option value="Javelot (500 g)">Javelot (500 g)</option>
+              <option value="Disque (1 kg)">Disque (1 kg)</option>
+              <option value="Poids (3 kg)">Poids (3 kg)</option>
+              <option value="Poids (3 kg) (i)">Poids (3 kg) (i)</option>
+              <option value="Marteau (3 kg)">Marteau (3 kg)</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_tetra_BE_M"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_tetra_BE_M"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_tetra_BE_M"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_tetra_BE_M"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_tetra_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_tetra_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_tetra_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_tetra_BE_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_tetra_BE_M" readonly/>
           </div>
         </div>
       </div>
