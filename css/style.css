@@ -707,6 +707,7 @@ select option {                       /* Mise en forme des options du menu déro
 .page {                   /* Nom de classe pour toutes les pages intérieures */
   display: flex;          /* Flexbox pour organiser navbar + contenu */
   flex-direction: column; /* Empile verticalement (navbar en haut, contenu en bas) */
+  align-items: center;    /* Centre horizontalement */
   min-height: 100vh;      /* La page occupe au minimum toute la hauteur de l'écran */
 }
 
@@ -778,13 +779,13 @@ select option {                       /* Mise en forme des options du menu déro
   border: 1px solid var(--blue-border); /* Bordure fine */
   border-radius: var(--radius);         /* Coins arrondis (variable définie dans :root) */
   padding: 24px;                        /* 24px d'espace intérieur sur tous les côtés */
-  margin: 24px 20px;                    /* 12px haut/bas, 16px gauche/droite */
-  align-items: center;                  /* Centre le contenu horizontalement */
-  max-width: 100%;                      /* Assure que la carte ne dépasse pas la largeur de son conteneur parent */
+  margin: 24px 10px;                    /* 24px d'espace extérieur en haut et en bas, 10px à gauche et à droite */
+  width: 65%;                           /* La carte prend toute la largeur disponible */              
+  max-width: 900px;                     /* Assure que la carte ne dépasse pas la largeur de son conteneur parent */
 }
 
 .card--tables { /* Nom de classe pour toutes les cartes */
-  width: 40%;   /* Fond bleu moyen (plus clair que la page) */
+  width: 80%;   
 }
 
 .card__title {          /* Nom de classe pour tous les titres des cartes */
@@ -822,7 +823,6 @@ select option {                       /* Mise en forme des options du menu déro
   display: flex;          /* Flexbox pour organiser le contenu */
   flex-direction: column; /* Empile les éléments verticalement */
   align-items: center;    /* Centre le contenu horizontalement */
-  width: 400px;           /* Largeur fixe de la carte */
 }
 
 .card__research--point {               /* Nom de classe pour toutes les cartes de recherche */
@@ -848,11 +848,13 @@ select option {                       /* Mise en forme des options du menu déro
    PANELS (CONTENEUR POUR LES CARTES)
    ============================================================ */
 
-.panel {                         /* Nom de classe pour tous les panels */
-  display: flex;                 /* Flexbox pour organiser le contenu */
-  flex-direction: row;           /* Empile les éléments horizontalement */
-  justify-content: space-evenly; /* Permet d'espacer similairement les cartes */
-  align-items: center;           /* Centre le contenu verticalement */
+.panel {                   /* Nom de classe pour tous les panels */
+  display: flex;           /* Flexbox pour organiser le contenu */
+  flex-direction: row;     /* Empile les éléments horizontalement */
+  align-items: center;     /* Centre le contenu verticalement */
+  justify-content: center; /* Centre le contenu horizontalement */
+  width: 100%;             /* Prend toute la largeur disponible */
+  max-width: 900px;        /* à ajuster selon tes goûts */
 }
 
 .panel__arrow {             /* Nom de classe pour la flèche dans le panel */
@@ -860,6 +862,15 @@ select option {                       /* Mise en forme des options du menu déro
   display: flex;            /* Flexbox pour organiser le contenu */
   align-items: center;      /* Centre le contenu verticalement */
   font-size: 2.5rem;        /* Taille de la flèche */
+}
+
+@media (max-width: 800px) {   /* Style pour tablette et mobile */
+  .panel {                    /* Je rappel mon nom de classe pour que les changements soient affectés */
+    flex-direction: column;   /* Empile les éléments verticalement */
+  }
+    .panel__arrow {           /* Je rappel mon nom de classe pour que les changements soient affectés */
+    transform: rotate(90deg); /* → devient ↓ */
+  }
 }
 
 .panel__section { /* Nom de classe pour la section dans le panel */
@@ -1022,6 +1033,7 @@ tbody tr.ligne-recente:hover {
 
 .search-input {                         /* Nom de classe pour les champs de recherche */
   padding: 8px 14px;                    /* 8px en haut/bas, 14px à gauche/droite */
+  margin: 2px 2px;                      /* 2px en haut/bas, 2px à gauche/droite */
   background: var(--blue-dark);         /* Couleur de fond des champs de recherche */
   border: 1px solid var(--blue-border); /* Bordure fine */
   border-radius: 8px;                   /* Courbure des bords */
@@ -1036,9 +1048,9 @@ tbody tr.ligne-recente:hover {
 
 @media (max-width: 800px) { /* Style pour tablette et mobile */
   .search-input {           /* Je rappel mon nom de classe pour que les changements soient affectés */
-    padding: 10px 8px;      /* 10px en haut/bas, 8px à gauche/droite */
-    font-size: 0.75rem;     /* Taille de la police */
-    width: 120px;           /* Largeur de mon champ */
+    padding: 8px 4px;       /* 8px en haut/bas, 4px à gauche/droite */
+    font-size: 0.6rem;      /* Taille de la police */
+    width: 90px;            /* Largeur de mon champ */
   }
 }
 
@@ -1050,14 +1062,23 @@ tbody tr.ligne-recente:hover {
   border-color: var(--accent); /* Couleur d'accentuation pour la bordure du champ actif */
 }
 
-.search-input--combined {
-  max-width: 150px;
+.search-input--combined { /* Nom de classe pour les champs combinés (ex: recherche par nom + prénom) */
+  max-width: 150px;       /* Largeur maximale pour le champ combiné */
 }
-.search-input__mark {
-  font-weight: bold;
-  padding: 8px 14px; /* 8px en haut/bas, 14px à gauche/droite */
-  width: 150px;
-  border: 1px solid transparent;
+
+.search-input__mark {            /* Nom de classe pour les champs de recherche avec un marqueur (ex: recherche par nom + prénom) */
+  font-weight: bold;             /* Met le texte en gras */
+  padding: 8px 14px;             /* 8px en haut/bas, 14px à gauche/droite */
+  width: 150px;                  /* Largeur de mon champ */
+  border: 1px solid transparent; /* Bordure transparente pour que le champ ne change pas de taille lorsqu'il est actif */
+}
+
+@media (max-width: 800px) { /* Style pour tablette et mobile */
+  .search-input__mark {     /* Je rappel mon nom de classe pour que les changements soient affectés */
+    padding: 6px 4px;       /* 6px en haut/bas, 4px à gauche/droite */
+    font-size: 0.6rem;      /* Taille de la police */
+    width: 60px;            /* Largeur de mon champ */
+  }
 }
 /* ============================================================
    FRISE CHRONOLOGIQUE
