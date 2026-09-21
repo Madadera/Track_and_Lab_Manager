@@ -47,45 +47,59 @@ function parseCSV(texte) {                                          // Transform
 
 // ----- Fonction de conversion -----
 
-function conversion(str) {
+function conversion(str) { // Ma fonction de conversion
 
-  if (!str) return NaN;
+  if (!str) return NaN; // Si la chaîne est vide ou nulle, retourne NaN (Not a Number)
 
-  str = str.trim()
-           .replace(/[’′]/g, "'")   // apostrophes typographiques -> '
-           .replace(/[”″]/g, '"')   // guillemets typographiques -> "
-           .replace(/''/g, '"')     // deux apostrophes collées = guillemet
-           .replace(/,/g, ".");     // virgules -> points
+  str = str.trim()                // Supprime les espaces superflus au début et à la fin de la chaîne
+           .replace(/[’′]/g, "'") // Remplace les apostrophes et les guillemets typographiques par des apostrophes simples
+           .replace(/[”″]/g, '"') // Remplace les guillemets typographiques par des guillemets doubles
+           .replace(/''/g, '"')   // Remplace les doubles apostrophes par des guillemets doubles
+           .replace(/,/g, ".");   // Remplace les virgules par des points pour les décimales
 
-  // Format temps : 3'10"00 (minutes'secondes"centièmes)
-  const m = str.match(/^(\d+)'(\d{1,2})(?:"(\d+)?)?$/);
+  const m = str.match(/^(\d+)'(\d{1,2})(?:"(\d+)?)?$/); // Format temps : 3'10"00 (minutes'secondes"centièmes)
   if (m) {
-    const minutes = parseInt(m[1], 10);
-    const secondes = parseInt(m[2], 10);
-    const centiemes = m[3] ? parseFloat("0." + m[3]) : 0;
-    return (minutes * 60 + secondes + centiemes) / 86400;
+    const minutes = parseInt(m[1], 10); // Récupère les minutes et les convertit en nombre entier
+    const secondes = parseInt(m[2], 10); // Récupère les secondes et les convertit en nombre entier
+    const centiemes = m[3] ? parseFloat("0." + m[3]) : 0; // Récupère les centièmes et les convertit en nombre décimal, ou 0 si non présent
+    return (minutes * 60 + secondes + centiemes) / 86400; // Retourne le temps total en jours (1 jour = 86400 secondes)
   }
 
-  // Si ça contient ' ou " mais ne correspond pas au format : saisie invalide
-  if (/['"]/.test(str)) return NaN;
+  if (/['"]/.test(str)) return NaN; // Si ça contient ' ou " mais ne correspond pas au format : saisie invalide
 
   return parseFloat(str); // Sinon, nombre classique (mètres, etc.)
 }
- 
-// Détermine si une épreuve se mesure en temps (plus petit = meilleur)
-// ou en distance/hauteur (plus grand = meilleur)
-function estUneEpreuveDeTemps(epreuve) {
-  const epreuvesDeDistance = [
-    "Hauteur", "Longueur", "Perche", "Poids", "Disque",
-    "Javelot", "Marteau", "Triple Saut", "Médecine Ball"
+
+// ----- Fonction pour déterminer l'objectif de l'épreuve -----
+
+function objectif(epreuve) { // Détermine si une épreuve se mesure en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+  const plus = [             // Liste des épreuves où la plus grande performance est la meilleure
+    "24 Heures", "30 Minutes", "30 Minutes Marche", "Course Hors-Stade", " Cross",
+    "Cross Court", "Cross Long", "Cross Équipe", "Décathlon", "Décathlon Cadets",
+    "Décathlon Juniors_Masters", "Disque (1 kg)", "Disque (1.25 kg)", "Disque (1.5 kg)",
+    "Disque (1.75 kg)", "Disque (2 kg)", "Disque (600 g)", "Disque (800 g)",
+    "Équip'Athlé", "Équip'Athlé N1", "Équip'Athlé N2", "Équipe", "Interclubs",
+    "Interclubs Jeunes", "Grand Fond Marche", "Hauteur", "Hauteur (i)", "Héptathlon",
+    "Héptathlon (i)", "Héptathlon (i) Cadets", "Héptathlon (i) Juniors_Masters",
+    "Heure", "Heure Marche", "Javelot (400 g)", "Javelot (500 g)", "Javelot (600 g)",
+    "Javelot (700 g)", "Javelot (800 g)", "Jeune Juge", "Longueur", "Longueur (i)",
+    "Marteau (2 kg)", "Marteau (3 kg)", "Marteau (4 kg)", "Marteau (5 kg)", "Marteau (6 kg)",
+    "Marteau (7.26 kg)", "Médecine Ball (2 kg) (i)", "Médecine Ball (3 kg) (i)",
+    "Médecin Ball (4 kg) (i)", "Octathlon", "Pentathlon", "Pentathlon (i)", "Pentathlon (i) Cadets",
+    "Pentathlon (i) Juniors_Masters", "Pentathlon Longueur (i)", "Perche", "Perche (i)",
+    "Poids (2 kg)", "Poids (2 kg) (i)", "Poids (3 kg)", "Poids (3 kg) (i)", "Poids (4 kg)",
+    "Poids (4 kg) (i)", "Poids (5 kg)", "Poids (5 kg) (i)", "Poids (6 kg)", "Poids (6 kg) (i)",
+    "Poids (7.26 kg)", "Poids (7.26 kg) (i)", "Tétrathlon (i)", "Tétrathlon Disque", "Tétrathlon Javelot",
+    "Tétrathlon Longueur (i)", "Tétrathlon Perche (i)", "Triathlon (Anciennes Tables)",
+    "Triathlon (i) (Anciennes Tables)", "Triathlon", "Triathlon (i)", "Triple Saut", "Triple Saut (i)"
   ];
-  return !epreuvesDeDistance.some(mot => epreuve.includes(mot));
+
+  return !plus.some(mot => epreuve.includes(mot)); // Si l'épreuve contient un mot de la liste "plus", alors l'objectif est "moins" (temps), sinon c'est "plus" (distance/hauteur)
 }
- 
-// Cherche, dans les lignes de la table, le palier de points le plus proche
-// (le meilleur atteint sans le dépasser) pour la performance donnée.
-// Ne suppose aucun ordre particulier des lignes dans le CSV.
-function trouverPoints(lignes, idxEpreuve, idxPoints, perf, objectif) {
+
+// ----- Fonction pour déterminer les points correspondant -----
+
+function points(lignes, idxEpreuve, idxPoints, perf, objectif) { // Cherche, dans les lignes de la table, le palier de points le plus proche (le meilleur atteint sans le dépasser) pour la performance donnée.
   let meilleureLigne = null;
   let meilleureValeur = null;
  
@@ -174,8 +188,8 @@ async function cotation_jeune() {
       return;                                     // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
     }
  
-    const objectif = estUneEpreuveDeTemps(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
-    const points = trouverPoints(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
+    const objectif = objectif(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+    const points = points(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
  
     output_jeune.value = points !== null ? points : "Hors barème"; // Affiche le nombre de points correspondant à la performance entrée par l'utilisateur, ou "Hors barème" si la performance est en dehors du barème
  
@@ -222,14 +236,14 @@ async function combiné(sex, cat, type) { // Fonction pour calculer les points d
       return;                                     // Arrête l'exécution de la fonction si l'épreuve ou la colonne des points n'existe pas
     }
  
-    const perf = conversion(input);         // Convertit la performance entrée par l'utilisateur en nombre (mètres ou secondes)
-    if (isNaN(perf)) {                            // Vérifie si la performance entrée par l'utilisateur est invalide (non numérique)
+    const perf = conversion(input);       // Convertit la performance entrée par l'utilisateur en nombre (mètres ou secondes)
+    if (isNaN(perf)) {                    // Vérifie si la performance entrée par l'utilisateur est invalide (non numérique)
       output.value = "Format non valide"; // Affiche un message d'erreur si la performance entrée par l'utilisateur est invalide
-      return;                                     // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
+      return;                             // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
     }
  
-    const objectif = estUneEpreuveDeTemps(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
-    const points = trouverPoints(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
+    const objectif = objectif(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+    const points = points(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
  
     output.value = points !== null ? points : "Hors barème"; // Affiche le nombre de points correspondant à la performance entrée par l'utilisateur, ou "Hors barème" si la performance est en dehors du barème
  

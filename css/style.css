@@ -784,7 +784,7 @@ select option {                       /* Mise en forme des options du menu déro
 }
 
 .card--tables { /* Nom de classe pour toutes les cartes */
-  width: 100%;   
+  width: 90%;   
 }
 
 .card__title {          /* Nom de classe pour tous les titres des cartes */
@@ -872,8 +872,9 @@ select option {                       /* Mise en forme des options du menu déro
   }
 }
 
-.panel__section { /* Nom de classe pour la section dans le panel */
-  display: flex;  /* Flexbox pour organiser le contenu */
+.panel__section {          /* Nom de classe pour la section dans le panel */
+  display: flex;           /* Flexbox pour organiser le contenu */
+  justify-content: center; /* Centre le contenu horizontalement */
 }
 
 /* ============================================================
