@@ -57,10 +57,19 @@ function conversion(str) { // Ma fonction de conversion
            .replace(/''/g, '"')   // Remplace les doubles apostrophes par des guillemets doubles
            .replace(/,/g, ".");   // Remplace les virgules par des points pour les décimales
 
-  const m = str.match(/^(\d+)'(\d{1,2})(?:"(\d+)?)?$/); // Format temps : 3'10"00 (minutes'secondes"centièmes)
+  const h = str.match(/^(\d+):(\d{1,2})'(\d{1,2})(?:"(\d+)?)?$/);         // Format heures : 1:23'45"00 (heures:minutes'secondes"centièmes)
+  if (h) {
+    const heures = parseInt(h[1], 10);                                    // Récupère les heures
+    const minutes = parseInt(h[2], 10);                                   // Récupère les minutes
+    const secondes = parseInt(h[3], 10);                                  // Récupère les secondes
+    const centiemes = h[4] ? parseFloat("0." + h[4]) : 0;                 // Centièmes si présents
+    return (heures * 3600 + minutes * 60 + secondes + centiemes) / 86400; // Total en jours
+  }
+
+  const m = str.match(/^(\d+)'(\d{1,2})(?:"(\d+)?)?$/);   // Format temps : 3'10"00 (minutes'secondes"centièmes)
   if (m) {
-    const minutes = parseInt(m[1], 10); // Récupère les minutes et les convertit en nombre entier
-    const secondes = parseInt(m[2], 10); // Récupère les secondes et les convertit en nombre entier
+    const minutes = parseInt(m[1], 10);                   // Récupère les minutes et les convertit en nombre entier
+    const secondes = parseInt(m[2], 10);                  // Récupère les secondes et les convertit en nombre entier
     const centiemes = m[3] ? parseFloat("0." + m[3]) : 0; // Récupère les centièmes et les convertit en nombre décimal, ou 0 si non présent
     return (minutes * 60 + secondes + centiemes) / 86400; // Retourne le temps total en jours (1 jour = 86400 secondes)
   }
@@ -72,9 +81,9 @@ function conversion(str) { // Ma fonction de conversion
 
 // ----- Fonction pour déterminer l'objectif de l'épreuve -----
 
-function objectif(epreuve) { // Détermine si une épreuve se mesure en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+function sens(epreuve) { // Détermine si une épreuve se mesure en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
   const plus = [             // Liste des épreuves où la plus grande performance est la meilleure
-    "24 Heures", "30 Minutes", "30 Minutes Marche", "Course Hors-Stade", " Cross",
+    "24 Heures", "30 Minutes", "30 Minutes Marche", "Course Hors-Stade", "Cross",
     "Cross Court", "Cross Long", "Cross Équipe", "Décathlon", "Décathlon Cadets",
     "Décathlon Juniors_Masters", "Disque (1 kg)", "Disque (1.25 kg)", "Disque (1.5 kg)",
     "Disque (1.75 kg)", "Disque (2 kg)", "Disque (600 g)", "Disque (800 g)",
@@ -91,15 +100,15 @@ function objectif(epreuve) { // Détermine si une épreuve se mesure en temps (p
     "Poids (4 kg) (i)", "Poids (5 kg)", "Poids (5 kg) (i)", "Poids (6 kg)", "Poids (6 kg) (i)",
     "Poids (7.26 kg)", "Poids (7.26 kg) (i)", "Tétrathlon (i)", "Tétrathlon Disque", "Tétrathlon Javelot",
     "Tétrathlon Longueur (i)", "Tétrathlon Perche (i)", "Triathlon (Anciennes Tables)",
-    "Triathlon (i) (Anciennes Tables)", "Triathlon", "Triathlon (i)", "Triple Saut", "Triple Saut (i)"
+    "Triathlon (i) (Anciennes Tables)", "Triathlon", "Triathlon (i)", "Triple Saut", "Triple Saut (i)",
   ];
 
-  return !plus.some(mot => epreuve.includes(mot)); // Si l'épreuve contient un mot de la liste "plus", alors l'objectif est "moins" (temps), sinon c'est "plus" (distance/hauteur)
+  return plus.some(mot => epreuve.includes(mot)); // Si l'épreuve contient un mot de la liste "plus", alors l'objectif est "moins" (temps), sinon c'est "plus" (distance/hauteur)
 }
 
 // ----- Fonction pour déterminer les points correspondant -----
 
-function points(lignes, idxEpreuve, idxPoints, perf, objectif) { // Cherche, dans les lignes de la table, le palier de points le plus proche (le meilleur atteint sans le dépasser) pour la performance donnée.
+function recherche(lignes, idxEpreuve, idxPoints, perf, objectif) { // Cherche, dans les lignes de la table, le palier de points le plus proche (le meilleur atteint sans le dépasser) pour la performance donnée.
   let meilleureLigne = null;
   let meilleureValeur = null;
  
@@ -108,8 +117,8 @@ function points(lignes, idxEpreuve, idxPoints, perf, objectif) { // Cherche, dan
     if (isNaN(valTable)) continue;
  
     const estMeilleure = objectif
-      ? valTable >= perf && (meilleureValeur === null || valTable < meilleureValeur)
-      : valTable <= perf && (meilleureValeur === null || valTable > meilleureValeur);
+      ? valTable <= perf && (meilleureValeur === null || valTable > meilleureValeur)
+      : valTable >= perf && (meilleureValeur === null || valTable < meilleureValeur);
  
     if (estMeilleure) {
       meilleureValeur = valTable;
@@ -136,10 +145,10 @@ function somme(sex, cat) { // Fonction pour calculer la somme des points des tro
 }
 
 // ---------------------------------------------------------------------
-// Fonctions conversion
+// Fonction conversion
 // ---------------------------------------------------------------------
 
-async function cotation_jeune() { 
+async function cotation() { 
   
   // Une fonction async renvoie toujours une Promise et te permet d'utiliser await à l'intérieur. 
   // Ici, fetch doit aller chercher le CSV sur le serveur, ce qui prend du temps.
@@ -157,7 +166,7 @@ async function cotation_jeune() {
       return;                                        // Arrête l'exécution de la fonction si un champ est vide
    }
 
-   const cle = `${categorie}|${sexe}`; // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe
+   const cle = `${categorie}|${sexe}`;  // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe
    const chemin = cotations[cle];       // Récupère le chemin du fichier CSV correspondant à la clé
 
    if (!chemin) {                                      // Vérifie si le chemin du fichier CSV est défini pour la clé donnée
@@ -188,19 +197,120 @@ async function cotation_jeune() {
       return;                                     // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
     }
  
-    const objectif = objectif(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
-    const points = points(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
+    const objectif = sens(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+    const points = recherche(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
  
     output_jeune.value = points !== null ? points : "Hors barème"; // Affiche le nombre de points correspondant à la performance entrée par l'utilisateur, ou "Hors barème" si la performance est en dehors du barème
  
-  } catch (err) {                                // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
-    console.error(err);                          // Affiche l'erreur dans la console pour le débogage
-    output_jeune.value = "Erreur de chargement"; // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
+  } catch (err) {                                 // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
+    console.error(err);                           // Affiche l'erreur dans la console pour le débogage
+    output_jeune.value = "Erreur de chargement";  // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
   }
 }
 
 // ---------------------------------------------------------------------
-// Fonctions combinés
+// Fonction pour les niveaux
+// ---------------------------------------------------------------------
+
+async function niveau() {
+
+   const sexe = document.getElementById("filtre-sexe").value;           // Récupère la valeur du sexe sélectionné dans le filtre
+   let categorie = document.getElementById("filtre-categorie").value; // Récupère la valeur de la catégorie sélectionnée dans le filtre
+   let epreuve = document.getElementById("filtre-epreuve").value;     // Récupère la valeur de l'épreuve sélectionnée dans le filtre
+   const input = document.getElementById("input").value.trim();         // Récupère la valeur de l'input de performance et supprime les espaces superflus
+   const output_niveau = document.getElementById("output-niveau");      // Récupère l'élément de sortie pour afficher les niveaux
+
+  if (!sexe || !categorie || !epreuve || !input) {  // Vérifie si tous les champs sont remplis
+     output_niveau.value = 'Champs incomplets';    // Affiche un message d'erreur si un champ est vide
+     return;                                       // Arrête l'exécution de la fonction si un champ est vide
+   }
+
+  if (["Triathlon", "Triathlon (i)", "Triathlon (Anciennes Tables)", "Triathlon (i) (Anciennes Tables)"].includes(epreuve)) {
+
+      const cle = `${categorie}|${sexe}`; // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe
+      const chemin = niveaux[cle];        // Récupère le chemin du fichier CSV correspondant à la clé
+
+      epreuve = "Triathlon";
+
+      try {                                                              // Essaye de charger et de traiter le fichier CSV
+        const res = await fetch(chemin);                                 // Charge le fichier CSV correspondant à la catégorie et au sexe
+        if (!res.ok) throw new Error(`Fichier introuvable : ${chemin}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const texte = await res.text();                                  // Récupère le contenu du fichier CSV sous forme de texte
+    
+        const table = parseCSV(texte); // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
+        const entetes = table[0];      // Récupère la première ligne du tableau qui contient les entêtes de colonnes
+        const lignes = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+    
+        const idxEpreuve = entetes.indexOf(epreuve); // Récupère l'index de la colonne correspondant à l'épreuve sélectionnée
+        const idxNiveaux = entetes.indexOf("Niv."); // Récupère l'index de la colonne correspondant au niveau
+    
+        if (idxEpreuve === -1 || idxNiveaux === -1) {  // Vérifie si l'épreuve ou la colonne du niveau n'existe pas dans le tableau
+          output_niveau.value = "Épreuve introuvable"; // Affiche un message d'erreur si l'épreuve ou la colonne des points n'existe pas
+          return;                                     // Arrête l'exécution de la fonction si l'épreuve ou la colonne des points n'existe pas
+        }
+    
+        const perf = conversion(input);         // Convertit la performance entrée par l'utilisateur en nombre (mètres ou secondes)
+        if (isNaN(perf)) {                            // Vérifie si la performance entrée par l'utilisateur est invalide (non numérique)
+          output_niveau.value = "Format non invalide"; // Affiche un message d'erreur si la performance entrée par l'utilisateur est invalide
+          return;                                     // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
+        }
+    
+        const objectif = sens(epreuve);                                           // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+        const niveau = recherche(lignes, idxEpreuve, idxNiveaux, perf, objectif); 
+    
+        output_niveau.value = niveau !== null ? niveau : "Hors barème";
+    
+      } catch (err) {                                 // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
+        console.error(err);                           // Affiche l'erreur dans la console pour le débogage
+        output_niveau.value = "Erreur de chargement";  // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
+      };
+      return;
+  }
+   
+  if (["EA", "PO", "BE", "MI", "CA", "JU", "ES", "MA"].includes(categorie)) {
+     categorie = "SE";
+  }
+
+   const cle = `${categorie}|${sexe}`; // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe
+   const chemin = niveaux[cle];        // Récupère le chemin du fichier CSV correspondant à la clé
+
+  try {                                                              // Essaye de charger et de traiter le fichier CSV
+    const res = await fetch(chemin);                                 // Charge le fichier CSV correspondant à la catégorie et au sexe
+    if (!res.ok) throw new Error(`Fichier introuvable : ${chemin}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+    const texte = await res.text();                                  // Récupère le contenu du fichier CSV sous forme de texte
+ 
+    const table = parseCSV(texte); // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
+    const entetes = table[0];      // Récupère la première ligne du tableau qui contient les entêtes de colonnes
+    const lignes = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+ 
+    const idxEpreuve = entetes.indexOf(epreuve); // Récupère l'index de la colonne correspondant à l'épreuve sélectionnée
+    const idxNiveaux = entetes.indexOf("Niv."); // Récupère l'index de la colonne correspondant au niveau
+ 
+    if (idxEpreuve === -1 || idxNiveaux === -1) {  // Vérifie si l'épreuve ou la colonne du niveau n'existe pas dans le tableau
+      output_niveau.value = "Épreuve introuvable"; // Affiche un message d'erreur si l'épreuve ou la colonne des points n'existe pas
+      return;                                     // Arrête l'exécution de la fonction si l'épreuve ou la colonne des points n'existe pas
+    }
+ 
+    const perf = conversion(input);         // Convertit la performance entrée par l'utilisateur en nombre (mètres ou secondes)
+    if (isNaN(perf)) {                            // Vérifie si la performance entrée par l'utilisateur est invalide (non numérique)
+      output_niveau.value = "Format non invalide"; // Affiche un message d'erreur si la performance entrée par l'utilisateur est invalide
+      return;                                     // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
+    }
+ 
+    const objectif = sens(epreuve);                                           // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+    const niveau = recherche(lignes, idxEpreuve, idxNiveaux, perf, objectif); 
+ 
+    output_niveau.value = niveau !== null ? niveau : "Hors barème";
+ 
+  } catch (err) {                                 // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
+    console.error(err);                           // Affiche l'erreur dans la console pour le débogage
+    output_niveau.value = "Erreur de chargement";  // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
+  }
+
+}
+
+// ---------------------------------------------------------------------
+// Fonction combinés
 // ---------------------------------------------------------------------
 
 async function combiné(sex, cat, type) { // Fonction pour calculer les points d'une épreuve
@@ -242,8 +352,8 @@ async function combiné(sex, cat, type) { // Fonction pour calculer les points d
       return;                             // Arrête l'exécution de la fonction si la performance entrée par l'utilisateur est invalide
     }
  
-    const objectif = objectif(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
-    const points = points(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
+    const objectif = sens(epreuve);                              // Détermine si l'épreuve est mesurée en temps (plus petit = meilleur) ou en distance/hauteur (plus grand = meilleur)
+    const points = recherche(lignes, idxEpreuve, idxPoints, perf, objectif); // Cherche le nombre de points correspondant à la performance entrée par l'utilisateur dans le tableau de cotation
  
     output.value = points !== null ? points : "Hors barème"; // Affiche le nombre de points correspondant à la performance entrée par l'utilisateur, ou "Hors barème" si la performance est en dehors du barème
  
@@ -258,6 +368,15 @@ async function combiné(sex, cat, type) { // Fonction pour calculer les points d
 // ---------------------------------------------------------------------
 
 async function maj(sex, cat, type) {   // Fonction pour mettre à jour les points et la somme des trois épreuves
-  await combiné(sex, cat, type); // Appelle la fonction combiné pour calculer les points de l'épreuve spécifiée
-  somme(sex, cat);                   // Appelle la fonction somme pour calculer la somme des points des trois épreuves
+  await combiné(sex, cat, type);       // Appelle la fonction combiné pour calculer les points de l'épreuve spécifiée
+  somme(sex, cat);                     // Appelle la fonction somme pour calculer la somme des points des trois épreuves
+}
+
+// ---------------------------------------------------------------------
+// Départ de toutes mes fonctions
+// ---------------------------------------------------------------------
+
+function tout() {
+  cotation();
+  niveau();
 }
