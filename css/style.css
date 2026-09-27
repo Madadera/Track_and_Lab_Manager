@@ -743,15 +743,14 @@ select option {                       /* Mise en forme des options du menu déro
 }
 
 .page__subtitle--footer {   /* Nom de classe pour le sous-titre de la page */
-  margin-top: 10px;         /* Espace de 10px au-dessus */
-  margin-bottom: 10px;      /* Espace de 10px en dessous */
+  margin: 10px 100px;         /* Espace de 10px au-dessus */
   font-size: 1rem;          /* Taille normale (16px par défaut) */
   color: var(--white-soft); /* Couleur définie dans mes variables */
 }
 
 
 @media (max-width: 800px) { /* Style pour tablette et mobile */
-  .page_subtitle--footer {  /* Je rappel mon nom de classe pour que les changements soient affectés */
+  .page__subtitle--footer {  /* Je rappel mon nom de classe pour que les changements soient affectés */
     font-size: 0.5rem;      /* Je veux que mon sous-titre soit un peu plus petit lorsque l'écran rétrécie */
   }
 }

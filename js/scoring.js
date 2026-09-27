@@ -494,17 +494,20 @@ function somme_jeunes(sex, cat) { // Fonction pour calculer la somme des points 
 // ----- Fonction somme adultes -----
 
 function somme_adultes(sex, classe) { // Fonction pour calculer la somme des points des trois épreuves
+  
+  let total = 0;
 
-  const epreuve1 = parseFloat(document.getElementById(`output_epreuve1_${classe}_${sex}`).value) || 0; // Récupère la valeur des points de la course, ou 0 si vide
-  const epreuve2 = parseFloat(document.getElementById(`output_epreuve2_${classe}_${sex}`).value) || 0; // Récupère la valeur des points du saut, ou 0 si vide
-  const epreuve3 = parseFloat(document.getElementById(`output_epreuve3_${classe}_${sex}`).value) || 0; // Récupère la valeur des points du lancer, ou 0 si vide
-  const epreuve4 = parseFloat(document.getElementById(`output_epreuve4_${classe}_${sex}`).value) || 0;
+  for (let i = 1; i <= 10; i++) {
+    const el = document.getElementById(`output_epreuve${i}_${classe}_${sex}`);
+    if (el) {
+      total += parseFloat(el.value) || 0;
+    }
+  }
 
-  const output_somme = document.getElementById(`output_somme_${classe}_${sex}`);                       // Récupère l'élément de sortie pour afficher la somme des points
-
-  const total = epreuve1 + epreuve2 + epreuve3 + epreuve4;                       // Calcule la somme des points des trois épreuves
-
-  output_somme.value = total === 0 ? '' : total;                      // Affiche la somme des points dans l'élément de sortie, ou vide si la somme est 0
+  const output_somme = document.getElementById(`output_somme_${classe}_${sex}`);
+  if (output_somme) {
+    output_somme.value = total === 0 ? '' : total;
+  }
 }
 
 // ---------------------------------------------------------------------

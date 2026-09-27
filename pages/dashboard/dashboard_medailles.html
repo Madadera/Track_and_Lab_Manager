@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Maël Robin" />
-  <title>Dashboard — Bilans — Club — Track & Lab Manager</title>
+  <title>Dashboard — Résultats — Track & Lab Manager</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="icon" href="../../images/favicon.ico">
-  <script src="../../js/dashboard_alltime_club.js"></script>
+  <script src="../../js/tables.js"></script>
   <script src="../../js/theme.js" defer></script>
 </head>
 
@@ -29,58 +29,51 @@
     <main class="page">
       
       <div class="header header--dashboard">
-        <h1>Dashboard - Bilans</h1>
+        <h1>Dashboard - Médailles et Titres</h1>
       </div>
 
       <header class="page__header">
-        <p class="page__subtitle"><i>« Savoir écouter est un art »</i></p>
-        <p class="page__subtitle"><b>Épictète</b></p>
+        <p class="page__subtitle"><i>« We all need people who will give us feedback. That's how we improve. »</i></p>
+        <p class="page__subtitle"><b>Bill Gates</b></p>
       </header>
 
       <nav class="nav_scoring">
         <div>
-            <!-- <a href="dashboard_competition.html" class="tile tile--gray">
-                <h2 class="tile__title">Derniers Résultats</h2>
-            </a> -->
-            <!-- <a href="dashboard_athletes.html" class="tile tile--gray">
-                <h2 class="tile__title">Statistiques par athlètes</h2>
-            </a> -->
-            <a href="dashboard_bilans.html" class="tile tile--gray active">
-                <h2 class="tile__title">Bilans</h2>
+            <a href="dashboard_resultats.html" class="tile tile--gray">
+                <h2 class="tile__title--gray">Derniers Résultats</h2>
+            </a>
+            <a href="dashboard_medailles.html" class="tile tile--gray active">
+                <h2 class="tile__title--gray">Médailles et Titres</h2>
+            </a>
+            <a href="dashboard_athletes.html" class="tile tile--gray">
+                <h2 class="tile__title--gray">Résultats par athlètes</h2>
+            </a>
+            <a href="dashboard_bilans.html" class="tile tile--gray">
+                <h2 class="tile__title--gray">Bilans</h2>
             </a>
             <a href="dashboard_records.html" class="tile tile--gray">
-                <h2 class="tile__title">Records</h2>
+                <h2 class="tile__title--gray">Records</h2>
             </a>
        </div>
-
-        <div>
-          <a href="dashboard_bilans_teamva_saison.html" class="tile tile--darkblue tile--darkblue--bilans">
-            <h2 class="tile__title">Team VA</h2>
-          </a>
-          <a href="dashboard_bilans_club_saison.html" class="tile tile--darkblue tile--darkblue--bilans active">
-            <h2 class="tile__title">Club</h2>
-          </a>
-        </div>
-        <div>
-          <a href="dashboard_bilans_club_saison.html" class="tile tile--darkblue tile--darkblue--bilans tile--darkblue--bilans--choix">
-            <h2 class="tile__title tile__title--choix">Par Saison</h2>
-          </a>
-          <a href="dashboard_bilans_club_alltime.html" class="tile tile--darkblue tile--darkblue--bilans tile--darkblue--bilans--choix active">
-            <h2 class="tile__title tile__title--choix">All Time</h2>
-          </a>
-        </div>
       </nav>
 
+
       <div class="card">
-        <h1 class="card__title">Bilans - All time - Club</h1>
+        <h1 class="card__title">Médailles et Titres</h1>
         <div class="search-bar">
-          <select class="search-input" id="filtre-sexe">
+        <select class="search-input" id="filtre-medailles" onchange="medailles()">
+            <option value="" disabled selected>Médailles</option>
+            <option value="Or">Or</option>
+            <option value="Argent">Argent</option>
+            <option value="Bronze">Bronze</option>
+          </select>
+          <select class="search-input" id="filtre-sexe" onchange="medailles()">
             <option value="" disabled selected>Sexe</option>
             <option value="M">Masculin</option>
             <option value="F">Féminin</option>
             <option value="Mixte">Mixte</option>
           </select>
-          <select class="search-input" id="filtre-categorie">
+          <select class="search-input" id="filtre-categorie" onchange="medailles()">
             <option value="" disabled selected>Catégorie</option>
             <option value="EA">EA</option>
             <option value="PO">PO</option>
@@ -92,7 +85,7 @@
             <option value="SE">SE</option>
             <option value="MA">MA</option>
           </select>
-          <select class="search-input" id="filtre-epreuve">
+          <select class="search-input" id="filtre-epreuve" onchange="medailles()">
             <option value="" disabled selected>Épreuve</option>
             <option value="1 000 m">1 000 m</option>
             <option value="1 000 m (i)">1 000 m (i)</option>
@@ -319,6 +312,7 @@
 
       <div class="card">
         <div class="card__title--subtitle">
+          <p>Médailles : <span id="valeur-medailles">-</span></p>
           <p>Sexe : <span id="valeur-sexe">-</span></p>
           <p>Catégorie : <span id="valeur-categorie">-</span></p>
           <p>Épreuve : <span id="valeur-epreuve">-</span></p>

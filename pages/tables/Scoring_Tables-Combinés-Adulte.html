@@ -6,6 +6,7 @@
   <title>Scoring Tables — Combinés — Track & Lab Manager</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="icon" href="../../images/favicon.ico">
+  <script src="../../js/scoring.js"></script>
   <script src="../../js/theme.js" defer></script>
 </head>
 
@@ -62,46 +63,63 @@
         <h1 class="card__title">Décathlon Homme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">100 m</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Poids (7.26 kg)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">400 m</p>
-            <p class="search-input__mark">-</p>
-            <p class="search-input__mark">110 m Haies (1.06)</p>
-            <p class="search-input__mark">Disque (2 kg)</p>
-            <p class="search-input__mark">Perche</p>
-            <p class="search-input__mark">Javelot (800 g)</p>
-            <p class="search-input__mark">1 500 m</p>
+            <select class="search-input" id="filtre_epreuve1_deca_M" onchange="maj_adultes('M', 'epreuve1', 'deca')">
+              <option value="100 m" selected>100 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_deca_M" onchange="maj_adultes('M', 'epreuve2', 'deca')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_deca_M" onchange="maj_adultes('M', 'epreuve3', 'deca')">
+              <option value="Poids (7.26 kg)" selected>Poids (7.26 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_deca_M" onchange="maj_adultes('M', 'epreuve4', 'deca')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_deca_M" onchange="maj_adultes('M', 'epreuve5', 'deca')">
+              <option value="400 m" selected>400 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve6_deca_M" onchange="maj_adultes('M', 'epreuve6', 'deca')">
+              <option value="110 m Haies (1.06)" selected>110 m Haies (1.06)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve7_deca_M" onchange="maj_adultes('M', 'epreuve7', 'deca')">
+              <option value="Disque (2 kg)" selected>Disque (2 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve8_deca_M" onchange="maj_adultes('M', 'epreuve8', 'deca')">
+              <option value="Perche" selected>Perche</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve9_deca_M" onchange="maj_adultes('M', 'epreuve9', 'deca')">
+              <option value="Javelot (800 g)" selected>Javelot (800 g)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve10_deca_M" onchange="maj_adultes('M', 'epreuve10', 'deca')">
+              <option value="1 500 m" selected>1 500 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" title='11,22 pour 11"22' placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <p class="search-input__mark">-</p>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" title='11,22 pour 11"22' placeholder="Performance..." id="input_epreuve1_deca_M" oninput="maj_adultes('M', 'epreuve1', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_deca_M" oninput="maj_adultes('M', 'epreuve2', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_deca_M" oninput="maj_adultes('M', 'epreuve3', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_deca_M" oninput="maj_adultes('M', 'epreuve4', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_deca_M" oninput="maj_adultes('M', 'epreuve5', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve6_deca_M" oninput="maj_adultes('M', 'epreuve6', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve7_deca_M" oninput="maj_adultes('M', 'epreuve7', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve8_deca_M" oninput="maj_adultes('M', 'epreuve8', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve9_deca_M" oninput="maj_adultes('M', 'epreuve9', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve10_deca_M" oninput="maj_adultes('M', 'epreuve10', 'deca')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total J-1</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total J-2</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve6_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve7_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve8_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve9_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve10_deca_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total J-2" id="output_somme_deca_M" readonly/>
           </div>
         </div>
       </div>
@@ -109,37 +127,53 @@
         <h1 class="card__title">Octathlon Homme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">100 m</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Poids (7.26 kg)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">110 m Haies (1.06)</p>
-            <p class="search-input__mark">Perche</p>
-            <p class="search-input__mark">Javelot (800 g)</p>
-            <p class="search-input__mark">1 000 m</p>
+            <select class="search-input" id="filtre_epreuve1_octa_M" onchange="maj_adultes('M', 'epreuve1', 'octa')">
+              <option value="100 m" selected>100 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_octa_M" onchange="maj_adultes('M', 'epreuve2', 'octa')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_octa_M" onchange="maj_adultes('M', 'epreuve3', 'octa')">
+              <option value="Poids (7.26 kg)" selected>Poids (7.26 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_octa_M" onchange="maj_adultes('M', 'epreuve4', 'octa')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_octa_M" onchange="maj_adultes('M', 'epreuve5', 'octa')">
+              <option value="110 m Haies (1.06)" selected>110 m Haies (1.06)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve6_octa_M" onchange="maj_adultes('M', 'epreuve6', 'octa')">
+              <option value="Perche" selected>Perche</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve7_octa_M" onchange="maj_adultes('M', 'epreuve7', 'octa')">
+              <option value="Javelot (800 g)" selected>Javelot (800 g)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve8_octa_M" onchange="maj_adultes('M', 'epreuve8', 'octa')">
+              <option value="1 000 m" selected>1 000 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_octa_M" oninput="maj_adultes('M', 'epreuve1', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_octa_M" oninput="maj_adultes('M', 'epreuve2', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_octa_M" oninput="maj_adultes('M', 'epreuve3', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_octa_M" oninput="maj_adultes('M', 'epreuve4', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_octa_M" oninput="maj_adultes('M', 'epreuve5', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve6_octa_M" oninput="maj_adultes('M', 'epreuve6', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve7_octa_M" oninput="maj_adultes('M', 'epreuve7', 'octa')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve8_octa_M" oninput="maj_adultes('M', 'epreuve8', 'octa')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve6_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve7_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve8_octa_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_octa_M" readonly/>
           </div>
         </div>
       </div>
@@ -150,34 +184,48 @@
         <h1 class="card__title">Heptathlon Homme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">60 m</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Poids (7.26 kg)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">60 m Haies (1.06)</p>
-            <p class="search-input__mark">Perche</p>
-            <p class="search-input__mark">1 000 m</p>
+            <select class="search-input" id="filtre_epreuve1_hepta_M" onchange="maj_adultes('M', 'epreuve1', 'hepta')">
+              <option value="60 m" selected>60 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_hepta_M" onchange="maj_adultes('M', 'epreuve2', 'hepta')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_hepta_M" onchange="maj_adultes('M', 'epreuve3', 'hepta')">
+              <option value="Poids (7.26 kg)" selected>Poids (7.26 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_hepta_M" onchange="maj_adultes('M', 'epreuve4', 'hepta')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_hepta_M" onchange="maj_adultes('M', 'epreuve5', 'hepta')">
+              <option value="60 m Haies (1.06)" selected>60 m Haies (1.06)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve6_hepta_M" onchange="maj_adultes('M', 'epreuve6', 'hepta')">
+              <option value="Perche" selected>Perche</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve7_hepta_M" onchange="maj_adultes('M', 'epreuve7', 'hepta')">
+              <option value="1 000 m" selected>1 000 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_hepta_M" oninput="maj_adultes('M', 'epreuve1', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_hepta_M" oninput="maj_adultes('M', 'epreuve2', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_hepta_M" oninput="maj_adultes('M', 'epreuve3', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_hepta_M" oninput="maj_adultes('M', 'epreuve4', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_hepta_M" oninput="maj_adultes('M', 'epreuve5', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve6_hepta_M" oninput="maj_adultes('M', 'epreuve6', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve7_hepta_M" oninput="maj_adultes('M', 'epreuve7', 'hepta')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve6_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve7_hepta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_hepta_M" readonly/>
           </div>
         </div>
       </div>
@@ -185,28 +233,38 @@
         <h1 class="card__title">Pentathlon Homme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Javelot (800 g)</p>
-            <p class="search-input__mark">200 m</p>
-            <p class="search-input__mark">Disque (2kg)</p>
-            <p class="search-input__mark">1 500 m</p>
+            <select class="search-input" id="filtre_epreuve1_penta_M" onchange="maj_adultes('M', 'epreuve1', 'penta')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_penta_M" onchange="maj_adultes('M', 'epreuve2', 'penta')">
+              <option value="Javelot (800 g)" selected>Javelot (800 g)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_penta_M" onchange="maj_adultes('M', 'epreuve3', 'penta')">
+              <option value="200 m" selected>200 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_penta_M" onchange="maj_adultes('M', 'epreuve4', 'penta')">
+              <option value="Disque (2 kg)" selected>Disque (2 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_penta_M" onchange="maj_adultes('M', 'epreuve5', 'penta')">
+              <option value="1 500 m" selected>1 500 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_penta_M" oninput="maj_adultes('M', 'epreuve1', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_penta_M" oninput="maj_adultes('M', 'epreuve2', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_penta_M" oninput="maj_adultes('M', 'epreuve3', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_penta_M" oninput="maj_adultes('M', 'epreuve4', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_penta_M" oninput="maj_adultes('M', 'epreuve5', 'penta')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_penta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_penta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_penta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_penta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_penta_M" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_penta_M" readonly/>
           </div>
         </div>
       </div>
@@ -217,46 +275,63 @@
         <h1 class="card__title">Décathlon Femme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">100 m</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Poids (4 kg)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">400 m</p>
-            <p class="search-input__mark">-</p>
-            <p class="search-input__mark">100 m Haies (84)</p>
-            <p class="search-input__mark">Disque (1 kg)</p>
-            <p class="search-input__mark">Perche</p>
-            <p class="search-input__mark">Javelot (600 g)</p>
-            <p class="search-input__mark">1 500 m</p>
+            <select class="search-input" id="filtre_epreuve1_deca_F" onchange="maj_adultes('F', 'epreuve1', 'deca')">
+              <option value="100 m" selected>100 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_deca_F" onchange="maj_adultes('F', 'epreuve2', 'deca')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_deca_F" onchange="maj_adultes('F', 'epreuve3', 'deca')">
+              <option value="Poids (4 kg)" selected>Poids (4 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_deca_F" onchange="maj_adultes('F', 'epreuve4', 'deca')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_deca_F" onchange="maj_adultes('F', 'epreuve5', 'deca')">
+              <option value="400 m" selected>400 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve6_deca_F" onchange="maj_adultes('F', 'epreuve6', 'deca')">
+              <option value="100 m Haies (84)" selected>100 m Haies (84)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve7_deca_F" onchange="maj_adultes('F', 'epreuve7', 'deca')">
+              <option value="Disque (1 kg)" selected>Disque (1 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve8_deca_F" onchange="maj_adultes('F', 'epreuve8', 'deca')">
+              <option value="Perche" selected>Perche</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve9_deca_F" onchange="maj_adultes('F', 'epreuve9', 'deca')">
+              <option value="Javelot (600 g)" selected>Javelot (600 g)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve10_deca_F" onchange="maj_adultes('F', 'epreuve10', 'deca')">
+              <option value="1 500 m" selected>1 500 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <p class="search-input__mark">-</p>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_deca_F" oninput="maj_adultes('F', 'epreuve1', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_deca_F" oninput="maj_adultes('F', 'epreuve2', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_deca_F" oninput="maj_adultes('F', 'epreuve3', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_deca_F" oninput="maj_adultes('F', 'epreuve4', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_deca_F" oninput="maj_adultes('F', 'epreuve5', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve6_deca_F" oninput="maj_adultes('F', 'epreuve6', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve7_deca_F" oninput="maj_adultes('F', 'epreuve7', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve8_deca_F" oninput="maj_adultes('F', 'epreuve8', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve9_deca_F" oninput="maj_adultes('F', 'epreuve9', 'deca')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve10_deca_F" oninput="maj_adultes('F', 'epreuve10', 'deca')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total J-1</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total J-2</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve6_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve7_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve8_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve9_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve10_deca_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total J-2" id="output_somme_deca_F" readonly/>
           </div>
         </div>
       </div>
@@ -264,34 +339,48 @@
         <h1 class="card__title">Heptathlon Femme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">100 m Haies (84)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">Poids (4 kg)</p>
-            <p class="search-input__mark">200 m</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">Javelot (600 g)</p>
-            <p class="search-input__mark">800 m</p>
+            <select class="search-input" id="filtre_epreuve1_hepta_F" onchange="maj_adultes('F', 'epreuve1', 'hepta')">
+              <option value="100 m Haies (84)" selected>100 m Haies (84)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_hepta_F" onchange="maj_adultes('F', 'epreuve2', 'hepta')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_hepta_F" onchange="maj_adultes('F', 'epreuve3', 'hepta')">
+              <option value="Poids (4 kg)" selected>Poids (4 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_hepta_F" onchange="maj_adultes('F', 'epreuve4', 'hepta')">
+              <option value="200 m" selected>200 m</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_hepta_F" onchange="maj_adultes('F', 'epreuve5', 'hepta')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve6_hepta_F" onchange="maj_adultes('F', 'epreuve6', 'hepta')">
+              <option value="Javelot (600 g)" selected>Javelot (600 g)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve7_hepta_F" onchange="maj_adultes('F', 'epreuve6', 'hepta')">
+              <option value="800 m" selected>800 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_hepta_F" oninput="maj_adultes('F', 'epreuve1', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_hepta_F" oninput="maj_adultes('F', 'epreuve2', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_hepta_F" oninput="maj_adultes('F', 'epreuve3', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_hepta_F" oninput="maj_adultes('F', 'epreuve4', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_hepta_F" oninput="maj_adultes('F', 'epreuve5', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve6_hepta_F" oninput="maj_adultes('F', 'epreuve6', 'hepta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve7_hepta_F" oninput="maj_adultes('F', 'epreuve7', 'hepta')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve6_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve7_hepta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_hepta_F" readonly/>
           </div>
         </div>
       </div>
@@ -302,28 +391,38 @@
         <h1 class="card__title">Pentathlon Femme</h1>
         <div class="panel__section">
           <div class="card__research">
-            <p class="search-input__mark">60 m Haies (84)</p>
-            <p class="search-input__mark">Hauteur</p>
-            <p class="search-input__mark">Poids (4 kg)</p>
-            <p class="search-input__mark">Longueur</p>
-            <p class="search-input__mark">800 m</p>
+            <select class="search-input" id="filtre_epreuve1_penta_F" onchange="maj_adultes('F', 'epreuve1', 'penta')">
+              <option value="60 m Haies (84)" selected>60 m Haies (84)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve2_penta_F" onchange="maj_adultes('F', 'epreuve2', 'penta')">
+              <option value="Hauteur" selected>Hauteur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve3_penta_F" onchange="maj_adultes('F', 'epreuve3', 'penta')">
+              <option value="Poids (4 kg)" selected>Poids (4 kg)</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve4_penta_F" onchange="maj_adultes('F', 'epreuve4', 'penta')">
+              <option value="Longueur" selected>Longueur</option>
+            </select>
+            <select class="search-input" id="filtre_epreuve5_penta_F" onchange="maj_adultes('F', 'epreuve5', 'penta')">
+              <option value="800 m" selected>800 m</option>
+            </select>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
-            <input class="search-input search-input--combined" type="text" placeholder="Performance..."/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve1_penta_F" oninput="maj_adultes('F', 'epreuve1', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve2_penta_F" oninput="maj_adultes('F', 'epreuve2', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve3_penta_F" oninput="maj_adultes('F', 'epreuve3', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve4_penta_F" oninput="maj_adultes('F', 'epreuve4', 'penta')"/>
+            <input class="search-input search-input--combined" type="text" placeholder="Performance..." id="input_epreuve5_penta_F" oninput="maj_adultes('F', 'epreuve5', 'penta')"/>
             <p class="search-input__mark">-</p>
           </div>
           <div class="card__research">
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Points...</output>
-            <output class="search-input search-input--combined">Total</output>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve1_penta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve2_penta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve3_penta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve4_penta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Points..." id="output_epreuve5_penta_F" readonly/>
+            <input class="search-input search-input--combined" type="text" placeholder="Total" id="output_somme_penta_F" readonly/>
           </div>
         </div>
       </div>
