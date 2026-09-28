@@ -251,5 +251,3 @@ async function results() {
         document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;
     }
 }
-
-document.addEventListener('DOMContentLoaded', results);
