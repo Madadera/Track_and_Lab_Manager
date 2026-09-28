@@ -17,6 +17,7 @@ function parseCSV(texte) {                                          // Transform
 // ---------------------------------------------------------------------
 // Fonctions Médailles et Titres
 // ---------------------------------------------------------------------
+
 async function medailles() {
     
     try {
@@ -75,6 +76,169 @@ async function medailles() {
         const matchMedailles = filtreMedaillesMin === '' || medailles === filtreMedaillesMin;
 
         return matchEpreuve && matchSexe && matchCategorie && matchMedailles;
+    });
+    
+        let html = '<table><thead><tr>';
+        colonnes.forEach(col => html += `<th>${col}</th>`);
+        html += '</tr></thead><tbody>';
+
+      // On boucle sur lignesFiltrees plutôt que sur toutes les lignes
+        lignesFiltrees.forEach(ligne => {
+            const cellules = ligne;
+            html += '<tr>';
+            indices.forEach(idx => html += `<td>${cellules[idx] ?? '—'}</td>`);
+            html += '</tr>';
+        });
+
+      html += '</tbody></table>';
+      document.getElementById('output').innerHTML = html;
+      
+    } catch (err) {
+        console.error(err);
+        document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;
+    }
+}
+
+// ---------------------------------------------------------------------
+// Fonctions Résultats par athlètes
+// ---------------------------------------------------------------------
+
+async function athletes() {
+    
+    try {
+
+        const res = await fetch('../../datas/datas_club.csv'); // Charge le fichier CSV de toutes mes données
+        if (!res.ok) throw new Error(`Fichier introuvable : ../../datas/datas_club.csv`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const texte = await res.text(); // Récupère le contenu du fichier CSV sous forme de texte
+        
+        const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
+        const entetes = table[0];       // Récupère la première ligne du tableau qui contient les entêtes de colonnes
+        const donnees = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+
+        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance', 'Validation']; // On crée une constante avec les noms des colonnes qu'on veut afficher
+        const indices = colonnes.map(col => entetes.indexOf(col)); // Pour chaque nom de colonne, on cherche son index dans le tableau des entêtes. On obtient un tableau d'indices correspondant à nos colonnes d'intérêt
+
+        const idxEpreuve = entetes.indexOf('Épreuve'); // On mémorise spécifiquement l'index de la colonne "Épreuve" pour pouvoir faire le tri plus tard
+        const idxLicence = entetes.indexOf('Licence');
+        const idxNom = entetes.indexOf('Nom');
+        const idxPrenom = entetes.indexOf('Prénom');
+
+        const filtreEpreuve = document.getElementById('filtre-epreuve').value;
+        const filtreLicence = document.getElementById('filtre-licence').value;
+        const filtreNom = document.getElementById('filtre-nom').value;
+        const filtrePrenom = document.getElementById('filtre-prenom').value;
+
+        document.getElementById('valeur-epreuve').textContent = filtreEpreuve === '' ? '-' : filtreEpreuve;
+        document.getElementById('valeur-licence').textContent = filtreLicence === '' ? '-' : filtreLicence;
+        document.getElementById('valeur-nom').textContent = filtreNom === '' ? '-' : filtreNom;
+        document.getElementById('valeur-prenom').textContent = filtrePrenom === '' ? '-' : filtrePrenom;
+
+        const filtreEpreuveMin = filtreEpreuve.toLowerCase();
+        const filtreLicenceMin = filtreLicence.toLowerCase();
+        const filtreNomMin = filtreNom.toLowerCase();
+        const filtrePrenomMin = filtrePrenom.toLowerCase();
+
+         // Cas normal : Épreuve, sexe et catégorie tous remplis
+        const filtresPrincipauxComplets = filtreNomMin.trim() !== '' && filtrePrenomMin.trim() !== '';
+        // Cas particulier demandé : Médailles rempli fait afficher le tableau quoi qu'il arrive
+        const LicenceRenseignee = filtreLicenceMin.trim() !== '';
+ 
+        if (!filtresPrincipauxComplets && !LicenceRenseignee) {
+            document.getElementById('output').innerHTML = '';
+            return;
+        }
+ 
+        const lignesFiltrees = donnees.filter(ligne => {
+        const cellules = ligne;
+        const epreuve = (cellules[idxEpreuve] ?? '').toLowerCase();
+        const licence = (cellules[idxLicence] ?? '').toLowerCase();
+        const nom = (cellules[idxNom] ?? '').toLowerCase();
+        const prenom = (cellules[idxPrenom] ?? '').toLowerCase();
+
+        const matchEpreuve = filtreEpreuveMin === '' || epreuve === filtreEpreuveMin;
+        const matchLicence = filtreLicenceMin === '' || licence === filtreLicenceMin;
+        const matchNom = filtreNomMin === '' || nom === filtreNomMin;
+        const matchPrenom = filtrePrenomMin === '' || prenom === filtrePrenomMin;
+
+        return matchEpreuve && matchLicence && matchNom && matchPrenom;
+    });
+    
+        let html = '<table><thead><tr>';
+        colonnes.forEach(col => html += `<th>${col}</th>`);
+        html += '</tr></thead><tbody>';
+
+      // On boucle sur lignesFiltrees plutôt que sur toutes les lignes
+        lignesFiltrees.forEach(ligne => {
+            const cellules = ligne;
+            html += '<tr>';
+            indices.forEach(idx => html += `<td>${cellules[idx] ?? '—'}</td>`);
+            html += '</tr>';
+        });
+
+      html += '</tbody></table>';
+      document.getElementById('output').innerHTML = html;
+      
+    } catch (err) {
+        console.error(err);
+        document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;
+    }
+}
+
+// ---------------------------------------------------------------------
+// Fonctions Derniers Résultats
+// ---------------------------------------------------------------------
+
+async function results() {
+    
+    try {
+
+        const res = await fetch('../../datas/datas_club.csv'); // Charge le fichier CSV de toutes mes données
+        if (!res.ok) throw new Error(`Fichier introuvable : ../../datas/datas_club.csv`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const texte = await res.text(); // Récupère le contenu du fichier CSV sous forme de texte
+        
+        const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
+        const entetes = table[0];       // Récupère la première ligne du tableau qui contient les entêtes de colonnes
+        const donnees = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+
+        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance', 'Validation']; // On crée une constante avec les noms des colonnes qu'on veut afficher
+        const indices = colonnes.map(col => entetes.indexOf(col)); // Pour chaque nom de colonne, on cherche son index dans le tableau des entêtes. On obtient un tableau d'indices correspondant à nos colonnes d'intérêt
+
+        const idxEpreuve = entetes.indexOf('Épreuve'); // On mémorise spécifiquement l'index de la colonne "Épreuve" pour pouvoir faire le tri plus tard
+        const idxNom = entetes.indexOf('Nom');
+        const idxPrenom = entetes.indexOf('Prénom');
+
+        const filtreEpreuve = document.getElementById('filtre-epreuve').value;
+        const filtreNom = document.getElementById('filtre-nom').value;
+        const filtrePrenom = document.getElementById('filtre-prenom').value;
+
+        document.getElementById('valeur-epreuve').textContent = filtreEpreuve === '' ? '-' : filtreEpreuve;
+        document.getElementById('valeur-nom').textContent = filtreNom === '' ? '-' : filtreNom;
+        document.getElementById('valeur-prenom').textContent = filtrePrenom === '' ? '-' : filtrePrenom;
+
+        const filtreEpreuveMin = filtreEpreuve.toLowerCase();
+        const filtreNomMin = filtreNom.toLowerCase();
+        const filtrePrenomMin = filtrePrenom.toLowerCase();
+
+        // Le tableau s'affiche dès qu'au moins un des trois champs est renseigné
+        const auMoinsUnFiltre = [filtreEpreuveMin, filtreNomMin, filtrePrenomMin]
+            .some(f => f.trim() !== '');
+
+        if (!auMoinsUnFiltre) {
+            document.getElementById('output').innerHTML = '';
+            return;
+        }
+ 
+        const lignesFiltrees = donnees.filter(ligne => {
+        const cellules = ligne;
+        const epreuve = (cellules[idxEpreuve] ?? '').toLowerCase();
+        const nom = (cellules[idxNom] ?? '').toLowerCase();
+        const prenom = (cellules[idxPrenom] ?? '').toLowerCase();
+
+        const matchEpreuve = filtreEpreuveMin === '' || epreuve === filtreEpreuveMin;
+        const matchNom = filtreNomMin === '' || nom === filtreNomMin;
+        const matchPrenom = filtrePrenomMin === '' || prenom === filtrePrenomMin;
+
+        return matchEpreuve && matchNom && matchPrenom;
     });
     
         let html = '<table><thead><tr>';

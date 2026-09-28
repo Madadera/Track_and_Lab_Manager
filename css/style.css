@@ -82,7 +82,7 @@ p {                         /* Les paragraphes sont des balises <p> en HTML */
   text-align: center;       /* Mes paragraphes sont centrés par défaut */
 }
 
-select {                          /* Mise en forme de mon menu déroulant */
+select datalist {                          /* Mise en forme de mon menu déroulant */
   background: none;               /* Pas de fond par défaut */
   border: 1px solid transparent;  /* Toutes les bordures font 1px et sont transparentes (obligation d'utiliser la valeur "solid") */
   font-size: 0.85rem;             /* La taille de la polidce, 1rem = ? */
@@ -92,6 +92,12 @@ select {                          /* Mise en forme de mon menu déroulant */
 }
 
 select option {                       /* Mise en forme des options du menu déroulant */
+  background-color: var(--blue-dark); /* J'affecte une couleur avec une de mes variables */
+  color: var(--white);                /* J'affecte une couleur avec une de mes variables */
+  text-align: center;                 /* Texte centré */
+}
+
+datalist option {                       /* Mise en forme des options du menu déroulant */
   background-color: var(--blue-dark); /* J'affecte une couleur avec une de mes variables */
   color: var(--white);                /* J'affecte une couleur avec une de mes variables */
   text-align: center;                 /* Texte centré */
@@ -249,8 +255,11 @@ select option {                       /* Mise en forme des options du menu déro
 .nav_scoring div {     /* Cible uniquement les <div> à l'intérieur de .nav_scoring */
   display: flex;       /* Flexbox pour aligner les éléments */
   flex-direction: row; /* Les éléments sont côte à côte */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;           /* 24px d'espace entre chaque élément */
   margin-top: 24px;    /* 24px d'espace au-dessus du conteneur */
+  max-width: 100%;
 }
 
 @media (max-width: 800px) { /* Style pour tablette et mobile */
