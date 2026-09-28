@@ -198,7 +198,7 @@ async function results() {
         
         const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
         const entetes = table[0];       // Récupère la première ligne du tableau qui contient les entêtes de colonnes
-        const donnees = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+        const donnees = table.slice(1, 51); // Récupère toutes les lignes du tableau sauf la première (les données)
 
         const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance', 'Validation']; // On crée une constante avec les noms des colonnes qu'on veut afficher
         const indices = colonnes.map(col => entetes.indexOf(col)); // Pour chaque nom de colonne, on cherche son index dans le tableau des entêtes. On obtient un tableau d'indices correspondant à nos colonnes d'intérêt
@@ -218,21 +218,11 @@ async function results() {
         const filtreEpreuveMin = filtreEpreuve.toLowerCase();
         const filtreNomMin = filtreNom.toLowerCase();
         const filtrePrenomMin = filtrePrenom.toLowerCase();
-
-        // Le tableau s'affiche dès qu'au moins un des trois champs est renseigné
-        const auMoinsUnFiltre = [filtreEpreuveMin, filtreNomMin, filtrePrenomMin]
-            .some(f => f.trim() !== '');
-
-        if (!auMoinsUnFiltre) {
-            document.getElementById('output').innerHTML = '';
-            return;
-        }
  
         const lignesFiltrees = donnees.filter(ligne => {
-        const cellules = ligne;
-        const epreuve = (cellules[idxEpreuve] ?? '').toLowerCase();
-        const nom = (cellules[idxNom] ?? '').toLowerCase();
-        const prenom = (cellules[idxPrenom] ?? '').toLowerCase();
+        const epreuve = (ligne[idxEpreuve] ?? '').toLowerCase();
+        const nom = (ligne[idxNom] ?? '').toLowerCase();
+        const prenom = (ligne[idxPrenom] ?? '').toLowerCase();
 
         const matchEpreuve = filtreEpreuveMin === '' || epreuve === filtreEpreuveMin;
         const matchNom = filtreNomMin === '' || nom === filtreNomMin;
@@ -261,3 +251,5 @@ async function results() {
         document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;
     }
 }
+
+document.addEventListener('DOMContentLoaded', results);
