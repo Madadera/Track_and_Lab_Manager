@@ -1028,6 +1028,8 @@ tbody tr.ligne-recente:hover {
 .search-bar {                    /* Nom de classe pour la barre de recherche */
   display: flex;                 /* Flexbox pour aligner les éléments horizontalement */
   justify-content: space-evenly; /* Permet d'avoir un espacement similaire entre mes boîtes de recherches */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media (max-width: 800px) {         /* Style pour tablette et mobile */
