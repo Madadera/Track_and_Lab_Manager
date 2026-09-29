@@ -63,11 +63,11 @@
       <div class="card">
         <h1 class="card__title">Derniers Résultats</h1>
         <div class="search-bar">
-          <input class="search-input" id="filtre-nom" list="liste-nom" placeholder="Nom" autocomplete="off" oninput="results()">
+          <input class="search-input" id="filtre-nom" list="liste-nom" placeholder="Nom" autocomplete="off">
             <datalist id="liste-nom"></datalist>
-          <input class="search-input" id="filtre-prenom" list="liste-prenom" placeholder="Prénom" autocomplete="off" oninput="results()">
+          <input class="search-input" id="filtre-prenom" list="liste-prenom" placeholder="Prénom" autocomplete="off">
             <datalist id="liste-prenom"></datalist>
-          <input class="search-input" id="filtre-epreuve" list="liste-epreuve" placeholder="Épreuve" autocomplete="off" oninput="results()">
+          <input class="search-input" id="filtre-epreuve" list="liste-epreuve" placeholder="Épreuve" autocomplete="off">
             <datalist id="liste-epreuve">
               <option value="1 000 m">1 000 m</option>
               <option value="1 000 m (i)">1 000 m (i)</option>
@@ -289,7 +289,10 @@
               <option value="Triple Saut">Triple Saut</option>
               <option value="Triple Saut (i)">Triple Saut (i)</option>
             </datalist>
-          </div>
+        </div>
+        <div class="search-bar">
+          <button class="btn btn--primary" onclick="results()">Recherche</button>
+        </div>
       </div>
 
       <div class="card">

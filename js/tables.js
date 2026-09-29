@@ -14,6 +14,18 @@ function parseCSV(texte) {                                          // Transform
     .map(ligne => ligne.split(";").map(cellule => cellule.trim())); // le .map(ligne => [...] permet d'appliquer une transformation à chaque ligne. Donc le .map(cellule [...] applique une transformation à chaque cellule
 }
 
+function datalist(idDatalist, donnees, idx) {
+    const valeursUniques = [...new Set(
+        donnees
+            .map(ligne => (ligne[idx] ?? '').trim())
+            .filter(valeur => valeur !== '')
+    )].sort((a, b) => a.localeCompare(b, 'fr'));
+
+    document.getElementById(idDatalist).innerHTML = valeursUniques
+        .map(valeur => `<option value="${valeur}"></option>`)
+        .join('');
+}
+
 // ---------------------------------------------------------------------
 // Fonctions Médailles et Titres
 // ---------------------------------------------------------------------
@@ -123,6 +135,10 @@ async function athletes() {
         const idxNom = entetes.indexOf('Nom');
         const idxPrenom = entetes.indexOf('Prénom');
 
+        datalist('liste-licence', donnees, idxLicence);
+        datalist('liste-nom', donnees, idxNom);
+        datalist('liste-prenom', donnees, idxPrenom);
+
         const filtreEpreuve = document.getElementById('filtre-epreuve').value;
         const filtreLicence = document.getElementById('filtre-licence').value;
         const filtreNom = document.getElementById('filtre-nom').value;
@@ -137,16 +153,6 @@ async function athletes() {
         const filtreLicenceMin = filtreLicence.toLowerCase();
         const filtreNomMin = filtreNom.toLowerCase();
         const filtrePrenomMin = filtrePrenom.toLowerCase();
-
-         // Cas normal : Épreuve, sexe et catégorie tous remplis
-        const filtresPrincipauxComplets = filtreNomMin.trim() !== '' && filtrePrenomMin.trim() !== '';
-        // Cas particulier demandé : Médailles rempli fait afficher le tableau quoi qu'il arrive
-        const LicenceRenseignee = filtreLicenceMin.trim() !== '';
- 
-        if (!filtresPrincipauxComplets && !LicenceRenseignee) {
-            document.getElementById('output').innerHTML = '';
-            return;
-        }
  
         const lignesFiltrees = donnees.filter(ligne => {
         const cellules = ligne;
@@ -206,6 +212,9 @@ async function results() {
         const idxEpreuve = entetes.indexOf('Épreuve'); // On mémorise spécifiquement l'index de la colonne "Épreuve" pour pouvoir faire le tri plus tard
         const idxNom = entetes.indexOf('Nom');
         const idxPrenom = entetes.indexOf('Prénom');
+
+        datalist('liste-nom', donnees, idxNom);
+        datalist('liste-prenom', donnees, idxPrenom);
 
         const filtreEpreuve = document.getElementById('filtre-epreuve').value;
         const filtreNom = document.getElementById('filtre-nom').value;
