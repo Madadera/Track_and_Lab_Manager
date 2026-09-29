@@ -149,6 +149,11 @@ async function athletes() {
         document.getElementById('valeur-nom').textContent = filtreNom === '' ? '-' : filtreNom;
         document.getElementById('valeur-prenom').textContent = filtrePrenom === '' ? '-' : filtrePrenom;
 
+        if (filtreEpreuve === '' && filtreLicence === '' && filtreNom === '' && filtrePrenom === '') {
+            document.getElementById('output').innerHTML = '';
+            return;
+        }
+
         const filtreEpreuveMin = filtreEpreuve.toLowerCase();
         const filtreLicenceMin = filtreLicence.toLowerCase();
         const filtreNomMin = filtreNom.toLowerCase();
