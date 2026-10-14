@@ -957,35 +957,45 @@ thead th {                      /* Cible les cellules d'en-tête (<th>) dans le 
   white-space: nowrap;          /* Empêche le texte de l'en-tête de passer à la ligne */
   cursor: pointer;              /* Curseur en forme de main (indique que c'est cliquable, ex : tri) */
   user-select: none;            /* Empêche la sélection du texte au clic (évite la surbrillance accidentelle) */
+  transition: color 0.2s ease;  /* Surbol plus doux */
 }
 
-thead th:hover {       /* Quand la souris survole une cellule d'en-tête */
-  color: var(--white); /* Le texte devient blanc pur */
+thead th:hover,          /* Quand la souris survole une cellule d'en-tête */
+thead th:focus-visible { /* Même effet au clavier (accessibilitép */
+  color: var(--white);   /* Le texte devient blanc pur */
 }
 
 tbody tr {                                  /* Cible chaque ligne (<tr>) du corps du tableau */
   border-top: 1px solid var(--blue-border); /* Ligne de séparation fine en haut de chaque ligne */
   font-size: 1rem;                          /* Taille de la police des lignes */
+  transition: background-color 0.15s ease;  /* Transition plus douce */
 }
 
-tr:nth-child(even) {             /* Cible une ligne sur deux (lignes paires) */
+tbody td {
+  padding: 10px 14px;
+  text-align: center;                 /* Cohérent avec l'en-tête centré */
+  font-variant-numeric: tabular-nums; /* Chiffres de même largeur : colonnes plus lisibles */
+}
+
+tbody tr:nth-child(even) {       /* Cible une ligne sur deux (lignes paires) */
   background: var(--blue-light); /* Fond légèrement coloré pour alterner les lignes (effet "zébré") */
 }
 
-tbody tr:hover {             /* Quand la souris survole une ligne du corps du tableau */
-  background: var(--accent); /* Change le fond pour mttre la ligne en évidence */
-}
+tbody tr:hover {                                   /* Quand la souris survole une ligne du corps du tableau */
+  background: var(--tile-dark-blue-border-active); /* Change le fond pour mettre la ligne en évidence */
+  color: var(--white);
 
-tbody td {            /* Cible chaque cellule (<td>) du corps du tableau */
-  padding: 10px 14px; /* 10px en haut/bas, 14px à gauche/droite */
 }
 
 tbody tr.ligne-recente {
-  background: #333300; /* surbrillance pour les records 2026 */
+  font-weight: bold;
+  border-top-color: var(--accent);
+  border-bottom: 1px solid var(--accent);  /* Bordure du bas en surbrillance */
+  background: #2d5f98; /* surbrillance pour les records 2026 */
 }
 
 tbody tr.ligne-recente:hover {
-  background: #535301; /* garde l'effet de survol habituel */
+  background: #4f7096; /* garde l'effet de survol habituel */
 }
 
 /* ---------- Tableaux des records ---------- */

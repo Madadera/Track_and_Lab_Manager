@@ -6,30 +6,30 @@
 // Chargement des fichiers CSV
 // ---------------------------------------------------------------------
 
-   const cotations = {                                // Dictionnaire des fichiers CSV de cotations selon la catégorie et le sexe
-      'BE|M': '../../datas/Tables_Cotations_BEM.csv', // Fichier CSV des cotations Benjamins Masculins
-      'BE|F': '../../datas/Tables_Cotations_BEF.csv', // Fichier CSV des cotations Benjamins Féminins
-      'MI|M': '../../datas/Tables_Cotations_MIM.csv', // Fichier CSV des cotations Minimes Masculins
-      'MI|F': '../../datas/Tables_Cotations_MIF.csv', // Fichier CSV des cotations Minimes Féminins
-      'CA|M': '../../datas/Tables_Cotations_CAM.csv', // Fichier CSV des cotations Cadets Masculins
-      'CA|F': '../../datas/Tables_Cotations_CAF.csv', // Fichier CSV des cotations Cadets Féminins
-   };
+const cotations = {                                // Dictionnaire des fichiers CSV de cotations selon la catégorie et le sexe
+  'BE|M': '../../datas/Tables_Cotations_BEM.csv', // Fichier CSV des cotations Benjamins Masculins
+  'BE|F': '../../datas/Tables_Cotations_BEF.csv', // Fichier CSV des cotations Benjamins Féminins
+  'MI|M': '../../datas/Tables_Cotations_MIM.csv', // Fichier CSV des cotations Minimes Masculins
+  'MI|F': '../../datas/Tables_Cotations_MIF.csv', // Fichier CSV des cotations Minimes Féminins
+  'CA|M': '../../datas/Tables_Cotations_CAM.csv', // Fichier CSV des cotations Cadets Masculins
+  'CA|F': '../../datas/Tables_Cotations_CAF.csv', // Fichier CSV des cotations Cadets Féminins
+};
 
-   const coefficients = {                                // Dictionnaire des fichiers CSV de mes coefficients selon le type et le sexe
-    'SE|M|H': '../../datas/Coefficients_M_Hongrois.csv', // Fichier CSV des Coefficients Hongrois Sénior Masculin
-    'SE|M|C': '../../datas/Coefficients_M_Combinés.csv', // Fichier CSV des Coefficients Combinés Sénior Masculin
-    'SE|F|H': '../../datas/Coefficients_F_Hongrois.csv', // Fichier CSV des Coefficients Hongrois Sénior Féminin
-    'SE|F|C': '../../datas/Coefficients_F_Combinés.csv', // Fichier CSV des Coefficients Combinés Sénior Féminin
-   }
+const coefficients = {                                // Dictionnaire des fichiers CSV de mes coefficients selon le type et le sexe
+  'SE|M|H': '../../datas/Coefficients_M_Hongrois.csv', // Fichier CSV des Coefficients Hongrois Sénior Masculin
+  'SE|M|C': '../../datas/Coefficients_M_Combinés.csv', // Fichier CSV des Coefficients Combinés Sénior Masculin
+  'SE|F|H': '../../datas/Coefficients_F_Hongrois.csv', // Fichier CSV des Coefficients Hongrois Sénior Féminin
+  'SE|F|C': '../../datas/Coefficients_F_Combinés.csv', // Fichier CSV des Coefficients Combinés Sénior Féminin
+}
 
-   const niveaux = {                      // Dictionnaire des fichiers CSV des niveaux selon la catégorie et le sexe
-    'BE|M': '../../datas/Niveau_BEM.csv', // Fichier CSV des Niveaux Benjamins Masculins
-    'BE|F': '../../datas/Niveau_BEF.csv', // Fichier CSV des Niveaux Benjamins Féminins
-    'MI|M': '../../datas/Niveau_MIM.csv', // Fichier CSV des Niveaux Minimes Masculins
-    'MI|F': '../../datas/Niveau_MIF.csv', // Fichier CSV des Niveaux Minimes Féminins
-    'SE|M': '../../datas/Niveau_SEM.csv', // Fichier CSV des Niveaux Séniors Masculins
-    'SE|F': '../../datas/Niveau_SEF.csv', // Fichier CSV des Niveaux Séniors Féminins
-   }
+const niveaux = {                      // Dictionnaire des fichiers CSV des niveaux selon la catégorie et le sexe
+  'BE|M': '../../datas/Niveau_BEM.csv', // Fichier CSV des Niveaux Benjamins Masculins
+  'BE|F': '../../datas/Niveau_BEF.csv', // Fichier CSV des Niveaux Benjamins Féminins
+  'MI|M': '../../datas/Niveau_MIM.csv', // Fichier CSV des Niveaux Minimes Masculins
+  'MI|F': '../../datas/Niveau_MIF.csv', // Fichier CSV des Niveaux Minimes Féminins
+  'SE|M': '../../datas/Niveau_SEM.csv', // Fichier CSV des Niveaux Séniors Masculins
+  'SE|F': '../../datas/Niveau_SEF.csv', // Fichier CSV des Niveaux Séniors Féminins
+}
 
 // ---------------------------------------------------------------------
 // Fonctions utilitaires

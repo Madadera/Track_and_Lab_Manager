@@ -3,6 +3,37 @@
    ============================================================ */
 
 // ---------------------------------------------------------------------
+// Chargement des fichiers CSV
+// ---------------------------------------------------------------------
+
+const datas_club = '../../datas/datas_club.csv';
+const datas_groupe = '../../datas/datas.csv';
+
+// Clé = "Catégorie|Sexe|Groupe" → chemin du CSV correspondant
+const record = { /* Je crée un objet pour associer chaque combinaison de catégorie, sexe et groupe à un fichier CSV spécifique. */
+  'BE|M|Team VA': '../../datas/BE_M_2026_Team_VA_Records.csv',
+  'BE|F|Team VA': '../../datas/BE_F_2026_Team_VA_Records.csv',
+  'MI|M|Team VA': '../../datas/MI_M_2026_Team_VA_Records.csv',
+  'MI|F|Team VA': '../../datas/MI_F_2026_Team_VA_Records.csv',
+  'BE|M|Club': '../../datas/BE_M_2026_Club_Records.csv',
+  'BE|F|Club': '../../datas/BE_F_2026_Club_Records.csv',
+  'MI|M|Club': '../../datas/MI_M_2026_Club_Records.csv',
+  'MI|F|Club': '../../datas/MI_F_2026_Club_Records.csv',
+  'CA|M|Club': '../../datas/CA_M_2026_Club_Records.csv',
+  'CA|F|Club': '../../datas/CA_F_2026_Club_Records.csv',
+  'JU|M|Club': '../../datas/JU_M_2026_Club_Records.csv',
+  'JU|F|Club': '../../datas/JU_F_2026_Club_Records.csv',
+  'ES|M|Club': '../../datas/ES_M_2026_Club_Records.csv',
+  'ES|F|Club': '../../datas/ES_F_2026_Club_Records.csv',
+  'SE|M|Club': '../../datas/SE_M_2026_Club_Records.csv',
+  'SE|F|Club': '../../datas/SE_F_2026_Club_Records.csv',
+  'MA|M|Club': '../../datas/MA_M_2026_Club_Records.csv',
+  'MA|F|Club': '../../datas/MA_F_2026_Club_Records.csv',
+  'TC|M|Club': '../../datas/TC_M_2026_Club_Records.csv',
+  'TC|F|Club': '../../datas/TC_F_2026_Club_Records.csv',
+};
+
+// ---------------------------------------------------------------------
 // Fonctions utilitaires
 // ---------------------------------------------------------------------
 
@@ -34,8 +65,8 @@ async function medailles() {
     
     try {
 
-        const res = await fetch('../../datas/datas_club.csv'); // Charge le fichier CSV de toutes mes données
-        if (!res.ok) throw new Error(`Fichier introuvable : ../../datas/datas_club.csv`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const res = await fetch(datas_club); // Charge le fichier CSV de toutes mes données
+        if (!res.ok) throw new Error(`Fichier introuvable : ${datas_club}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
         const texte = await res.text(); // Récupère le contenu du fichier CSV sous forme de texte
         
         const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
@@ -119,15 +150,15 @@ async function athletes() {
     
     try {
 
-        const res = await fetch('../../datas/datas_club.csv'); // Charge le fichier CSV de toutes mes données
-        if (!res.ok) throw new Error(`Fichier introuvable : ../../datas/datas_club.csv`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const res = await fetch(datas_club); // Charge le fichier CSV de toutes mes données
+        if (!res.ok) throw new Error(`Fichier introuvable : ${datas_club}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
         const texte = await res.text(); // Récupère le contenu du fichier CSV sous forme de texte
         
         const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
         const entetes = table[0];       // Récupère la première ligne du tableau qui contient les entêtes de colonnes
         const donnees = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
 
-        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance', 'Validation']; // On crée une constante avec les noms des colonnes qu'on veut afficher
+        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance']; // On crée une constante avec les noms des colonnes qu'on veut afficher
         const indices = colonnes.map(col => entetes.indexOf(col)); // Pour chaque nom de colonne, on cherche son index dans le tableau des entêtes. On obtient un tableau d'indices correspondant à nos colonnes d'intérêt
 
         const idxEpreuve = entetes.indexOf('Épreuve'); // On mémorise spécifiquement l'index de la colonne "Épreuve" pour pouvoir faire le tri plus tard
@@ -200,18 +231,18 @@ async function athletes() {
 // ---------------------------------------------------------------------
 
 async function results() {
-    
+
     try {
 
-        const res = await fetch('../../datas/datas_club.csv'); // Charge le fichier CSV de toutes mes données
-        if (!res.ok) throw new Error(`Fichier introuvable : ../../datas/datas_club.csv`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+        const res = await fetch(datas_club); // Charge le fichier CSV de toutes mes données
+        if (!res.ok) throw new Error(`Fichier introuvable : ${datas_club}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
         const texte = await res.text(); // Récupère le contenu du fichier CSV sous forme de texte
         
         const table = parseCSV(texte);  // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
         const entetes = table[0];       // Récupère la première ligne du tableau qui contient les entêtes de colonnes
         const donnees = table.slice(1, 51); // Récupère toutes les lignes du tableau sauf la première (les données)
 
-        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance', 'Validation']; // On crée une constante avec les noms des colonnes qu'on veut afficher
+        const colonnes = ['Nom', 'Prénom', 'Date', 'Épreuve', 'Performance']; // On crée une constante avec les noms des colonnes qu'on veut afficher
         const indices = colonnes.map(col => entetes.indexOf(col)); // Pour chaque nom de colonne, on cherche son index dans le tableau des entêtes. On obtient un tableau d'indices correspondant à nos colonnes d'intérêt
 
         const idxEpreuve = entetes.indexOf('Épreuve'); // On mémorise spécifiquement l'index de la colonne "Épreuve" pour pouvoir faire le tri plus tard
@@ -260,6 +291,82 @@ async function results() {
       html += '</tbody></table>';
       document.getElementById('output').innerHTML = html;
       
+    } catch (err) {
+        console.error(err);
+        document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;
+    }
+}
+
+// ---------------------------------------------------------------------
+// Fonctions Records
+// ---------------------------------------------------------------------
+
+async function records() {
+
+    const cacheRecords = {};
+
+    try {
+
+        const groupe = document.getElementById('filtre-groupe').value;
+        const sexe = document.getElementById('filtre-sexe').value;
+        const categorie = document.getElementById('filtre-categorie').value;
+
+        if (!groupe || !sexe || !categorie) { // Tant que les trois filtres ne sont pas choisis, on vide l'affichage
+            document.getElementById('output').innerHTML = '';
+            return;
+        }
+
+        const cle = `${categorie}|${sexe}|${groupe}`; // Clé qui permet de retrouver le bon fichier CSV
+        const chemin = record[cle];              // fichiersCSV doit être défini ailleurs dans ton fichier
+
+        if (!chemin) {
+            document.getElementById('output').innerHTML = '<p>Aucune donnée disponible pour cette sélection.</p>';
+            return;
+        }
+
+        // Si le fichier a déjà été chargé, on réutilise le tableau en cache, sinon on le télécharge
+        if (!cacheRecords[chemin]) {
+            const res = await fetch(chemin);
+            if (!res.ok) throw new Error(`Fichier introuvable : ${chemin}`);
+            const texte = await res.text();
+            cacheRecords[chemin] = parseCSV(texte); // On stocke directement le résultat parsé
+        }
+
+        const table = cacheRecords[chemin];
+        const entetes = table[0];
+        const donnees = table.slice(1);
+
+        const colonnes = ['Épreuve', 'Performance', 'Nom', 'Prénom', 'Date', 'Lieu'];
+        const indices = colonnes.map(col => entetes.indexOf(col));
+
+        const idxDate = entetes.indexOf('Date');
+        const saisonsRecentes = ['2026', '2027']; // Années à mettre en évidence
+
+        const filtreGroupe = document.getElementById('filtre-groupe').value;
+        const filtreSexe = document.getElementById('filtre-sexe').value;
+        const filtreCategorie = document.getElementById('filtre-categorie').value;
+
+        document.getElementById('valeur-groupe').textContent = filtreGroupe === '' ? '-' : filtreGroupe;
+        document.getElementById('valeur-sexe').textContent = filtreSexe === '' ? '-' : filtreSexe;
+        document.getElementById('valeur-categorie').textContent = filtreCategorie === '' ? '-' : filtreCategorie;
+
+        let html = '<table><thead><tr>';
+        colonnes.forEach(col => html += `<th>${col}</th>`);
+        html += '</tr></thead><tbody>';
+
+        donnees.forEach(ligne => {
+            const anneeMatch = (ligne[idxDate] ?? '').match(/\d{4}/);
+            const estRecent = anneeMatch && saisonsRecentes.includes(anneeMatch[0]);
+            const classeRecente = estRecent ? ' class="ligne-recente"' : '';
+
+            html += `<tr${classeRecente}>`;
+            indices.forEach(idx => html += `<td>${ligne[idx] ?? '—'}</td>`);
+            html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+        document.getElementById('output').innerHTML = html;
+
     } catch (err) {
         console.error(err);
         document.getElementById('output').innerHTML = `<p>Erreur : ${err.message}</p>`;

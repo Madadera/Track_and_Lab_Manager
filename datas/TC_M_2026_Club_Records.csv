@@ -1,0 +1,111 @@
+﻿Num;Doublons;Épreuve;Performance;Nom;Prénom;Date;Lieu
+1;1;50 m;6''36;Weber;Vincent;03/06/2007;Créteil
+2;1;50 m (i);6''25;François;Clément;20/03/2011;Eaubonne
+3;1;60 m (i);6''87;Brewin;Luc;27/01/2024;Aubière
+4;1;80 m;9''57;Férrier Lenoble;Alexandre;23/06/2024;Aulnay-sous-Bois
+5;1;100 m;10''54;Wandt;Hector;11/07/2026;Blois
+6;1;120 m;14''31;Duriaud;Timothée;22/06/2025;Aulnay-sous-Bois
+7;1;200 m;21''59;Gabon;Mathéo;27/05/2023;Oordegem
+8;1;200 m (i);21''54;Gabon;Mathéo;04/01/2025;Aubière
+9;1;300 m;35''02;Gadani;Matteo;17/04/2026;Torcy
+10;1;400 m;49''00;Gadani;Matteo;13/06/2026;Maisons-Alfort
+11;1;400 m (i);51''38;Gabon;Mathéo;18/01/2025;Val-de-Reuil
+12;1;600 m;1'29''54;Benoliel;David;30/04/2008;Saint-Maur-des-Fossés
+13;1;800 m;1'51''67;Eczet;Jean-Baptiste;20/06/2004;Nogent-sur-Marne
+14;1;800 m (i);1'54''58;Eczet;Jean-Baptiste;07/02/2004;Eaubonne
+15;1;1 000 m;2'39''80;Andrieu;Jérôme;10/05/2009;Ivry-sur-Seine
+16;1;1 000 m (i);2'41''91;François;Clément;20/12/2014;Aubière
+17;1;1 500 m;3'45''88;Eczet;Jean-Baptiste;26/06/2004;Villefranche-sur-Saône
+18;1;1 500 m (i);3'57''09;Kerrout;Mounir;19/01/2008;Eaubonne
+19;1;2 000 m;5'28''15;Kerrout;Mounir;05/05/2004;Saint-Maur-des-Fossés
+20;1;3 000 m;8'16''28;Kerrout;Mounir;15/05/2002;Saint-Maur-des-Fossés
+21;1;3 000 m (i);8'18''36;Kerrout;Mounir;26/01/2008;Mondeville
+22;1;5 000 m;14'07''84;Kerrout;Mounir;29/05/2002;Saint-Maur-des-Fossés
+23;1;10 000 m;31'25''67;Bauchet;Jean-Baptiste;13/07/2005;Olomouc
+24;1;Mile;4'53''28;Derry;Hugo;19/05/2010;Saint-Maur-des-Fossés
+25;1;3 Miles;15'42'';François;Clément;27/09/2014;Brumath
+26;1;5 km;14'41'';Pierron;Alexandre;07/02/2016;Vincennes
+27;1;10 km;29'43'';Kerrout;Mounir;28/04/2002;Vitry-sur-Seine
+28;1;15 km;49'21'';Kerrout;Mounir;11/02/2007;Charenton-le-Pont
+29;1;20 km;1h06'42'';Kerrout;Mounir;14/10/2007;Paris
+30;1;25 km;2h54'51'';Guibert;Damien;28/09/2014;Raismes
+31;1;30 km;2h50'31'';Remesy;Romain;28/04/2013;Cheptainville
+32;0;100 km;-;-;-;-;-
+33;1;Semi-Marathon;1h06'58'';Kerrout;Mounir;07/03/2004;Rambouillet
+34;1;Marathon;2h29'36'';Louise;Hugues;06/04/2003;Paris
+35;1;1 Heure;15 810 m;Toure;Ladji;08/05/2012;Bagnolet
+36;1;2 000 m Marche;13'06''72;Faure Virenque;Jean;06/04/2025;Cachan
+37;1;2 000 m Marche (i);13'25''90;Faure Virenque;Jean;30/11/2024;Paris
+38;1;3 000 m Marche;18'04''20;Bousses;Yoan;16/03/2008;Savigny-sur-Orge
+39;1;3 000 m Marche (i);19'15''77;Delzant;Martin;15/03/2009;Nogent-sur-Oise
+40;1;5 000 m Marche;30'57''95;Guegan;James;25/04/2026;Villejuif
+41;1;5 000 m Marche (i);32'23''43;Guegan;James;10/01/2026;Eaubonne
+42;1;10 000 m Marche;1h05'12''10;Guegan;James;11/11/2025;Nogent-sur-Marne
+43;1;50 m Haies (65);7''47;Werbrouck-Henry;Anthony;24/06/2012;Montereau
+44;1;50 m Haies (65) (i);7''73;Werbrouck-Henry;Anthony;31/03/2012;Eaubonne
+45;1;50 m Haies (76);7''79;Briquet;Graig;14/05/2016;Chevilly-Larue
+46;2;50 m Haies (76) (i);9''09;Yapo;Clément;04/03/2017;Eaubonne
+47;1;50 m Haies (84) (i);6''90;Briquet;Graig;21/10/2018;Eaubonne
+48;1;50 m Haies (91) (i);7''09;Pothier;Théotime;20/03/2011;Eaubonne
+49;1;60 m Haies (91) (i);7''99;Brewin;Luc;23/02/2019;Liévin
+50;1;60 m Haies (99) (i);8''00;Pothier;Théotime;15/02/2014;Eaubonne
+51;1;60 m Haies (1.06) (i);7''96;Brewin;Luc;17/02/2024;Miramas
+52;1;80 m Haies (76);12''52;Brewin;Luc;14/10/2017;Saint-Renan
+53;1;100 m Haies (84);13''39;Pothier;Théotime;30/05/2010;Ivry-sur-Seine
+54;1;110 m Haies (91);14''01;Brewin;Luc;05/07/2019;Angers
+55;1;110 m Haies (99);14''25;Pothier;Théotime;31/05/2014;Ivry-sur-Seine
+56;1;110 m Haies (1.06);14''00;Brewin;Luc;09/06/2023;Paris
+57;1;200 m Haies (76);25''45;François;Clément;09/10/2010;Dreux
+58;1;320 m Haies (84);44''73;Bousses;Yoan;13/06/2009;Conflant-Sainte-Honorine
+59;1;400 m Haies (84);53''99;François;Clément;18/06/2011;Montgeron
+60;1;400 m Haies (91);53''40;Gadani;Matteo;17/05/2026;Yerres
+61;1;1 500 m Steeple (91);4'51''10;Thébert;Fabien;27/05/2009;Saint-Maur-des-Fossés
+62;1;2 000 m Steeple (91);6'42''21;Delerry;Hugo;23/06/2010;Saint-Maur-des-Fossés
+63;1;3 000 m Steeple (91);9'39''74;Robin;Maël;17/05/2025;Savigny-sur-Orge
+64;1;Hauteur;2m00;François;Clément;17/06/2012;Chevilly-Larue
+65;1;Hauteur (i);1m98;François;Clément;05/01/2013;Paris
+66;1;Perche;5m10;Brewin;Luc;12/07/2023;Espoo
+67;1;Perche (i);5m11;Brewin;Luc;27/01/2024;Aubière
+68;1;Longueur;7m67;Brewin;Luc;27/05/2023;Montpellier
+69;2;Longueur (i);7m33;Brewin;Luc;17/02/2024;Miramas
+70;1;Triple Saut;15m01;Briquet;Graig;05/07/2019;Angers
+71;1;Triple Saut (i);15m38;Briquet;Graig;09/02/2020;Eaubonne
+72;1;Poids (3 kg);13m31;Briquet;Graig;19/06/2016;Franconville
+73;1;Poids (3 kg) (i);11m81;Brault;Hugo;16/03/2013;Eaubonne
+74;1;Poids (4 kg);16m25;Briquet;Graig;14/07/2018;Niort
+75;1;Poids (4 kg) (i);13m87;Briquet;Graig;25/03/2018;Rennes
+76;1;Poids (5 kg);15m50;Briquet;Graig;05/07/2019;Angers
+77;1;Poids (5 kg) (i);16m12;Briquet;Graig;23/02/2019;Liévin
+78;1;Poids (6 kg);12m72;François;Clément;29/06/2013;Cognac
+79;1;Poids (6 kg) (i);12m26;Delerry;Hugo;04/02/2012;Eaubonne
+80;1;Poids (7.26 kg);14m44;Delpech;Olivier;20/06/2015;Ivry-sur-Seine
+81;1;Poids (7.26 kg) (i);14m65;Delpech;Olivier;07/03/2015;Nogent-sur-Oise
+82;1;Disque (1 kg);31m65;Emanuely;Ludovic;14/06/2024;Thonon-les-Bains
+83;1;Disque (1.25 kg);40m16;Briquet;Graig;21/05/2018;Maisons-Alfort
+84;1;Disque (1.5 kg);44m24;Briquet;Graig;22/06/2019;Maisons-Alfort
+85;1;Disque (1.75 kg);38m30;Delerry;Hugo;09/06/2012;Bondy
+86;1;Disque (2 kg);42m04;Brewin;Luc;16/04/2023;Maisons-Alfort
+87;1;Disque (600 g);17m45;Thébert;Baptiste;26/05/2007;Maisons-Alfort
+88;1;Marteau (2 kg);30m25;Sulpice;Clément;12/05/2004;Vincennes
+89;1;Marteau (3 kg);20m14;Pâques;Simon;25/05/2006;Alfortville
+90;1;Marteau (4 kg);30m38;Gil;Antoine;23/10/2021;Franconville
+91;1;Marteau (7.26 kg);26m96;Kerspern;Gaël;17/05/2026;Yerres
+92;1;Javelot (400 g);20m31;Teste;Noé;17/10/2010;Arcueil
+93;1;Javelot (500 g);33m40;Groc;Lucas;10/10/2010;Puteaux
+94;1;Javelot (600 g);50m65;Briquet;Graig;09/06/2018;Cormeilles-en-Parisis
+95;1;Javelot (700 g);50m05;Briquet;Graig;25/05/2019;Créteil
+96;1;Javelot (800 g);53m34;Brewin;Luc;12/07/2023;Espoo
+97;1;Pentathlon (i);1 493 Pts;Emanuely;Ludovic;01/03/2024;Lyon
+98;1;Pentathlon Longueur (i);3 640 Pts;Briquet;Graig;03/03/2018;Eaubonne
+99;1;Pentathlon Perche (i);2 663 Pts;Astori;Lenny;26/03/2022;Eaubonne
+100;1;Heptathlon (i);5 608 Pts;Brewin;Luc;11/02/2023;Val-de-Reuil
+101;1;Octathlon;5 174 Pts;Briquet;Graig;09/06/2018;Cormeilles-en-Parisis
+102;1;Décathlon;7 794 Pts;Brewin;Luc;12/07/2023;Espoo
+103;1;4 × 60 m;28''20;Vincennes;Athletic;14/10/2017;Saint-Renan
+104;1;4 × 100 m;43''34;Vincennes;Athletic;17/05/2025;Savigny-sur-Orge
+105;1;4 × 200 m;1'38''28;Vincennes;Athletic;04/10/2026;Guyancourt
+106;1;4 × 200 m (i);1'36''79;Vincennes;Athletic;20/03/2011;Eaubonne
+107;1;4 × 400 m Mixte;3'43''32;Vincennes;Athletic;03/05/2026;Aulnay-sous-Bois
+108;1;4 × 400 m;3'25''90;Vincennes;Athletic;12/05/2024;Conflant-Sainte-Honorine
+109;1;Medley long;13'55''67;Vincennes;Athletic;15/06/2022;Saint-Maur-des-Fossés
+110;1;Ekiden;2h26'42'';Vincennes;Athletic;31/03/2013;Créteil
