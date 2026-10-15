@@ -984,18 +984,30 @@ tbody tr:nth-child(even) {       /* Cible une ligne sur deux (lignes paires) */
 tbody tr:hover {                                   /* Quand la souris survole une ligne du corps du tableau */
   background: var(--tile-dark-blue-border-active); /* Change le fond pour mettre la ligne en évidence */
   color: var(--white);
-
 }
 
 tbody tr.ligne-recente {
   font-weight: bold;
-  border-top-color: var(--accent);
-  border-bottom: 1px solid var(--accent);  /* Bordure du bas en surbrillance */
-  background: #2d5f98; /* surbrillance pour les records 2026 */
+  color: #e42020;
 }
 
-tbody tr.ligne-recente:hover {
-  background: #4f7096; /* garde l'effet de survol habituel */
+tr.or td {
+  color: #e8ab30;
+}
+
+tr.argent td {
+  color: #b3b5b4;
+}
+
+tr.bronze td {
+  color: #9d5512;
+}
+
+.annotation {
+  font-size: 65%;
+  text-align: left;
+  padding-bottom: 10px;
+  font-style: italic;
 }
 
 /* ---------- Tableaux des records ---------- */

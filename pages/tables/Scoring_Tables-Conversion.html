@@ -308,43 +308,32 @@
     <div class="panel">
       <div class="card card__research">
         <h1 class="card__title">Performance</h1>
-        <input class="search-input" type="text" placeholder="Performance"/>
-        <input class="search-input" type="text" placeholder="Niveau"/>
+        <input class="search-input" type="text" placeholder="Performance" id="output-points"/>
+        <input class="search-input" type="text" placeholder="Niveau" id="output-niveaux"/>
       </div>
       <div>
         <p class="panel__arrow">&#8592;</p>
       </div>
       <div class="card card__research  card__research--point">
           <h1 class="card__title">Recherche</h1>
-          <select class="search-input">
+          <select class="search-input" id="filtre-sexe-points">
               <option value="" disabled selected>Sexe</option>
               <option value="M">M</option>
               <option value="F">F</option>
           </select>
-          <select class="search-input">
-              <option value="" disabled selected>Catégorie</option>
-              <option value="BB">BB</option>
-              <option value="EA">EA</option>
-              <option value="PO">PO</option>
-              <option value="BE">BE</option>
-              <option value="MI">MI</option>
-              <option value="CA">CA</option>
-              <option value="JU">JU</option>
-              <option value="ES">ES</option>
-              <option value="SE">SE</option>
-              <option value="M0">M0</option>
-              <option value="M1">M1</option>
-              <option value="M2">M2</option>
-              <option value="M3">M3</option>
-              <option value="M4">M4</option>
-              <option value="M5">M5</option>
-              <option value="M6">M6</option>
-              <option value="M7">M7</option>
-              <option value="M8">M8</option>
-              <option value="M9">M9</option>
-              <option value="M10">M10</option>
+          <select class="search-input" id="filtre-categorie-points">
+            <option value="" disabled selected>Catégorie</option>
+            <option value="EA">EA</option>
+            <option value="PO">PO</option>
+            <option value="BE">BE</option>
+            <option value="MI">MI</option>
+            <option value="CA">CA</option>
+            <option value="JU">JU</option>
+            <option value="ES">ES</option>
+            <option value="SE">SE</option>
+            <option value="MA">MA</option>
           </select>
-          <select class="search-input">
+          <select class="search-input" id="filtre-epreuve-points">
               <option value="" disabled selected>Épreuve</option>
               <option value="1 000 m">1 000 m</option>
               <option value="1 000 m (i)">1 000 m (i)</option>
@@ -560,14 +549,14 @@
               <option value="Triple Saut">Triple Saut</option>
               <option value="Triple Saut (i)">Triple Saut (i)</option>
           </select>
-          <select class="search-input">
+          <select class="search-input" id="filtre-table-points">
               <option value="" disabled selected>Tables</option>
               <option value="Table Jeune">Table Jeune</option>
               <option value="Table Combinée">Table Combinée</option>
               <option value="Table Hongroise">Table Hongroise</option>
           </select>
-          <input class="search-input" type="text" placeholder="Points"/>
-          <button class="btn btn--primary">Calculer</button>
+          <input class="search-input" type="text" placeholder="Points" id="input-points"/>
+          <button class="btn btn--primary" onclick="inverse_hongrois()">Calculer</button>
       </div>
     </div>
 

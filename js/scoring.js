@@ -476,6 +476,32 @@ function recherche_hongrois(lignes, idxEpreuve, idxCoef, performance) {
 
 }
 
+// ----- Fonction de calcul des performances en fonction des points Hongrois -----
+
+function recherche_inverse_hongrois(lignes, idxEpreuve, idxCoef, epreuve, points) {
+
+  const Coef = (nom) => {
+    const ligne = lignes.find(l => l[idxCoef]?.trim().toLowerCase() === nom);
+    if (!ligne) return NaN;
+    return parseFloat(ligne[idxEpreuve].trim().replace(",", "."));
+  };
+
+  const a = Coef("a");
+  const b = Coef("b");
+  const c = Coef("c");
+
+  if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) return null; // coefficients manquants → "Hors barème"
+
+  const x = (points - c) / a; // = (performance + b)²
+  if (x < 0) return null;     // points hors de portée
+
+  const racine = Math.sqrt(x);
+
+  // Course : un temps plus petit donne plus de points → branche négative
+  // Saut / lancer : une performance plus grande donne plus de points → branche positive
+  return sens(epreuve) === false ? -b - racine : -b + racine;
+}
+
 // ----- Fonction somme jeunes -----
 
 function somme_jeunes(sex, cat) { // Fonction pour calculer la somme des points des trois épreuves
@@ -697,6 +723,69 @@ async function hongrois() {
   } catch (err) {                                 // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
     console.error(err);                           // Affiche l'erreur dans la console pour le débogage
     output_hongrois.value = "Erreur de chargement";  // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
+  }
+}
+
+// ---------------------------------------------------------------------
+// Fonction conversion tables hongroises
+// ---------------------------------------------------------------------
+
+async function inverse_hongrois() { 
+
+   const sexe = document.getElementById("filtre-sexe-points").value;           // Récupère la valeur du sexe sélectionné dans le filtre
+   let categorie = document.getElementById("filtre-categorie-points").value; // Récupère la valeur de la catégorie sélectionnée dans le filtre
+   const epreuve = document.getElementById("filtre-epreuve-points").value;     // Récupère la valeur de l'épreuve sélectionnée dans le filtre
+   const tables = document.getElementById("filtre-table-points").value;     // Récupère la valeur de l'épreuve sélectionnée dans le filtre
+   const input = document.getElementById("input-points").value.trim();         // Récupère la valeur de l'input de performance et supprime les espaces superflus
+   const output_points = document.getElementById("output-points");        // Récupère l'élément de sortie pour afficher les points jeunes
+
+   if (!sexe || !categorie || !epreuve || !tables || !input) {  // Vérifie si tous les champs sont remplis
+      output_points.value = 'Champs incomplets';    // Affiche un message d'erreur si un champ est vide
+      return;                                        // Arrête l'exécution de la fonction si un champ est vide
+   }
+
+  if (["EA", "PO", "BE", "MI", "CA", "JU", "ES", "MA"].includes(categorie)) {
+     categorie = "SE";
+  }
+
+   const cle = `${categorie}|${sexe}|H`;  // Crée une clé pour accéder au fichier CSV correspondant à la catégorie et au sexe
+   const chemin = coefficients[cle];       // Récupère le chemin du fichier CSV correspondant à la clé
+
+   if (!chemin) {                                      // Vérifie si le chemin du fichier CSV est défini pour la clé donnée
+      output_points.value = 'Catégorie non disponible'; // Affiche un message d'erreur si la catégorie n'est pas disponible
+      return;                                          // Arrête l'exécution de la fonction si la catégorie n'est pas disponible
+   }
+
+  try {                                                              // Essaye de charger et de traiter le fichier CSV
+    const res = await fetch(chemin);                                 // Charge le fichier CSV correspondant à la catégorie et au sexe
+    if (!res.ok) throw new Error(`Fichier introuvable : ${chemin}`); // Vérifie si le fichier CSV a été chargé correctement, sinon lance une erreur
+    const texte = await res.text();                                  // Récupère le contenu du fichier CSV sous forme de texte
+ 
+    const table = parseCSV(texte); // Transforme le texte CSV en tableau de tableaux (lignes x colonnes)
+    const entetes = table[0];      // Récupère la première ligne du tableau qui contient les entêtes de colonnes
+    const lignes = table.slice(1); // Récupère toutes les lignes du tableau sauf la première (les données)
+ 
+    const idxEpreuve = entetes.indexOf(epreuve); // Récupère l'index de la colonne correspondant à l'épreuve sélectionnée
+    const idxCoef = entetes.indexOf("Coefficients"); // Récupère l'index de la colonne correspondant aux coefficients
+ 
+    if (idxEpreuve === -1 || idxCoef === -1) {  // Vérifie si l'épreuve ou la colonne des coefficients n'existe pas dans le tableau
+      output_points.value = "Épreuve introuvable"; // Affiche un message d'erreur si l'épreuve ou la colonne des points n'existe pas
+      return;                                     // Arrête l'exécution de la fonction si l'épreuve ou la colonne des points n'existe pas
+    }
+ 
+    const points = parseInt(input, 10);
+    if (isNaN(points)) {
+      output_points.value = "Format non valide";
+      return;
+    }
+ 
+    const perf = recherche_inverse_hongrois(lignes, idxEpreuve, idxCoef, epreuve, points);
+
+    output_points.value = perf !== null ? perf : "Hors barème"; // Affiche le nombre de points correspondant à la performance entrée par l'utilisateur, ou "Hors barème" si la performance est en dehors du barème
+ 
+  } catch (err) {                                 // Attrape les erreurs lors du chargement ou du traitement du fichier CSV
+    console.error(err);                           // Affiche l'erreur dans la console pour le débogage
+    output_points.value = "Erreur de chargement";  // Affiche un message d'erreur si le fichier CSV n'a pas pu être chargé ou traité
   }
 }
 
